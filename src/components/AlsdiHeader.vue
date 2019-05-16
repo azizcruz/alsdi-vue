@@ -3,7 +3,7 @@
     <nav class="nav">
         <div class="container">
             <div class="logo">
-                <a href="#">Your Logo</a>
+                <a href="#"><img src="./../assets/logo.png" alt="alsdi" class="alsdi-logo" srcset=""></a>
             </div>
             <div id="mainListDiv" class="main_list ml-auto">
                 <ul class="navlinks">
@@ -54,7 +54,7 @@ $(window).scroll(function() {
 
 .nav {
     width: 100%;
-    height: 65px;
+    height: 94px;
     position: fixed;
     line-height: 65px;
     text-align: center;
@@ -93,6 +93,10 @@ $(window).scroll(function() {
     padding: 0;
 }
 
+.nav .alsdi-logo {
+    width: 84px;
+}
+
 .nav div.main_list ul li {
     width: auto;
     height: 65px;
@@ -116,9 +120,9 @@ $(window).scroll(function() {
 .home {
     width: 100%;
     height: 100vh;
-    background-image: url('../assets/bg-alsdi.jpeg');
+    /* background-image: url('../assets/bg-alsdi.jpeg'); */
     background-position: center top;
-	  background-size:cover;
+	background-size:cover;
 }
 
 .navTrigger {

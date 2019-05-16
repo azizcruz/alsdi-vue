@@ -1,8 +1,14 @@
 <template>
-    <div class="block block-with-background-color d-flex flex-column justify-content-center align-items-center h-100">
+    <div class="block block-image block-with-background-color d-flex flex-column justify-content-center align-items-center h-100">
         <div class="overlay"></div>
-        <h1>{{ data.title }}</h1>
-        <p>{{ data.text }}</p>
+        <div v-if="data.bgImage">
+            <div></div>
+        </div>
+        <div v-else>
+            <h1 :style="{color: data.color}">{{ data.title }}</h1>
+            <p>{{ data.text }}</p>
+        </div>
+
     </div>
 </template>
 
@@ -11,7 +17,8 @@ export default {
     name:"blockWithBackground",
     props: [
         'bgColor',
-        'data'
+        'data',
+        'image'
     ],
 }
 </script>
