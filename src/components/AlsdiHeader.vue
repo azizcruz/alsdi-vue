@@ -11,10 +11,10 @@
                          <router-link to="/">الرئيسية</router-link> 
                     </li>
                     <li>
-                         <router-link to="/">من نحن</router-link> 
+                         <router-link to="/about-us">من نحن</router-link> 
                     </li>
                     <li>
-                         <router-link to="/">تواصل معنا</router-link> 
+                         <router-link to="/contact-us">تواصل معنا</router-link> 
                     </li>
                 </ul>
             </div>

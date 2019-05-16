@@ -1,8 +1,18 @@
 <template>
   <div id="app d-flex flex-column">
+    <AlsdiHeader></AlsdiHeader>
     <router-view/>
   </div>
 </template>
+<script>
+
+import AlsdiHeader from '@/components/AlsdiHeader.vue'
+export default {
+  components: {
+    AlsdiHeader,
+  }
+}
+</script>
 
 <style lang="scss">
 @import url("//www.fontstatic.com/f=vip-hakm-bold");
