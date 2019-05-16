@@ -111,6 +111,20 @@ $(window).scroll(function() {
     padding: 20px;
 }
 
+.nav div.main_list ul li a:after {
+    border-bottom: 3px solid #fdcb6e;
+    content: "";
+    display: block;
+    margin: 0.25em auto 0;
+    transition: width 250ms ease-in-out 0s;
+    width: 0;
+}
+
+.nav div.main_list ul li:hover a:after {
+    transition: width 250ms ease-in-out 0s;
+    width: 100%; 
+}
+
 .nav div.main_list ul li a {
     text-decoration: none;
     color: #fff;

@@ -1,15 +1,28 @@
 <template>
-  <div id="app d-flex flex-column">
-    <AlsdiHeader></AlsdiHeader>
-    <router-view/>
+  <div id="app ds" class="app">
+    <div>
+      <div class="d-flex flex-column">
+      <div class="alsdi-header-wrapper">
+        <AlsdiHeader></AlsdiHeader>
+      </div>
+      <div class="alsdi-content-wrapper">
+       <router-view/>
+      </div>
+      <div class="alsdi-footer-wrapper">
+        <Footer></Footer>
+      </div>
+      </div>  
+    </div>    
   </div>
 </template>
 <script>
 
 import AlsdiHeader from '@/components/AlsdiHeader.vue'
+import Footer from '@/components/Footer.vue'
 export default {
   components: {
     AlsdiHeader,
+    Footer
   }
 }
 </script>
@@ -27,6 +40,25 @@ body {
   color: #2c3e50;
   max-width: 100%;
   overflow-wrap: break-word;
+}
+
+.app {
+  .alsdi-header-wrapper {
+    -webkit-box-flex:1;
+    -ms-flex:1;
+    flex:1;
+  }
+  .alsdi-content-wrapper {
+    -webkit-box-flex:1;
+    -ms-flex:1;
+    flex:1;
+    min-height: 90vh;
+  }
+  .alsdi-footer-wrapper {
+  -webkit-box-flex:1;
+    -ms-flex:1;
+    flex:1;
+  }
 }
 
 div {
