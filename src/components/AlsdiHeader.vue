@@ -3,7 +3,7 @@
     <nav class="nav">
         <div class="container">
             <div class="logo">
-                <a href="#"><img src="./../assets/logo.png" alt="alsdi" class="alsdi-logo" srcset=""></a>
+                <router-link to="/"><img src="@/assets/logo.png" alt="alsdi" class="alsdi-logo" srcset=""></router-link>
             </div>
             <div id="mainListDiv" class="main_list ml-auto">
                 <ul class="navlinks">
