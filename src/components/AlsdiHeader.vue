@@ -7,7 +7,15 @@
             </div>
             <div id="mainListDiv" class="main_list ml-auto">
                 <ul class="navlinks">
-                    
+                    <li>
+                         <router-link to="/">الرئيسية</router-link> 
+                    </li>
+                    <li>
+                         <router-link to="/">من نحن</router-link> 
+                    </li>
+                    <li>
+                         <router-link to="/">تواصل معنا</router-link> 
+                    </li>
                 </ul>
             </div>
             <span class="navTrigger">
@@ -100,7 +108,7 @@ $(window).scroll(function() {
 .nav div.main_list ul li {
     width: auto;
     height: 65px;
-    padding: 0;
+    padding: 20px;
 }
 
 .nav div.main_list ul li a {
