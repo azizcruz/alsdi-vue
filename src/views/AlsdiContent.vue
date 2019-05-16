@@ -2,7 +2,7 @@
     <div class="alsdi-content">
         <div class="container-fluid">
             <div class="d-flex flex-wrap">
-            <div class="col block-wrapper block-image" data-aos="flip-up" :data-aos-delay="(index * 1.2) * 100" v-for="(data, index) in dataRow" :key="index" :style="data.bgImage ? {backgroundImage: `url('${data.image_url}')`, backgroundColor: data.bgColor } : {backgroundColor: data.bgColor} ">
+            <div class="col block-wrapper block-image" data-aos="flip-up" :data-aos-delay="(index * 1) * 100" v-for="(data, index) in dataRow" :key="index" :style="data.bgImage ? {backgroundImage: `url('${data.image_url}')`, backgroundColor: data.bgColor } : {backgroundColor: data.bgColor} ">
                 <BlockWithBackground :data="data"></BlockWithBackground>
             </div>
         </div>
@@ -135,10 +135,10 @@ export default {
         // Large devices (desktops, 992px and up)
         @media (min-width: 992px) { 
              .col {
-                min-width: 33.333333%;
-                max-width: 33.333333%;
-                min-height: 33.333333vw;
-                max-height: 33.333333vw;
+                min-width: 25%;
+                max-width: 25%;
+                min-height: 25vw;
+                max-height: 25vw;
             }
          }
         
