@@ -117,8 +117,8 @@ export default {
             .col {
                 min-width: 100%;
                 max-width: 100%;
-                min-height: 99vw;
-                max-height: 99vw;
+                min-height: 100vw;
+                max-height: 100vw;
             }
          }
 
@@ -127,8 +127,8 @@ export default {
             .col {
                 min-width: 50%;
                 max-width: 50%;
-                min-height: 49vw;
-                max-height: 49vw;
+                min-height: 50vw;
+                max-height: 50vw;
             }
          }
 
@@ -137,8 +137,8 @@ export default {
              .col {
                 min-width: 25%;
                 max-width: 25%;
-                min-height: 24vw;
-                max-height: 24vw;
+                min-height: 25vw;
+                max-height: 25vw;
             }
          }
         

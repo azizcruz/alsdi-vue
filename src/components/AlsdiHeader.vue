@@ -18,7 +18,7 @@
                     </li>
                 </ul>
             </div>
-            <span class="navTrigger">
+            <span class="navTrigger navTriggerTop">
                 <i></i>
                 <i></i>
                 <i></i>
@@ -46,9 +46,11 @@ export default {
 $(window).scroll(function() {
         if ($(document).scrollTop() > 50) {
             $('.nav').addClass('affix');
+            $('.navTrigger').removeClass('navTriggerTop')
             console.log("OK");
         } else {
             $('.nav').removeClass('affix');
+            $('.navTrigger').addClass('navTriggerTop')
         }
     });
 }
@@ -109,6 +111,11 @@ $(window).scroll(function() {
     width: auto;
     height: 65px;
     padding: 20px;
+}
+
+.nav .navTriggerTop {
+    top: 39px !important;
+    transition: all .5s ease-in-out;
 }
 
 .nav div.main_list ul li a:after {

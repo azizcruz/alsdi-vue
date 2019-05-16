@@ -1,6 +1,6 @@
 <template>
-    <div class="footer">
-        <div class="d-flex flex-sm-column flex-md-row">
+    <div class="alsdi-footer container-fluid">
+        <div class="d-flex flex-column flex-md-row">
             <div class="col alsdi-logo-section">
                 <div class="text-center">
                     <router-link to="/">
@@ -25,11 +25,11 @@
             <div class="col alsdi-contact-section">
                 <h3 class="mb-3">تواصل معنا</h3>
                 <div class="alsdi-social-media">
-                    <span class="alsdi-icon"><i class="fab fa-facebook fa-3x"></i></span>
-                    <span class="alsdi-icon"><i class="fab fa-twitter fa-3x"></i></span>
-                    <span class="alsdi-icon"><i class="fab fa-snapchat fa-3x"></i></span>
-                    <span class="alsdi-icon"><i class="fab fa-whatsapp fa-3x"></i></span>
-                    <span class="alsdi-icon"><i class="fab fa-instagram fa-3x"></i></span>
+                    <span class="alsdi-icon"><i class="fab fa-facebook fa-2x"></i></span>
+                    <span class="alsdi-icon"><i class="fab fa-twitter fa-2x"></i></span>
+                    <span class="alsdi-icon"><i class="fab fa-snapchat fa-2x"></i></span>
+                    <span class="alsdi-icon"><i class="fab fa-whatsapp fa-2x"></i></span>
+                    <span class="alsdi-icon"><i class="fab fa-instagram fa-2x"></i></span>
                 </div>
             </div>
         </div>
@@ -44,20 +44,21 @@ export default {
 
 <style lang="scss" scoped>
 @import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
-.footer {
+.alsdi-footer {
     color: #C7944A;
     text-align: right;
     background-color: #2f3640;
     padding: 20px;
     margin-top: 30px;
+    min-width: 100%;
     .alsdi-logo-section {
         padding: 10px;
-        max-width: 33.33333%;
+        width: 33.33333%;
         // Small devices (landscape phones, 576px and up)
-        @media (min-width: 320px) { 
-            max-width: 100%;
+        @media (max-width: 768px) { 
+           width: 100%;
+           max-width: 100%;
         }
-        min-width: 320px;
 
         .footer-logo {
             width: 200px;
@@ -69,18 +70,22 @@ export default {
         padding: 10px 20px;
         border-right: 1px solid #FFF;
         border-left: 1px solid #FFF;
-        max-width: 33.33333%;
+        width: 33.33333%;
         // Small devices (landscape phones, 576px and up)
         @media (max-width: 768px) { 
+            width: 100%;
             max-width: 100%;
             border-right: none;
             border-left: none;
             border-top: 1px solid #FFF;
             border-bottom: 1px solid #FFF;
             margin: 10px 0;
+
+            h3 {
+                font-size: 1.3rem;
+            }
             
         }
-        min-width: 320px;
 
         .alsdi-footer-link {
             font-size: 18px;
@@ -101,11 +106,11 @@ export default {
     }
     .alsdi-contact-section {
         padding: 10px;
-        min-width: 320px;
-        max-width: 33.33333%;
+        width: 33.33333%;
         // Small devices (landscape phones, 576px and up)
-        @media (min-width: 320px) { 
-            max-width: 100%;
+        @media (max-width: 768px) { 
+           width: 100%;
+           max-width: 100%
         }
         .alsdi-icon {
             padding: 10px;

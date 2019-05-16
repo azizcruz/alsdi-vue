@@ -2,15 +2,15 @@
   <div id="app ds" class="app">
     <div>
       <div class="d-flex flex-column">
-      <div class="alsdi-header-wrapper">
-        <AlsdiHeader></AlsdiHeader>
-      </div>
-      <div class="alsdi-content-wrapper">
-       <router-view/>
-      </div>
-      <div class="alsdi-footer-wrapper">
-        <Footer></Footer>
-      </div>
+        <div class="alsdi-header-wrapper">
+          <AlsdiHeader></AlsdiHeader>
+        </div>
+        <div class="alsdi-content-wrapper">
+        <router-view/>
+        </div>
+        <div class="alsdi-footer-wrapper">
+          <Footer></Footer>
+        </div>
       </div>  
     </div>    
   </div>
@@ -40,6 +40,7 @@ body {
   color: #2c3e50;
   max-width: 100%;
   overflow-wrap: break-word;
+  overflow-x: hidden;
 }
 
 .app {
