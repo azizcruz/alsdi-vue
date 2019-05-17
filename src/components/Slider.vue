@@ -1,5 +1,5 @@
 <template>
-    <div class="alsdi-slider">
+    <div class="alsdi-slider" :style="{height: sliderHeight}">
         <div class="slick-slider">
             <div class="alsdi-slider-image" :style="{backgroundImage: `url('${require('@/assets/img01.jpg')}')` }"></div>
             <div class="alsdi-slider-image" :style="{backgroundImage: `url('${require('@/assets/img01.jpg')}')` }"></div>
@@ -15,20 +15,24 @@ export default {
     components: {
         Slick,
     },
+    props: [
+        'sliderHeight',
+        'slideShows'
+    ],
     mounted() {
-        $('.slick-slider').slick(this.slickOptions)
+        $('.slick-slider').not('.slick-initialized').slick(this.slickOptions)
     },
      data() {
             return {
                     slickOptions: {
                         //options can be used from the plugin documentation
-                        slidesToShow: 1,
+                        slidesToShow: this.slideShows,
                         infinite: true,
                         accessibility: true,
                         adaptiveHeight: false,
                         arrows: false,
                         draggable: true,
-                        edgeFriction: 0.80,
+                        edgeFriction: .20,
                         swipe: true
                     }
             }
@@ -52,7 +56,6 @@ export default {
 <style lang="scss">
 @import url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css');
 .alsdi-slider {
-    height: 100vh;
     .slick-slider {
     max-width: 100%;
     height: 100%;

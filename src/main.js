@@ -17,7 +17,8 @@ $("body").niceScroll({
   spacebarenabled: true,
 });
 //Bootstrap framework
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-v4-rtl/dist/css/bootstrap.min.css'
 
 //AOS library
 import AOS from 'aos';
