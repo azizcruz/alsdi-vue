@@ -11,13 +11,16 @@
     "aos": "^2.3.4",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.5",
+    "eagle.js": "^0.5.1",
     "i": "^0.3.6",
     "jquery": "^3.4.1",
     "jquery.nicescroll": "^3.7.6",
     "npm": "^6.9.0",
+    "slick-carousel": "^1.8.1",
     "vue": "^2.6.10",
     "vue-awesome": "^3.5.2",
-    "vue-router": "^3.0.3"
+    "vue-router": "^3.0.3",
+    "vue-slick": "^1.1.15"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",

@@ -1,15 +1,15 @@
 <template>
   <div id="app ds" class="app">
     <div>
-      <div class="d-flex flex-column">
-        <div class="alsdi-header-wrapper">
-          <AlsdiHeader></AlsdiHeader>
+      <div class="d-flex flex-md-row flex-wrap">
+        <div class="content-side col-md-9 p-0">
+          <router-view/>
         </div>
-        <div class="alsdi-content-wrapper">
-        <router-view/>
+        <div class="col-md-9">
+            <AlsdiHeader />
         </div>
         <div class="alsdi-footer-wrapper">
-          <Footer></Footer>
+          <!-- <Footer></Footer> -->
         </div>
       </div>  
     </div>    

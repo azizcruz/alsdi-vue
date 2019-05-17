@@ -44,12 +44,13 @@ export default {
 
 <style lang="scss" scoped>
 @import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
+@import "@/assets/_colors.scss";
+
 .alsdi-footer {
     color: #C7944A;
     text-align: right;
-    background-color: #2f3640;
+    background-color: $alsdi-black;
     padding: 20px;
-    margin-top: 30px;
     min-width: 100%;
     .alsdi-logo-section {
         padding: 10px;

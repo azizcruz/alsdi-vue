@@ -1,17 +1,15 @@
 <template>
-  <div class="home">
-    <Content></Content>
+  <div class="home d-flex flex-column">
+    <Slider />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Content from '@/views/AlsdiContent.vue'
-
+import Slider from '@/components/Slider'
 export default {
   name: 'home',
   components: {
-    Content
+    Slider,
   }
 }
 </script>

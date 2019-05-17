@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import $ from 'jquery'
+global.$ = $
 
 // Simplebar.
-import $ from 'jquery'
 import 'jquery.nicescroll'
 $("body").niceScroll({
   cursorwidth:6,

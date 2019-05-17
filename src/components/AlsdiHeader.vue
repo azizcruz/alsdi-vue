@@ -1,438 +1,74 @@
 <template>
-  <div class="alsdi-header">
-    <nav class="nav">
-        <div class="container">
-            <div class="logo">
-                <router-link to="/"><img src="@/assets/logo.png" alt="alsdi" class="alsdi-logo" srcset=""></router-link>
-            </div>
-            <div id="mainListDiv" class="main_list ml-auto">
-                <ul class="navlinks">
-                    <li>
-                         <router-link to="/">الرئيسية</router-link> 
-                    </li>
-                    <li>
-                         <router-link to="/about-us">من نحن</router-link> 
-                    </li>
-                    <li>
-                         <router-link to="/contact-us">تواصل معنا</router-link> 
-                    </li>
-                </ul>
-            </div>
-            <span class="navTrigger navTriggerTop">
-                <i></i>
-                <i></i>
-                <i></i>
-            </span>
+    <div class="side-header w-25 d-flex flex-column">
+        <div class="logo-section text-center">
+            <router-link to="/">
+                <img src="@/assets/logo.png" class="alsdi-logo" alt="شعار الصدي">
+            </router-link>  
         </div>
-    </nav>
-  </div>
+        <div class="navlinks-section">
+            <ul class="list-unstyled">
+                <li>
+                    <router-link to="/">الرئيسية</router-link>    
+                </li>
+                <li>
+                    <router-link to="/about-us">من نحن</router-link>    
+                </li>
+                <li>
+                    <router-link to="/our-services">مشاريعنا</router-link>    
+                </li>
+                <li>
+                    <router-link to="/our-services">البوم الصور</router-link>    
+                </li>
+                <li>
+                    <router-link to="/our-services">فرص العمل</router-link>    
+                </li>
+                <li>
+                    <router-link to="/our-services">تواصل معنا</router-link>    
+                </li>                
+            </ul>
+        </div>
+    </div>
 </template>
 
 <script>
-
-import $ from 'jquery'
-
 export default {
-  name: 'alsdi-header',
-  mounted() {
-    $('.navTrigger').click(function () {
-    $(this).toggleClass('active');
-    console.log("Clicked menu");
-    $("#mainListDiv").toggleClass("show_list");
-    $("#mainListDiv").fadeIn();
 
-});
-
-$(window).scroll(function() {
-        if ($(document).scrollTop() > 50) {
-            $('.nav').addClass('affix');
-            $('.navTrigger').removeClass('navTriggerTop')
-            console.log("OK");
-        } else {
-            $('.nav').removeClass('affix');
-            $('.navTrigger').addClass('navTriggerTop')
-        }
-    });
-}
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 
-/* Navbar section */
+@import "@/assets/_colors.scss";
 
-.nav {
-    width: 100%;
-    height: 94px;
+.side-header {
+    background-color: $alsdi-black;
+    color: $alsdi-gold;
     position: fixed;
-    line-height: 65px;
-    text-align: center;
-    z-index: 999;
-}
-
-.nav div.logo {
-    float: left;
-    width: auto;
-    height: auto;
-    padding-left: 3rem;
-    padding-top: 5px;
-}
-
-.nav div.logo a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 2.5rem;
-}
-
-.nav div.logo a:hover {
-    color: #fdcb6e;
-}
-
-.nav div.main_list {
-    height: 65px;
-    float: right;
-}
-
-.nav div.main_list ul {
-    width: 100%;
-    height: 65px;
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav .alsdi-logo {
-    width: 84px;
-}
-
-.nav div.main_list ul li {
-    width: auto;
-    height: 65px;
-    padding: 20px;
-}
-
-.nav .navTriggerTop {
-    top: 39px !important;
-    transition: all .5s ease-in-out;
-}
-
-.nav div.main_list ul li a:after {
-    border-bottom: 3px solid #fdcb6e;
-    content: "";
-    display: block;
-    margin: 0.25em auto 0;
-    transition: width 250ms ease-in-out 0s;
-    width: 0;
-}
-
-.nav div.main_list ul li:hover a:after {
-    transition: width 250ms ease-in-out 0s;
-    width: 100%; 
-}
-
-.nav div.main_list ul li a {
-    text-decoration: none;
-    color: #fff;
-    line-height: 65px;
-    font-size: 1.3rem;
-}
-
-.nav div.main_list ul li a:hover {
-    color: #fdcb6e;
-}
-
-
-/* Home section */
-
-.home {
-    width: 100%;
-    height: 100vh;
-    /* background-image: url('../assets/bg-alsdi.jpeg'); */
-    background-position: center top;
-	background-size:cover;
-}
-
-.navTrigger {
-    display: none;
-}
-
-.nav {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-}
-
-
-/* Media qurey section */
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .container {
-        margin: 0;
-    }
-}
-
-@media screen and (max-width:768px) {
-    .navTrigger {
-        display: block;
-    }
-    .nav div.logo {
-        margin-left: 15px;
-        font-size: 1.3rem
-    }
-    .nav div.main_list {
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-    }
-    .nav div.show_list {
-        height: auto;
-        display: none;
-    }
-    .nav div.main_list ul {
-        flex-direction: column;
-        width: 100%;
-        height: 100vh;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background-color: #111;
-        /*same background color of navbar*/
-        background-position: center top;
-    }
-    .nav div.main_list ul li {
-        width: 100%;
-        text-align: right;
-    }
-    .nav div.main_list ul li a {
-        text-align: center;
-        width: 100%;
-        font-size: 3rem;
-        padding: 20px;
-    }
-    .nav div.media_button {
-        display: block;
-    }
-}
-
-
-/* Animation */
-/* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
-
-.navTrigger {
-    cursor: pointer;
-    width: 30px;
-    height: 25px;
-    margin: auto;
-    position: absolute;
-    right: 30px;
+    right: 0;
     top: 0;
-    bottom: 0;
-}
+    height: 100vh;
 
-.navTrigger i {
-    background-color: #fff;
-    border-radius: 2px;
-    content: '';
-    display: block;
-    width: 100%;
-    height: 4px;
-}
+    .alsdi-logo {
+        width: 200px;
+        height: 200px;
+    }
 
-.navTrigger i:nth-child(1) {
-    -webkit-animation: outT 0.8s backwards;
-    animation: outT 0.8s backwards;
-    -webkit-animation-direction: reverse;
-    animation-direction: reverse;
-}
+    .navlinks-section {
+        background-color: $alsdi-black;
+        ul {
+            text-align: right;
 
-.navTrigger i:nth-child(2) {
-    margin: 5px 0;
-    -webkit-animation: outM 0.8s backwards;
-    animation: outM 0.8s backwards;
-    -webkit-animation-direction: reverse;
-    animation-direction: reverse;
-}
+            li {
+                padding: 1.25rem;
 
-.navTrigger i:nth-child(3) {
-    -webkit-animation: outBtm 0.8s backwards;
-    animation: outBtm 0.8s backwards;
-    -webkit-animation-direction: reverse;
-    animation-direction: reverse;
-}
-
-.navTrigger.active i:nth-child(1) {
-    -webkit-animation: inT 0.8s forwards;
-    animation: inT 0.8s forwards;
-}
-
-.navTrigger.active i:nth-child(2) {
-    -webkit-animation: inM 0.8s forwards;
-    animation: inM 0.8s forwards;
-}
-
-.navTrigger.active i:nth-child(3) {
-    -webkit-animation: inBtm 0.8s forwards;
-    animation: inBtm 0.8s forwards;
-}
-
-@-webkit-keyframes inM {
-    50% {
-        -webkit-transform: rotate(0deg);
+                a {
+                    color: $alsdi-gold;
+                    font-size: 1.5rem;
+                    text-decoration: none;
+                }
+            }
+        }
     }
-    100% {
-        -webkit-transform: rotate(45deg);
-    }
-}
-
-@keyframes inM {
-    50% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(45deg);
-    }
-}
-
-@-webkit-keyframes outM {
-    50% {
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(45deg);
-    }
-}
-
-@keyframes outM {
-    50% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(45deg);
-    }
-}
-
-@-webkit-keyframes inT {
-    0% {
-        -webkit-transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        -webkit-transform: translateY(9px) rotate(0deg);
-    }
-    100% {
-        -webkit-transform: translateY(9px) rotate(135deg);
-    }
-}
-
-@keyframes inT {
-    0% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(9px) rotate(0deg);
-    }
-    100% {
-        transform: translateY(9px) rotate(135deg);
-    }
-}
-
-@-webkit-keyframes outT {
-    0% {
-        -webkit-transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        -webkit-transform: translateY(9px) rotate(0deg);
-    }
-    100% {
-        -webkit-transform: translateY(9px) rotate(135deg);
-    }
-}
-
-@keyframes outT {
-    0% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(9px) rotate(0deg);
-    }
-    100% {
-        transform: translateY(9px) rotate(135deg);
-    }
-}
-
-@-webkit-keyframes inBtm {
-    0% {
-        -webkit-transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        -webkit-transform: translateY(-9px) rotate(0deg);
-    }
-    100% {
-        -webkit-transform: translateY(-9px) rotate(135deg);
-    }
-}
-
-@keyframes inBtm {
-    0% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-9px) rotate(0deg);
-    }
-    100% {
-        transform: translateY(-9px) rotate(135deg);
-    }
-}
-
-@-webkit-keyframes outBtm {
-    0% {
-        -webkit-transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        -webkit-transform: translateY(-9px) rotate(0deg);
-    }
-    100% {
-        -webkit-transform: translateY(-9px) rotate(135deg);
-    }
-}
-
-@keyframes outBtm {
-    0% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-9px) rotate(0deg);
-    }
-    100% {
-        transform: translateY(-9px) rotate(135deg);
-    }
-}
-
-.affix {
-    padding: 0;
-    background-color: #111;
-}
-
-
-
-
-
-
-.myH2 {
-	text-align:center;
-	font-size: 4rem;
-}
-.myP {
-	text-align: justify;
-	padding-left:15%;
-	padding-right:15%;
-	font-size: 20px;
-}
-@media all and (max-width:700px){
-	.myP {
-		padding:2%;
-	}
 }
 </style>
+
