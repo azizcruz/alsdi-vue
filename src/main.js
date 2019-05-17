@@ -2,6 +2,19 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+// Simplebar.
+import $ from 'jquery'
+import 'jquery.nicescroll'
+$("body").niceScroll({
+  cursorwidth:6,
+  cursorcolor:'#C4993B',
+  cursorborder:'none',
+  cursorborderradius:6,
+  autohidemode:'leave',
+  scrollspeed: 120,
+  mousescrollstep: 120,
+  spacebarenabled: true,
+});
 //Bootstrap framework
 import 'bootstrap/dist/css/bootstrap.min.css';
 

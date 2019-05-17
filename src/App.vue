@@ -19,6 +19,8 @@
 
 import AlsdiHeader from '@/components/AlsdiHeader.vue'
 import Footer from '@/components/Footer.vue'
+
+
 export default {
   components: {
     AlsdiHeader,
@@ -32,8 +34,9 @@ export default {
 body {
   font-family: 'vip-hakm-bold', Helvetica, Arial, sans-serif !important;
   background-color: #333 !important;
-  // overflow-x: hidden;
+  overflow-x: hidden;
 }
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

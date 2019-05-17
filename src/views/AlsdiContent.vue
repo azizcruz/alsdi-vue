@@ -1,6 +1,6 @@
 <template>
     <div class="alsdi-content">
-        <div class="container-fluid">
+        <div class="container-fluid"  data-simplebar>
             <div class="d-flex flex-wrap">
             <div class="col block-wrapper block-image" data-aos="flip-up" :data-aos-delay="(index * 1) * 100" v-for="(data, index) in dataRow" :key="index" :style="data.bgImage ? {backgroundImage: `url('${data.image_url}')`, backgroundColor: data.bgColor } : {backgroundColor: data.bgColor} ">
                 <BlockWithBackground :data="data"></BlockWithBackground>
