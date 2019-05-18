@@ -1,7 +1,7 @@
 <template>
   <div class="home d-flex flex-column">
     <Slider :sliderHeight="100 + 'vh'" :slideShows="1" />
-    <ShortAboutUS />
+      <ShortAboutUS />
     <VueSlider />
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
   components: {
     Slider,
     ShortAboutUS,
-    VueSlider
+    VueSlider,
   }
 }
 </script>

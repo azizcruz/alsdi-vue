@@ -2,10 +2,10 @@
   <div id="app ds" class="app">
     <div>
       <div class="d-flex flex-md-row flex-wrap">
-        <div class="content-side col-md-9 p-0">
+        <div class="content-side col-xs-12 col-md-9 p-0">
           <router-view/>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-3 d-none d-md-block">
             <AlsdiHeader />
         </div>
         <div class="alsdi-footer-wrapper">
@@ -36,7 +36,6 @@ body {
   background-color: #333 !important;
   overflow-x: hidden;
 }
-
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
