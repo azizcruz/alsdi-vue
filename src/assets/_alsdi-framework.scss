@@ -1,0 +1,64 @@
+@import "./colors";
+
+.alsdi-header {
+    color: $alsdi-gold;
+    display:inline-block;
+    border-bottom: 2px solid $alsdi-gold
+}
+
+.alsdi-section {
+    padding: 1.25rem 0;
+    margin: 1.25rem 0;
+}
+
+.alsdi-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: $alsdi-gold;
+    position: relative;
+    min-height: 20vw;
+    overflow: hidden;
+
+
+    .alsdi-card-content {
+        position: relative;
+        z-index: 10;
+        padding: 10px;
+        transition: all .4s ease-in-out; 
+
+        h3 {
+            font-weight: bold;
+        }
+        p {
+            color: $alsdi-white;
+        }
+    }
+}
+
+.alsdi-card-background-image {
+    background-size: cover;
+    background-position: 99%;
+    background-repeat: no-repeat;
+    transition: all .4s ease-in-out; 
+
+    &:hover {
+       background-position: 10%;
+       cursor: pointer;
+
+       .alsdi-card-content {
+           background-color: lighten($color: #000000, $amount: 5%);
+           padding: 10px;
+       }
+    }
+
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}

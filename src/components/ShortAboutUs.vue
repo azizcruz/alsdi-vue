@@ -26,7 +26,7 @@ export default {
 
 .alsdi-short-about-us {
     text-align: right;
-    padding: 20px;
+    padding: 10px 0;
     background-size: cover;
     background-position: 50%;
     background-repeat: no-repeat;
