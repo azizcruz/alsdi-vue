@@ -48,7 +48,8 @@ export default {};
   height: 100vh;
 
   .logo-section {
-    height: 20vw;
+    height: 15vw;
+    border-bottom: 2px solid;
     .alsdi-logo {
       width: 200px;
       height: 200px;
@@ -57,6 +58,7 @@ export default {};
 
   .navlinks-section {
     background-color: $alsdi-black;
+    padding-top: 2rem;
     ul {
       text-align: right;
 

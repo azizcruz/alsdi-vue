@@ -7,6 +7,9 @@
       :centerMode="true"
       :autoplay="true"
       :paginationEnabled="false"
+      :navigationEnabled="true"
+      navigationNextLabel='<i class="fas fa-chevron-right fa-3x"></i>'
+      navigationPrevLabel='<i class="fas fa-chevron-left fa-3x"></i>'
     >
       <slide>
         <div
@@ -20,7 +23,9 @@
             <div class="alsdi-card-content">
               <h3 class="card-title">فقط لتعبئة المكان</h3>
               <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
+                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
+                الشعور بالسعادة، ولكن بفضل
+              </p>
             </div>
           </div>
         </div>
@@ -37,7 +42,9 @@
             <div class="alsdi-card-content">
               <h3 class="card-title">فقط لتعبئة المكان</h3>
               <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
+                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
+                الشعور بالسعادة، ولكن بفضل
+              </p>
             </div>
           </div>
         </div>
@@ -54,7 +61,9 @@
             <div class="alsdi-card-content">
               <h3 class="card-title">فقط لتعبئة المكان</h3>
               <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
+                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
+                الشعور بالسعادة، ولكن بفضل
+              </p>
             </div>
           </div>
         </div>
@@ -71,7 +80,9 @@
             <div class="alsdi-card-content">
               <h3 class="card-title">فقط لتعبئة المكان</h3>
               <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
+                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
+                الشعور بالسعادة، ولكن بفضل
+              </p>
             </div>
           </div>
         </div>
@@ -88,7 +99,9 @@
             <div class="alsdi-card-content">
               <h3 class="card-title">فقط لتعبئة المكان</h3>
               <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
+                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
+                الشعور بالسعادة، ولكن بفضل
+              </p>
             </div>
           </div>
         </div>
@@ -105,7 +118,9 @@
             <div class="alsdi-card-content">
               <h3 class="card-title">فقط لتعبئة المكان</h3>
               <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
+                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
+                الشعور بالسعادة، ولكن بفضل
+              </p>
             </div>
           </div>
         </div>
@@ -122,7 +137,9 @@
             <div class="alsdi-card-content">
               <h3 class="card-title">فقط لتعبئة المكان</h3>
               <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب الشعور بالسعادة، ولكن بفضل</p>
+                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
+                الشعور بالسعادة، ولكن بفضل
+              </p>
             </div>
           </div>
         </div>
@@ -141,10 +158,37 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "@/assets/_alsdi-framework.scss";
+@import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
+@import "@/assets/_colors.scss";
 
 .alsdi-vue-slider {
+  position: relative;
+
+  .VueCarousel-navigation {
+    position: absolute;
+    left: 60px;
+    top: -30px;
+
+    .VueCarousel-navigation-next,
+    .VueCarousel-navigation-prev {
+      color: $alsdi-gold;
+      right: -10px;
+      background-color: rgba(0, 0, 0, .6);
+      padding: 10px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        color: darken($color: $alsdi-gold, $amount: 20%);
+      }
+    }
+  }
   .card {
     margin: 15px;
   }
