@@ -23,6 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/_colors.scss";
+@import "@/assets/_alsdi-framework.scss";
 
 .alsdi-short-about-us {
     text-align: right;
@@ -57,12 +58,6 @@ export default {
             height: 250px;
         }
 
-        .alsdi-button {
-            border: 2px solid $alsdi-gold;
-            background: transparent;
-            color: $alsdi-gold;
-            padding: 1.2rem;
-        }
     }
 }
 </style>

@@ -62,11 +62,19 @@ export default {};
 
       li {
         padding: 1rem;
+        -webkit-transition: all .2s ease-in-out;
+        -o-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+        
+        a {
+             -webkit-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+        }
 
         &:hover {
           background-color: lighten($alsdi-gold, 10%);
           a {
-            transition: .3s ease-in-out;
             margin-right: 20px;
             color: lighten(#000000, 20%);
           }
