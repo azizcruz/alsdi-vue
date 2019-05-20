@@ -8,7 +8,6 @@
       </router-link>
     </div>
     <div class="navlinks-section">
-      <hr class="alsdi-sep">
       <ul class="list-unstyled">
         <li>
           <router-link to="/">الرئيسية</router-link>
