@@ -72,9 +72,10 @@ export default {
           if (!items[i].classList.contains("in-view")) {
             items[i].classList.add("in-view");
           }
-        } else if (items[i].classList.contains("in-view")) {
-          items[i].classList.remove("in-view");
-        }
+        } 
+        // else if (items[i].classList.contains("in-view")) {
+        //   items[i].classList.remove("in-view");
+        // }
       }
     }
 
