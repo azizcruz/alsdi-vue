@@ -22,10 +22,15 @@
     }
 }
 
+.alsdi-sep {
+    border-top: 2px solid $alsdi-gold;
+}
+
 .alsdi-header {
     color: $alsdi-gold;
     display:inline-block;
-    border-bottom: 2px solid $alsdi-gold
+    border-bottom: 2px solid $alsdi-gold;
+    text-align: center;
 }
 
 .alsdi-button {
@@ -79,12 +84,12 @@
     background-size: cover;
     background-position: 99%;
     background-repeat: no-repeat;
-    -webkit-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out; 
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out; 
 
     &:hover {
-       background-position: 10%;
+       background-position: 50%;
        cursor: pointer;
 
        .alsdi-card-content {
