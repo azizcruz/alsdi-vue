@@ -5,40 +5,40 @@
         <li>
           <div>
             <div class="discovery">
-              <h1>مشاريع منجزة</h1>
               <p class="mt-1 counter" data-count="879">
                 0
               </p>
+              <h1>مشاريع منجزة</h1>
             </div>
           </div>
         </li>
         <li>
           <div>
             <div class="discovery">
-              <h1>تصميمات داخلية</h1>
               <p class="mt-1 counter" data-count="1274">
                 0
               </p>
+              <h1>تصميمات داخلية</h1>
             </div>
           </div>
         </li>
         <li>
           <div>
             <div class="discovery">
-              <h1>تصميمات خارجية</h1>
               <p class="mt-1 counter" data-count="1098">
-                 0
+                0
               </p>
+              <h1>تصميمات خارجية</h1>
             </div>
           </div>
         </li>
         <li>
           <div>
             <div class="discovery">
-              <h1>عميل</h1>
               <p class="mt-1 counter" data-count="784">
-                  0
+                0
               </p>
+              <h1>عميل</h1>
             </div>
           </div>
         </li>
@@ -62,8 +62,6 @@ export default {
         rect.right <=
           (window.innerWidth || document.documentElement.clientWidth)
       );
-
-      
     }
 
     function callbackFunc() {
@@ -72,7 +70,7 @@ export default {
           if (!items[i].classList.contains("in-view")) {
             items[i].classList.add("in-view");
           }
-        } 
+        }
         // else if (items[i].classList.contains("in-view")) {
         //   items[i].classList.remove("in-view");
         // }
@@ -82,37 +80,34 @@ export default {
     window.addEventListener("load", callbackFunc);
     window.addEventListener("scroll", callbackFunc);
 
-    $(window).on('scroll', function() {
-        if($(document).scrollTop() > 1250) {
-            $('.counter').each(function() {
-            var $this = $(this),
-                countTo = $this.attr('data-count');
+    $(window).on("scroll", function() {
+      if ($(document).scrollTop() > 1050) {
+        $(".counter").each(function() {
+          var $this = $(this),
+            countTo = $this.attr("data-count");
 
-            $({
-                countNum: $this.text()
-            }).animate({
-                    countNum: countTo
-                },
+          $({
+            countNum: $this.text()
+          }).animate(
+            {
+              countNum: countTo
+            },
 
-                {
-
-                    duration: 1000,
-                    easing: 'linear',
-                    step: function() {
-                        $this.text(Math.floor(this.countNum));
-                    },
-                    complete: function() {
-                        $this.text(this.countNum);
-                        //alert('finished');
-                    }
-
-                });
-
-});
-        }
-    })
-
-
+            {
+              duration: 1000,
+              easing: "linear",
+              step: function() {
+                $this.text(Math.floor(this.countNum));
+              },
+              complete: function() {
+                $this.text(this.countNum);
+                //alert('finished');
+              }
+            }
+          );
+        });
+      }
+    });
   }
 };
 </script>
