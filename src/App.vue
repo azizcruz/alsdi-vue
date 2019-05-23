@@ -3,7 +3,12 @@
     <div>
       <div class="d-flex flex-md-row flex-wrap">
         <div class="content-side col-xs-12 col-md-9 p-0">
+        <transition
+        name="fade"
+        mode="out-in"
+        >
           <router-view/>
+        </transition>
         </div>
         <div class="col-md-3 d-none d-md-block">
             <AlsdiHeader />
@@ -31,6 +36,7 @@ export default {
 
 <style lang="scss">
 @import url("//www.fontstatic.com/f=vip-hakm-bold");
+@import url("https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css");
 body {
   font-family: 'vip-hakm-bold', Helvetica, Arial, sans-serif !important;
   background-color: rgba(0, 0, 0, .6) !important;
@@ -84,6 +90,18 @@ body {
 div {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }
 
 </style>

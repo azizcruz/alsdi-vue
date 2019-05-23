@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "animate.css": "^3.7.0",
     "aos": "^2.3.4",
     "bootstrap": "^4.3.1",
     "bootstrap-v4-rtl": "^4.3.1-3",

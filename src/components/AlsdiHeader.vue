@@ -9,24 +9,36 @@
     </div>
     <div class="navlinks-section">
       <ul class="list-unstyled">
-        <li>
-          <router-link to="/">الرئيسية</router-link>
-        </li>
-        <li>
-          <router-link to="/about-us">من نحن</router-link>
-        </li>
-        <li>
-          <router-link to="/our-services">مشاريعنا</router-link>
-        </li>
-        <li>
-          <router-link to="/our-services">البوم الصور</router-link>
-        </li>
-        <li>
-          <router-link to="/our-services">فرص العمل</router-link>
-        </li>
-        <li>
-          <router-link to="/our-services">تواصل معنا</router-link>
-        </li>
+        <router-link to="/">
+          <li>
+            الرئيسية
+          </li>
+        </router-link>
+        <router-link to="/about-us">
+          <li>
+            من نحن
+          </li>
+        </router-link>
+        <!-- <router-link to="/our-services">
+          <li>
+            مشاريعنا
+          </li>
+        </router-link>
+        <router-link to="/our-services">
+          <li>
+            البوم الصور
+          </li>
+        </router-link>
+        <router-link to="/our-services">
+          <li>
+            فرص العمل
+          </li>
+        </router-link>
+        <router-link to="/our-services">
+          <li>
+            تواصل معنا
+          </li>
+        </router-link> -->
       </ul>
     </div>
   </div>
@@ -62,44 +74,33 @@ export default {};
     ul {
       text-align: right;
 
-      
+      a {
+        color: $alsdi-gold;
+        font-size: 1.5rem;
+        text-decoration: none;
 
-      li {
-
-        padding: 1rem;
-        -webkit-transition: all .2s ease-in-out;
-        -o-transition: all .2s ease-in-out;
-        transition: all .2s ease-in-out;
-        
-        a {
-             -webkit-transition: all .2s ease-in-out;
-            -o-transition: all .2s ease-in-out;
-            transition: all .2s ease-in-out;
+        li {
+          padding: 1rem;
+          -webkit-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
         }
-
         &:hover {
-          background-color: lighten($alsdi-gold, 10%);
-          a {
-            margin-right: 20px;
-            color: lighten(#000000, 20%);
+          color: $alsdi-black;
+          li {
+            background-color: lighten($alsdi-gold, 10%);
+            padding-right: 2rem;
           }
         }
 
-        a {
-          color: $alsdi-gold;
-          font-size: 1.5rem;
-          text-decoration: none;
-        }
-
-        &:has(a.alsdi-is-active) {
-          background-color: lighten($alsdi-gold, 10%);
-          a {
-            margin-right: 20px;
-            color: lighten(#000000, 20%);
+        &.alsdi-is-active {
+          color: $alsdi-black;
+          li {
+            background-color: lighten($alsdi-gold, 10%);
+            padding-right: 2rem;
           }
         }
       }
-      
     }
   }
 }

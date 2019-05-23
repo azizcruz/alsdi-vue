@@ -1,5 +1,5 @@
 <template>
-  <div class="home d-flex flex-column">
+  <div class="home d-flex flex-column page">
     <Slider :sliderHeight="100 + 'vh'" :slideShows="1" />
     <ShortAboutUS />
     <VueSlider />

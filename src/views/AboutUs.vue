@@ -1,5 +1,5 @@
 <template>
-  <div class="alsdi-about-us p-3">
+  <div class="alsdi-about-us p-3 page">
     <div class="row">
       <div class="col-sm-4">
         <img
