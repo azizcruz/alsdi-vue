@@ -62,7 +62,10 @@ export default {};
     ul {
       text-align: right;
 
+      
+
       li {
+
         padding: 1rem;
         -webkit-transition: all .2s ease-in-out;
         -o-transition: all .2s ease-in-out;
@@ -87,7 +90,16 @@ export default {};
           font-size: 1.5rem;
           text-decoration: none;
         }
+
+        &:has(a.alsdi-is-active) {
+          background-color: lighten($alsdi-gold, 10%);
+          a {
+            margin-right: 20px;
+            color: lighten(#000000, 20%);
+          }
+        }
       }
+      
     }
   }
 }

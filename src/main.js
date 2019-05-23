@@ -12,8 +12,8 @@ $("body").niceScroll({
   cursorborder:'none',
   cursorborderradius:6,
   autohidemode:'leave',
-  scrollspeed: 120,
-  mousescrollstep: 120,
+  scrollspeed: 90,
+  mousescrollstep: 90,
   spacebarenabled: true,
 });
 //Bootstrap framework

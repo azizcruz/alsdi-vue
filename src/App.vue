@@ -9,7 +9,7 @@
             <AlsdiHeader />
         </div>
         <div class="alsdi-footer-wrapper">
-          <!-- <Footer></Footer> -->
+          <Footer></Footer>
         </div>
       </div>  
     </div>    
@@ -49,6 +49,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: -1;
     background-color: rgba(0, 0, 0, .7)
   }
 }
@@ -75,8 +76,8 @@ body {
   }
   .alsdi-footer-wrapper {
   -webkit-box-flex:1;
-    -ms-flex:1;
-    flex:1;
+  -ms-flex:1;
+  flex:1;
   }
 }
 

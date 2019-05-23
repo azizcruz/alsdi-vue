@@ -14,6 +14,7 @@ import VueSlider from '@/components/VueSlider'
 import ShortAboutUS from '@/components/ShortAboutUs'
 import Statistics from '@/components/Statistics'
 import ContactUsSection from '@/components/ContactUsSection'
+import Footer from '@/components/Footer'
 export default {
   name: 'home',
   components: {
@@ -21,7 +22,7 @@ export default {
     ShortAboutUS,
     VueSlider,
     Statistics,
-    ContactUsSection
+    ContactUsSection,
   }
 }
 </script>
