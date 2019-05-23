@@ -97,43 +97,43 @@
             تم, كان للجزر واقتصار بحث عل. نفس بقعة وقبل الفرنسي تم, كا مكّن
             حالية و</p>
         <div class="container company-structure">
-            <div class="d-flex flex-row text-center">
-               <div class="col-3 item alsdi-hoverable">
-                    <div class="icon-section">
-                        <i class="fas fa-bullseye fa-3x"></i>
+            <div class="d-flex flex-wrap">
+               <div class="item alsdi-hoverable m-1 d-flex flex-column align-items-center justify-content-center">
+                    <div class="icon-section mb-3">
+                        <i class="fas fa-users fa-3x"></i>
                     </div>
                     <div class="text-section">
-                        <h4>نفس بقعة</h4>
+                        <h4>تطوير فريق عمل محترف</h4>
                     </div>
                 </div>  
-                <div class="col-3 item alsdi-hoverable">
-                    <div class="icon-section">
-                        <i class="fas fa-bullseye fa-3x"></i>
+                <div class="item alsdi-hoverable m-1 d-flex flex-column align-items-center justify-content-center">
+                    <div class="icon-section mb-3">
+                        <i class="fas fa-feather-alt fa-3x"></i>
                     </div>
                     <div class="text-section">
-                        <h4>نفس بقعة</h4>
+                        <h4>اتباع نظم جودة عالمي</h4>
                     </div>
-                </div>  
-                <div class="col-3 item alsdi-hoverable">
-                    <div class="icon-section">
-                        <i class="fas fa-bullseye fa-3x"></i>
-                    </div>
-                    <div class="text-section">
-                        <h4>نفس بقعة</h4>
-                    </div>
-                </div>  
-                <div class="col-3 item alsdi-hoverable">
-                    <div class="icon-section">
-                        <i class="fas fa-bullseye fa-3x"></i>
+                </div>     
+                <div class="item alsdi-hoverable m-1 d-flex flex-column align-items-center justify-content-center">
+                    <div class="icon-section mb-3">
+                        <i class="fas fa-handshake fa-3x"></i>
                     </div>
                     <div class="text-section">
-                        <h4>نفس بقعة</h4>
+                        <h4>التواصل بشكل مناسب مع العملاء</h4>
                     </div>
-                </div>      
-                          
+                </div>   
+                <div class="item alsdi-hoverable m-1 d-flex flex-column align-items-center justify-content-center">
+                    <div class="icon-section mb-3">
+                        <i class="fas fa-fingerprint fa-3x"></i>
+                    </div>
+                    <div class="text-section">
+                        <h4>تنفيذ مشروعات مميزة</h4>
+                    </div>
+                </div>       
             </div>
         </div>
         <h3 class="mt-3 mb-3">كلمة من المدير العام</h3>
+        <h1>-تحت التنفيذ-</h1>
     </div>
   </div>
 </template>
@@ -166,9 +166,12 @@ export default {
   .company-structure {
       .item {
           background-color: $alsdi-white;
-          padding: 10px;
-          margin: 0 5px;
+          padding: 30px;
+          height: 200px;
           border: 2px solid $alsdi-black;
+          min-height: 200px;
+          min-width: 200px;
+          flex: 1;
       }
   }
 }

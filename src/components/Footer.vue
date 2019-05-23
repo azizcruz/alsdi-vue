@@ -1,7 +1,7 @@
 <template>
     <div class="alsdi-footer">
         <div class="text-left">
-            <h3>جميع الحقوق محفوظة 2019</h3>
+            <h6>جميع الحقوق محفوظة 2019</h6>
         </div>
     </div>
 </template>

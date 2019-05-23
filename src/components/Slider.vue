@@ -1,10 +1,10 @@
 <template>
     <div class="alsdi-slider" :style="{height: sliderHeight}">
         <div class="slick-slider">
-            <div class="alsdi-slider-image" :style="{backgroundImage: `url('${require('@/assets/img01.jpg')}')` }"></div>
-            <div class="alsdi-slider-image" :style="{backgroundImage: `url('${require('@/assets/img01.jpg')}')` }"></div>
-            <div class="alsdi-slider-image" :style="{backgroundImage: `url('${require('@/assets/img01.jpg')}')` }"></div>
-            <div class="alsdi-slider-image" :style="{backgroundImage: `url('${require('@/assets/img01.jpg')}')` }"></div>
+            <div class="alsdi-slider-image" :style="{backgroundImage: `url('${require('@/assets/about-img01.jpeg')}')` }"></div>
+            <div class="alsdi-slider-image" :style="{backgroundImage: `url('${require('@/assets/design01.jpg')}')` }"></div>
+            <div class="alsdi-slider-image" :style="{backgroundImage: `url('${require('@/assets/img03.jpg')}')` }"></div>
+            <div class="alsdi-slider-image" :style="{backgroundImage: `url('${require('@/assets/img05.jpg')}')` }"></div>
         </div>
         
     </div>
@@ -34,6 +34,8 @@ export default {
                         arrows: true,
                         draggable: true,
                         edgeFriction: .20,
+                        autoplay: true,
+                        autoplaySpeed: 4000,
                         swipe: true,
                         rtl: false,
                         prevArrow: '<span class="slick-prev alsdi-slick-arrows alsdi-prev-arrow"><i class="fas fa-chevron-left fa-3x"></i></span>',
