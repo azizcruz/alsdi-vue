@@ -8,8 +8,8 @@
         <AboutUsInfo />
       </div>
     </div>
-    <AboutUsStrategy />
-    <AboutUsManagerWord />    
+    <AboutUsManagerWord />  
+    <AboutUsStrategy />  
   </div>
 </template>
 

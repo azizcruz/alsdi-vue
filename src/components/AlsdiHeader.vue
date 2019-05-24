@@ -19,26 +19,11 @@
             من نحن
           </li>
         </router-link>
-        <!-- <router-link to="/our-services">
+        <router-link  to="/our-services">
           <li>
-            مشاريعنا
+            خدماتنا
           </li>
         </router-link>
-        <router-link to="/our-services">
-          <li>
-            البوم الصور
-          </li>
-        </router-link>
-        <router-link to="/our-services">
-          <li>
-            فرص العمل
-          </li>
-        </router-link>
-        <router-link to="/our-services">
-          <li>
-            تواصل معنا
-          </li>
-        </router-link> -->
       </ul>
     </div>
   </div>

@@ -24,6 +24,7 @@
     "vue-carousel": "^0.18.0",
     "vue-parallaxy": "^1.1.1",
     "vue-router": "^3.0.3",
+    "vue-scrollactive": "^0.8.0",
     "vue-slick": "^1.1.15"
   },
   "devDependencies": {

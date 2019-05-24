@@ -1,5 +1,5 @@
 <template>
-  <div class="about-us-manager-word text-right">
+  <div class="about-us-manager-word text-right mb-3">
     <h3 class="mt-3 mb-3 font-weight-bold">كلمة من المدير العام</h3>
     <div
       class="manager-word d-flex flex-wrap"
@@ -8,8 +8,8 @@
         backgroundPosition: 'center'
       }"
     >
-      <div class="manager-image col-sm-12 col-md-8"></div>
-      <div class="manager-text text-justify text-right col-sm-12 col-md-4 p-3 pl-5">
+      <div class="manager-image col-sm-12 col-md-5"></div>
+      <div class="manager-text text-justify text-right col-sm-12 col-md-7 p-3 pl-5">
         <h3>Lorem ipsum dolor sit.</h3>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero
