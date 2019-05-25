@@ -1,11 +1,18 @@
 <template>
   <div class="our-services">
+    <ul class="test">
+      <li v-for="(data, index) in someData" :class="data.active" :key="index" @click="slideTo(index)">
+        <i :class="data.icon"></i>
+      </li>
+    </ul>
     <hooper
       :vertical="true"
       style="height: 100vh"
       :itemsToShow="1"
       :centerMode="true"
       :transition="500"
+      ref="carousel"
+      @slide="changeActive"
     >
       <slide>
         <div
@@ -97,7 +104,6 @@
           </div>
         </div>
       </slide>
-      <hooper-pagination slot="hooper-addons"></hooper-pagination>
     </hooper>
   </div>
 </template>
@@ -115,6 +121,35 @@ export default {
     Hooper,
     Slide,
     HooperPagination
+  },
+   data () {
+    return {
+      carouselData: 0,
+      someData: [
+        {
+          icon: "fas fa-home fa-2x",
+          active: "active"
+        },
+        {
+          icon: "fas fa-ruler-horizontal fa-2x",
+          active: false
+        },
+        {
+          icon: "fab fa-keycdn fa-2x",
+          active: false
+        },
+      ]
+    }
+  },
+  methods: {
+    slideTo(index) {
+      this.$refs.carousel.slideTo(index);
+    },
+    changeActive(data) {
+      let currentElement = $('.test').children().eq(data.currentSlide);
+      $(".test li.active").removeClass('active')
+      currentElement.addClass('active')
+    }
   }
 };
 </script>
@@ -125,6 +160,24 @@ export default {
 @import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
 
 .our-services {
+  .test {
+    position: fixed;
+    left: 0;
+    top: 44%;
+    background-color: #fff;
+    padding: 10px;
+    z-index: 100000;
+
+    li {
+      cursor: pointer;
+      margin-bottom: 10px;
+      &.active {
+        i {
+          color: $alsdi-gold;
+        }
+      }
+    }
+  }
   .our-services-section {
     background-size: cover;
     background-position: center;
