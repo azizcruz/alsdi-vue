@@ -3,9 +3,6 @@ import App from './App.vue'
 import router from './router'
 import $ from 'jquery'
 global.$ = $
-import VueScrollactive from 'vue-scrollactive';
-
-Vue.use(VueScrollactive)
 
 // Simplebar.
 import 'jquery.nicescroll'

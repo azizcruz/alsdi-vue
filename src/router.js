@@ -25,6 +25,9 @@ export default new Router({
       path: '/our-services',
       name: 'our-services',
       component: OurServices
-    }
-  ]
+    },
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
 })

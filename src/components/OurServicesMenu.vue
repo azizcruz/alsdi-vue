@@ -1,41 +1,11 @@
 <template>
   <div class="our-services-menu text-right">
-    <scrollactive class="my-nav alsdi-our-services-nav">
-      <div class="nav-wrappe">
-          <a
-        href="#enternal-designs"
-        class="alsdi-our-services-link scrollactive-item"
-      >
-        <div class="service-block">
-          <h3>تصميمات داخلية</h3>
-        </div>
-      </a>
-      <a
-        href="#enternal-designs"
-        class="alsdi-our-services-link scrollactive-item"
-      >
-        <div class="service-block">
-          <h3>تصميمات داخلية</h3>
-        </div>
-      </a>
-      <a
-        href="#enternal-designs"
-        class="alsdi-our-services-link scrollactive-item"
-      >
-        <div class="service-block">
-          <h3>تصميمات داخلية</h3>
-        </div>
-      </a>
-      <a
-        href="#enternal-designs"
-        class="alsdi-our-services-link scrollactive-item"
-      >
-        <div class="service-block">
-          <h3>تصميمات داخلية</h3>
-        </div>
-      </a>
-      </div>
-    </scrollactive>
+    <div class="section-indicator">
+      <div class="msection msection-1 nav1 active">Home</div>
+      <div class="msection msection-2 nav2">Page1</div>
+      <div class="msection msection-3 nav3">Page2</div>
+      <div class="msection msection-4 nav4">Page3</div>
+    </div>
   </div>
 </template>
 
@@ -48,27 +18,7 @@ export default {};
 @import "@/assets/_alsdi-framework.scss";
 
 .our-services-menu {
-  .alsdi-our-services-nav {
-    position: fixed;
-    right: 25%;
-    top: 10px;
-    z-index: 1001;
-
-    a {
-      padding: 10px;
-      color: $alsdi-white;
-
-      &:hover {
-        text-decoration: none;
-        color: $alsdi-white;
-      }
-
-      .service-block {
-        border-right: 4px solid $alsdi-white;
-        padding: 20px;
-      }
-    }
-  }
+  
 }
 </style>
 

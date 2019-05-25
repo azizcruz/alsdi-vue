@@ -70,6 +70,8 @@ export default {};
       border: 2px solid $alsdi-black;
       min-height: 200px;
       min-width: 200px;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
       flex: 1;
     }
   }

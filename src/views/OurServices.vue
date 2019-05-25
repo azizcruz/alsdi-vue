@@ -1,7 +1,5 @@
 <template>
     <div class="alsdi-our-services">
-        <OurServicesHeaderImage />
-        <OurServicesMenu />
         <OurServicesSection />
     </div>
 </template>

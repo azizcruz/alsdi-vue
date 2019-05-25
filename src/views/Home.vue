@@ -9,25 +9,24 @@
 </template>
 
 <script>
-import Slider from '@/components/Slider'
-import VueSlider from '@/components/VueSlider'
-import ShortAboutUS from '@/components/ShortAboutUs'
-import Statistics from '@/components/Statistics'
-import ContactUsSection from '@/components/ContactUsSection'
-import Footer from '@/components/Footer'
+import Slider from "@/components/Slider";
+import VueSlider from "@/components/VueSlider";
+import ShortAboutUS from "@/components/ShortAboutUs";
+import Statistics from "@/components/Statistics";
+import ContactUsSection from "@/components/ContactUsSection";
+import Footer from "@/components/Footer";
 export default {
-  name: 'home',
+  name: "home",
   components: {
     Slider,
     ShortAboutUS,
     VueSlider,
     Statistics,
-    ContactUsSection,
+    ContactUsSection
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>
 
