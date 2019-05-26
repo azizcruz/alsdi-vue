@@ -118,6 +118,8 @@ export default {
   $primary-color: #fff;
   $background-color: linear-gradient(54deg, #9164ff, #8bfff4);
   $text-color: #3c3f64;
+  max-width: 100%;
+  overflow: hidden;
 
   *,
   *::before,

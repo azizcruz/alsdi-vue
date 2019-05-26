@@ -2,7 +2,7 @@
   <div id="app ds" class="app">
     <div>
       <div class="d-flex flex-md-row flex-wrap">
-        <div class="content-side col-xs-12 col-md-9 p-0">
+        <div class="alsdi-content-wrapper col-xs-12 col-md-9 p-0">
         <transition
         name="fade"
         mode="out-in"
@@ -13,9 +13,9 @@
         <div class="col-md-3 d-none d-md-block">
             <AlsdiHeader />
         </div>
-        <div class="alsdi-footer-wrapper">
+        <!-- <div class="alsdi-footer-wrapper">
           <Footer></Footer>
-        </div>
+        </div> -->
       </div>  
     </div>    
   </div>
@@ -78,7 +78,7 @@ body {
     -webkit-box-flex:1;
     -ms-flex:1;
     flex:1;
-    min-height: 90vh;
+    min-height: 100vh;
   }
   .alsdi-footer-wrapper {
   -webkit-box-flex:1;
