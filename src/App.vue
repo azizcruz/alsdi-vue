@@ -79,6 +79,7 @@ body {
     -ms-flex:1;
     flex:1;
     min-height: 100vh;
+    overflow: hidden;
   }
   .alsdi-footer-wrapper {
   -webkit-box-flex:1;

@@ -24,6 +24,11 @@
             خدماتنا
           </li>
         </router-link>
+        <router-link to="/gallery">
+          <li>
+            معرض الصور
+          </li>
+        </router-link>
       </ul>
     </div>
   </div>
