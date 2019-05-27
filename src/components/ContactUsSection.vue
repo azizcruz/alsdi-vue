@@ -1,5 +1,5 @@
 <template>
-  <div class="alsdi-contact-us alsdi-section d-flex flex-wrap">
+  <div class="alsdi-contact-us mt-3 d-flex flex-wrap">
     <div
       class="alsdi-contact-us-image col-xs-12 col-md-6 p-0"
       :style="{

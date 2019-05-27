@@ -29,6 +29,11 @@
             معرض الصور
           </li>
         </router-link>
+        <router-link to="/contact-us">
+          <li>
+            تواصل معنا
+          </li>
+        </router-link>
       </ul>
     </div>
   </div>

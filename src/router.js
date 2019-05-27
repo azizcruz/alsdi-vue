@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import AboutUs from './views/AboutUs.vue'
 import OurServices from './views/OurServices.vue'
 import Gallery from './views/Gallery.vue'
+import ContactUs from './views/ContactUs.vue'
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ export default new Router({
       path: '/gallery',
       name: 'gallery',
       component: Gallery
+    },
+    {
+      path: '/contact-us',
+      name: 'contact-us',
+      component: ContactUs
     },
   ],
   scrollBehavior (to, from, savedPosition) {
