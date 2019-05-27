@@ -1,15 +1,20 @@
 <template>
   <div class="gallery-group">
-    <div class="d-flex flex-wrap justify-content-between align-items-between">
-      <gallery :images="currentImages" :index="index" @close="index = null"></gallery>
+    <div class="d-flex flex-wrap align-items-between">
+      <gallery
+        :images="currentImages"
+        :index="index"
+        @close="index = null"
+      ></gallery>
       <div
         class="b col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center"
-        v-for="(ir, ind) in imagesWrapper" :key="ind"
+        v-for="(imageWrap, indexWrap) in imagesWrapper"
+        :key="indexWrap"
       >
         <div
           class="image"
-          v-for="(image, imageIndex) in ir.images"
-          @click="setCurrentImages(imageIndex, ir.images)"
+          v-for="(image, imageIndex) in imageWrap.images.slice(0, 3)"
+          @click="setCurrentImages(imageIndex, imageWrap.images)"
           :key="imageIndex"
           :style="{
             backgroundImage: 'url(' + image + ')',
@@ -17,7 +22,13 @@
             top: imageIndex / 2 + 'rem',
             left: imageIndex / 2 + 'rem'
           }"
-        ></div>
+        >
+          <div v-if="imageIndex == 2" class="album-name">
+            <router-link to="/">
+              تفاصيل المشروع
+            </router-link>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -58,8 +69,8 @@ export default {
   },
   methods: {
     setCurrentImages(imageIndex, currentImages) {
-      this.index = imageIndex
-      this.currentImages = currentImages
+      this.index = imageIndex;
+      this.currentImages = currentImages;
     }
   }
 };
@@ -82,22 +93,47 @@ export default {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      width: 80%;
-      height: 80%;
+      width: 60%;
+      height: 60%;
+      border-radius: 15px;
+      .album-name {
+        background-color: $alsdi-gold;
+        padding: 10px;
+        display: inline;
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+
+        a {
+          color: $alsdi-black;
+        }
+      }
     }
     // Small devices (landscape phones, 576px and up)
     @media (min-width: 320px) {
       min-height: 80vw;
+      .image {
+        width: 90%;
+        height: 90%;
+      }
     }
 
     // Medium devices (tablets, 768px and up)
     @media (min-width: 768px) {
       min-height: 35vw;
+      .image {
+        width: 80%;
+        height: 80%;
+      }
     }
 
     // Large devices (desktops, 992px and up)
     @media (min-width: 992px) {
       min-height: 18vw;
+      .image {
+        width: 60%;
+        height: 60%;
+      }
     }
 
     // Extra large devices (large desktops, 1200px and up)
