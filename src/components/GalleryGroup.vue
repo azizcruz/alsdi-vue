@@ -76,13 +76,27 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/_alsdi-framework.scss";
 @import "@/assets/_colors.scss";
+
+
+
 .gallery-group {
   padding: 10px;
   .blueimp-gallery-display {
     display: none;
+  }
+  .blueimp-gallery {
+      .close,
+      .next,
+      .prev {
+        color: $alsdi-white !important;
+
+        &:hover {
+          color: $alsdi-gold !important;
+        }
+      }
   }
   cursor: pointer;
   .b {
@@ -93,8 +107,6 @@ export default {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
-      width: 60%;
-      height: 60%;
       border-radius: 15px;
       .album-name {
         background-color: $alsdi-gold;
@@ -131,14 +143,16 @@ export default {
     @media (min-width: 992px) {
       min-height: 18vw;
       .image {
-        width: 60%;
-        height: 60%;
+        width: 80%;
+        height: 80%;
       }
     }
 
     // Extra large devices (large desktops, 1200px and up)
     @media (min-width: 1200px) {
       min-height: 18vw;
+      width: 60%;
+      height: 60%;
     }
   }
 }
