@@ -1,5 +1,5 @@
 <template>
-  <div class="alsdi-contact-us">
+  <div class="alsdi-contact-us-tab">
     <div class="d-flex flex-column align-items-center text-center mb-5 form-info-control">
       <div :class="{'active-section': activeTab == 1}" @click="makeActive(1)">أرسل ايميل</div>
       <div :class="{'active-section': activeTab == 2}" @click="makeActive(2)">وسائل التواصل</div>
@@ -83,12 +83,12 @@ export default {
 @import "@/assets/_alsdi-framework.scss";
 
 
-.alsdi-contact-us {
+.alsdi-contact-us-tab {
     background-color: $alsdi-gold;
     padding: 20px;
 
     .contact-us-tab {
-        min-height: 70.5vh;
+        height: 80vh;
     }
 
     .contact-form {
@@ -96,6 +96,7 @@ export default {
     }
 
     .form-info-control {
+      min-height: 20vh;
         
         & > div {
             background-color: $alsdi-black;
