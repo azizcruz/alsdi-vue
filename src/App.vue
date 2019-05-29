@@ -36,6 +36,7 @@ export default {
 
 <style lang="scss">
 @import url("//www.fontstatic.com/f=vip-hakm-bold");
+@import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
 @import url("https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css");
 body {
   font-family: 'vip-hakm-bold', Helvetica, Arial, sans-serif !important;

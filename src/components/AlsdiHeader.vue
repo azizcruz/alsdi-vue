@@ -36,6 +36,35 @@
         </router-link>
       </ul>
     </div>
+    <div class="d-flex justify-content-center social-icons mt-auto">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fab fa-twitter fa-2x"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fab fa-facebook-square fa-2x"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fab fa-snapchat fa-2x"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fab fa-whatsapp fa-2x"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -94,6 +123,20 @@ export default {};
             background-color: lighten($alsdi-gold, 10%);
             padding-right: 2rem;
           }
+        }
+      }
+    }
+  }
+
+  .social-icons {
+    .nav-item {
+      a {
+        color: $alsdi-gold;
+        -webkit-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          color: $alsdi-white;
         }
       }
     }

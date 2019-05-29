@@ -160,7 +160,6 @@ export default {
 
 <style lang="scss">
 @import "@/assets/_alsdi-framework.scss";
-@import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
 @import "@/assets/_colors.scss";
 
 .alsdi-vue-slider {
