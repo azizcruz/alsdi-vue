@@ -18,13 +18,14 @@ import AboutUsImages from "@/components/AboutUsImages"
 import AboutUsInfo from "@/components/AboutUsInfo"
 import AboutUsManagerWord from "@/components/AboutUsManagerWord"
 import AboutUsStrategy from "@/components/AboutUsStrategy"
+
 export default {
   name: "about-us",
   components: {
     AboutUsImages,
     AboutUsInfo,
     AboutUsManagerWord,
-    AboutUsStrategy
+    AboutUsStrategy,
   }
 }
 </script>

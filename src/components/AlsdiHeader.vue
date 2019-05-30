@@ -4,7 +4,7 @@
       class="logo-section d-flex justify-content-center align-items-center text-center"
     >
       <router-link to="/">
-        <img src="@/assets/logo.png" class="alsdi-logo" alt="شعار الصدي" />
+        <img src="@/assets/logo.png" class="alsdi-logo img-fluid" alt="شعار الصدي" />
       </router-link>
     </div>
     <div class="navlinks-section">
@@ -22,6 +22,11 @@
         <router-link to="/our-services">
           <li>
             خدماتنا
+          </li>
+        </router-link>
+        <router-link to="/our-projects">
+          <li>
+            مشاريعنا
           </li>
         </router-link>
         <router-link to="/gallery">
@@ -84,11 +89,11 @@ export default {};
   height: 100vh;
 
   .logo-section {
-    height: 15vw;
+    min-height: 20vh;
     border-bottom: 2px solid;
+    padding: 20px;
     .alsdi-logo {
-      width: 200px;
-      height: 200px;
+      max-width: 50%;
     }
   }
 

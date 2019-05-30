@@ -190,6 +190,7 @@ export default {
   }
   .card {
     margin: 15px;
+    min-height: 400px;
   }
 }
 </style>

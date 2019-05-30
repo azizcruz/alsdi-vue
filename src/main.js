@@ -5,7 +5,9 @@ import $ from 'jquery'
 global.$ = $
 
 // Simplebar.
-import 'jquery.nicescroll'
+import vuescroll from 'vuescroll';
+Vue.use(vuescroll);
+
 //Bootstrap framework
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-v4-rtl/dist/css/bootstrap.min.css'

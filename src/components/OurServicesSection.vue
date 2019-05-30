@@ -1,6 +1,6 @@
 <template>
   <div class="our-services">
-    <ul class="test">
+    <ul class="our-services-menu">
       <li v-for="(data, index) in someData" :class="data.active" :key="index" @click="slideTo(index)">
         <i :class="data.icon"></i>
       </li>
@@ -146,8 +146,8 @@ export default {
       this.$refs.carousel.slideTo(index);
     },
     changeActive(data) {
-      let currentElement = $('.test').children().eq(data.currentSlide);
-      $(".test li.active").removeClass('active')
+      let currentElement = $('.our-services-menu').children().eq(data.currentSlide);
+      $(".our-services-menu li.active").removeClass('active')
       currentElement.addClass('active')
     }
   }
@@ -159,7 +159,7 @@ export default {
 @import "@/assets/_alsdi-framework.scss";
 
 .our-services {
-  .test {
+  .our-services-menu {
     position: fixed;
     left: 0;
     top: 44%;

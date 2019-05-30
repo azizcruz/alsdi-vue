@@ -2,36 +2,30 @@
   <div id="app ds" class="app">
     <div>
       <div class="d-flex flex-md-row flex-wrap">
-        <div class="alsdi-content-wrapper col-xs-12 col-md-9 p-0">
-        <transition
-        name="fade"
-        mode="out-in"
-        >
-          <router-view/>
-        </transition>
-        </div>
+          <div class="alsdi-content-wrapper col-xs-12 col-md-9 p-0">
+            <transition name="fade" mode="out-in">
+              <router-view />
+            </transition>
+          </div>
         <div class="col-md-3 d-none d-md-block">
-            <AlsdiHeader />
+          <AlsdiHeader />
         </div>
-        <!-- <div class="alsdi-footer-wrapper">
-          <Footer></Footer>
-        </div> -->
-      </div>  
-    </div>    
+      </div>
+    </div>
   </div>
 </template>
 <script>
-
-import AlsdiHeader from '@/components/AlsdiHeader.vue'
-import Footer from '@/components/Footer.vue'
+import AlsdiHeader from "@/components/AlsdiHeader.vue";
+import Footer from "@/components/Footer.vue";
+import vuescroll from 'vuescroll';
 
 
 export default {
   components: {
     AlsdiHeader,
-    Footer
+    vuescroll
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -39,8 +33,8 @@ export default {
 @import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
 @import url("https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css");
 body {
-  font-family: 'vip-hakm-bold', Helvetica, Arial, sans-serif !important;
-  background-color: rgba(0, 0, 0, .6) !important;
+  font-family: "vip-hakm-bold", Helvetica, Arial, sans-serif !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
   overflow-x: hidden;
   background-image: url("./assets/bg-img.jpeg");
   background-attachment: fixed;
@@ -57,7 +51,7 @@ body {
     right: 0;
     bottom: 0;
     z-index: -1;
-    background-color: rgba(0, 0, 0, .7)
+    background-color: rgba(0, 0, 0, 0.7);
   }
 }
 #app {
@@ -71,21 +65,21 @@ body {
 
 .app {
   .alsdi-header-wrapper {
-    -webkit-box-flex:1;
-    -ms-flex:1;
-    flex:1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
   }
   .alsdi-content-wrapper {
-    -webkit-box-flex:1;
-    -ms-flex:1;
-    flex:1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     min-height: 100vh;
     overflow: hidden;
   }
   .alsdi-footer-wrapper {
-  -webkit-box-flex:1;
-  -ms-flex:1;
-  flex:1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
   }
 }
 
@@ -103,7 +97,6 @@ div {
 
 .fade-enter,
 .fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
-
 </style>

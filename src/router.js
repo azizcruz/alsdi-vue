@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import AboutUs from './views/AboutUs.vue'
 import OurServices from './views/OurServices.vue'
+import OurProjects from './views/OurProjects.vue'
 import Gallery from './views/Gallery.vue'
 import ContactUs from './views/ContactUs.vue'
 
@@ -29,6 +30,11 @@ export default new Router({
       component: OurServices
     },
     {
+      path: '/our-projects',
+      name: 'our-projects',
+      component: OurProjects
+    },
+    {
       path: '/gallery',
       name: 'gallery',
       component: Gallery
@@ -39,7 +45,7 @@ export default new Router({
       component: ContactUs
     },
   ],
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior () {
     return { x: 0, y: 0 };
   }
 })

@@ -1,20 +1,19 @@
 <template>
-    <div class="alsdi-our-services">
-        <OurServicesSection />
-    </div>
+    <OurServicesSection />
 </template>
 
 <script>
 import OurServicesSection from '@/components/OurServicesSection'
 
 export default {
-    name: "our-services",
+    name: "our-projects",
     components: {
         OurServicesSection
     }
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
+
