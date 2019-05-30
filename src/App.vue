@@ -2,12 +2,12 @@
   <div id="app ds" class="app">
     <div>
       <div class="d-flex flex-md-row flex-wrap">
-          <div class="alsdi-content-wrapper col-xs-12 col-md-9 p-0">
+          <div class="alsdi-content-wrapper col-xs-9 col-md-9 p-0">
             <transition name="fade" mode="out-in">
               <router-view />
             </transition>
           </div>
-        <div class="col-md-3 d-none d-md-block">
+        <div class="col-md-3" id="alsdi-header-for-mobile">
           <AlsdiHeader />
         </div>
       </div>
@@ -74,7 +74,6 @@ body {
     -ms-flex: 1;
     flex: 1;
     min-height: 100vh;
-    overflow: hidden;
   }
   .alsdi-footer-wrapper {
     -webkit-box-flex: 1;
