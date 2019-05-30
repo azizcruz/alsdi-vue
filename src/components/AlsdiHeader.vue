@@ -92,8 +92,14 @@ export default {
       $(this).toggleClass("menu-btn-active");
       $('.side-header').toggleClass("active-side-header-for-mobile")
       $('.app').toggleClass("alsdi-overflow-hidden")
-      // $('.logo-section').toggleClass('p-5')
+      $('.logo-section').toggleClass('p-5')
     });
+
+    $(".side-header a").on('click', function() {
+      $('.side-header').toggleClass("active-side-header-for-mobile")
+      $('.menu-btn').toggleClass("menu-btn_active");
+      $('.menu-btn').toggleClass("menu-btn-active");
+    })
   }
 };
 </script>
