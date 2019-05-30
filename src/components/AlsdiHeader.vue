@@ -99,6 +99,7 @@ export default {
       $('.side-header').toggleClass("active-side-header-for-mobile")
       $('.menu-btn').toggleClass("menu-btn_active");
       $('.menu-btn').toggleClass("menu-btn-active");
+      $('.logo-section').toggleClass('p-5')
     })
   }
 };
