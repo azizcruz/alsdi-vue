@@ -91,6 +91,8 @@ export default {
       $(this).toggleClass("menu-btn_active");
       $(this).toggleClass("menu-btn-active");
       $('.side-header').toggleClass("active-side-header-for-mobile")
+      $('.app').toggleClass("alsdi-overflow-hidden")
+      // $('.logo-section').toggleClass('p-5')
     });
   }
 };
@@ -177,8 +179,7 @@ export default {
     &.active-side-header-for-mobile {
       display: flex !important;
       z-index: 999999;
-      overflow: hidden;
-      opacity: .9;
+      overflow-y: scroll;
     }
   }
 
@@ -188,7 +189,6 @@ export default {
   }
 
   .logo-section {
-    min-height: 20vh;
     border-bottom: 2px solid;
     padding: 20px;
     .alsdi-logo {
