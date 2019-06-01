@@ -1,14 +1,14 @@
 <template>
-    <OurServicesSection />
+    <VerticalSliderShow />
 </template>
 
 <script>
-import OurServicesSection from '@/components/OurServicesSection'
+import VerticalSliderShow from '@/components/VerticalSliderShow'
 
 export default {
     name: "our-projects",
     components: {
-        OurServicesSection
+        VerticalSliderShow
     }
 }
 </script>

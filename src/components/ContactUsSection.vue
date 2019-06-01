@@ -36,10 +36,13 @@ export default {};
 
   .alsdi-contact-us-image {
       min-height: 400px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 30%;
     .contact-us-img {
       background-size: cover;
       background-attachment: fixed;
-      background-position: center;
+      background-position: 50%;
       background-repeat: no-repeat;
       height: 100%;
     }

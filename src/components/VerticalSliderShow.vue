@@ -1,6 +1,6 @@
 <template>
-  <div class="our-services">
-    <ul class="our-services-menu">
+  <div class="vertical-slider-section">
+    <ul class="vertical-slider-section-menu">
       <li v-for="(data, index) in someData" :class="data.active" :key="index" @click="slideTo(index)">
         <i :class="data.icon"></i>
       </li>
@@ -16,10 +16,7 @@
     >
       <slide>
         <div
-          class="our-services-section d-flex flex-column"
-          :style="{
-            backgroundImage: `url('${require('@/assets/img08.jpeg')}')`
-          }"
+          class="vertical-slider-section-image d-flex flex-column"
         >
           <div class="overlay"></div>
           <div
@@ -46,10 +43,7 @@
       </slide>
       <slide>
         <div
-          class="our-services-section d-flex flex-column"
-          :style="{
-            backgroundImage: `url('${require('@/assets/img09.jpeg')}')`
-          }"
+          class="vertical-slider-section-image d-flex flex-column"
         >
           <div class="overlay"></div>
         <div
@@ -76,10 +70,7 @@
       </slide>
       <slide>
         <div
-          class="our-services-section d-flex flex-column"
-          :style="{
-            backgroundImage: `url('${require('@/assets/img10.jpeg')}')`
-          }"
+          class="vertical-slider-section-image d-flex flex-column"
         >
           <div class="overlay"></div>
         <div
@@ -115,7 +106,8 @@ import "hooper/dist/hooper.css";
 
 export default {
   props: {
-    image: String
+    sliderData: Array,
+    iconsArray: Array
   },
   components: {
     Hooper,
@@ -146,8 +138,8 @@ export default {
       this.$refs.carousel.slideTo(index);
     },
     changeActive(data) {
-      let currentElement = $('.our-services-menu').children().eq(data.currentSlide);
-      $(".our-services-menu li.active").removeClass('active')
+      let currentElement = $('.vertical-slider-section-menu').children().eq(data.currentSlide);
+      $(".vertical-slider-section-menu li.active").removeClass('active')
       currentElement.addClass('active')
     }
   }
@@ -158,8 +150,8 @@ export default {
 @import "@/assets/_colors.scss";
 @import "@/assets/_alsdi-framework.scss";
 
-.our-services {
-  .our-services-menu {
+.vertical-slider-section {
+  .vertical-slider-section-menu {
     position: fixed;
     left: 0;
     top: 44%;
@@ -177,7 +169,7 @@ export default {
       }
     }
   }
-  .our-services-section {
+  .vertical-slider-section-image {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

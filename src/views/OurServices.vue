@@ -1,16 +1,16 @@
 <template>
     <div class="alsdi-our-services">
-        <OurServicesSection />
+        <VerticalSliderShow />
     </div>
 </template>
 
 <script>
-import OurServicesSection from '@/components/OurServicesSection'
+import VerticalSliderShow from '@/components/VerticalSliderShow'
 
 export default {
     name: "our-services",
     components: {
-        OurServicesSection
+        VerticalSliderShow
     }
 }
 </script>
