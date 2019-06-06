@@ -18,13 +18,17 @@
 import AlsdiHeader from "@/components/AlsdiHeader.vue";
 import Footer from "@/components/Footer.vue";
 import vuescroll from 'vuescroll';
+import { log } from 'util';
 
 
 export default {
   components: {
     AlsdiHeader,
     vuescroll
-  }
+  },
+  mounted() {
+    this.$store.dispatch('loadPagesDate')
+  },
 };
 </script>
 

@@ -83,24 +83,41 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
   name: "side-header",
+  data() {
+    return {
+      navlinks: ""
+    }
+  },
   mounted() {
+    console.log(this.pages)    
     $(".menu-btn").on("click", function(e) {
       e.preventDefault();
       $(this).toggleClass("menu-btn_active");
       $(this).toggleClass("menu-btn-active");
       $('.side-header').toggleClass("active-side-header-for-mobile")
       $('.app').toggleClass("alsdi-overflow-hidden")
-      $('.logo-section').toggleClass('p-5')
+      if($(window).width() <= 768) {
+        $('.logo-section').toggleClass('p-5')
+      }
     });
 
     $(".side-header a").on('click', function() {
       $('.side-header').toggleClass("active-side-header-for-mobile")
       $('.menu-btn').toggleClass("menu-btn_active");
       $('.menu-btn').toggleClass("menu-btn-active");
-      $('.logo-section').toggleClass('p-5')
+      if($(window).width() <= 768) {
+        $('.logo-section').toggleClass('p-5')
+      }
     })
+  },
+  computed: {
+    ...mapState([
+      'pages'
+    ])
   }
 };
 </script>
