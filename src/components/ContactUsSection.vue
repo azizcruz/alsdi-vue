@@ -3,7 +3,7 @@
     <div
       class="alsdi-contact-us-image col-xs-12 col-md-6 p-0"
       :style="{
-        backgroundImage: `url('${require('@/assets/contact-img.jpeg')}')`
+        backgroundImage: `url(${comingData.image})`
       }"
     >
       <div class="contact-us-img"></div>
@@ -12,18 +12,23 @@
       <div
         class="alsdi-contact-card h-100 d-flex flex-column justify-content-center align-items-center"
       >
-        <h1 class="mb-3 bold">تواصل معنا</h1>
+        <h1 class="mb-3 bold">{{ comingData.section_header }}</h1>
         <h3>:عنواننا</h3>
-        <p>Kuwait-Stadt, Kuwait</p>
+        <p>{{ contactData.address }}</p>
         <h3>:اتصل بنا</h3>
-        <p>22454730 - 22454733</p>
+        <p>{{ contactData.telephone_number1 }} - {{ contactData.telephone_number2 }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: [
+    'comingData',
+    'contactData'
+  ]
+};
 </script>
 
 <style lang="scss" scoped>

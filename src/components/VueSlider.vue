@@ -1,6 +1,6 @@
 <template>
   <div class="alsdi-vue-slider text-center alsdi-section">
-    <h1 class="alsdi-header pb-2">خدماتنا</h1>
+    <h1 class="alsdi-header pb-2">{{ comingData.section_header }}</h1>
     <carousel
       :perPageCustom="[[320, 1], [768, 3], [1440, 4]]"
       :loop="true"
@@ -41,7 +41,8 @@ export default {
     Slide
   },
   props: [
-    'sliderData'
+    'sliderData',
+    'comingData'
   ]
 };
 </script>

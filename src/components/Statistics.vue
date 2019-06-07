@@ -1,16 +1,21 @@
 <template>
    <div class="alsdi-statistics text-center">
-       <h1 class="alsdi-header pb-2">احصائياتنا</h1>
-       <Timeline />
+       <h1 class="alsdi-header pb-2">{{ comingData.section_header }}</h1>
+       <Timeline :comingData="comingData.blocks" />
    </div>
 </template>
 
 <script>
 import Timeline from '@/components/Timeline'
+import {mapGetters } from "vuex";
+
 export default {
     components: {
         Timeline
-    }
+    },
+    props: [
+        'comingData'
+    ]
 }
 </script>
 

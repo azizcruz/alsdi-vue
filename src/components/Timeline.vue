@@ -2,43 +2,13 @@
   <div class="alsdi-timeline">
     <section class="timeline">
       <ul>
-        <li>
+        <li v-for="(stats, index) in comingData" :key="index">
           <div>
             <div class="discovery">
-              <p class="mt-1 counter" data-count="879">
+              <p class="mt-1 counter" :data-count="stats.paragraph">
                 0
               </p>
-              <h1>مشاريع منجزة</h1>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="discovery">
-              <p class="mt-1 counter" data-count="1274">
-                0
-              </p>
-              <h1>تصميمات داخلية</h1>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="discovery">
-              <p class="mt-1 counter" data-count="1098">
-                0
-              </p>
-              <h1>تصميمات خارجية</h1>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="discovery">
-              <p class="mt-1 counter" data-count="784">
-                0
-              </p>
-              <h1>عميل</h1>
+              <h1>{{ stats.header }}</h1>
             </div>
           </div>
         </li>
@@ -49,6 +19,9 @@
 
 <script>
 export default {
+  props: [
+    'comingData'
+  ],
   mounted() {
     var items = document.querySelectorAll(".alsdi-timeline .timeline li");
 
