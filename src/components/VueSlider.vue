@@ -11,134 +11,19 @@
       navigationNextLabel='<i class="fas fa-chevron-right fa-3x"></i>'
       navigationPrevLabel='<i class="fas fa-chevron-left fa-3x"></i>'
     >
-      <slide>
+      <slide v-for="(slide, index) in sliderData.slides" :key="index">
         <div
           class="card alsdi-card alsdi-card-background-image"
           :style="{
-            backgroundImage: `url('${require('@/assets/img04.jpg')}')`
+            backgroundImage: `url(${slide.image})`
           }"
         >
           <div class="card-body d-flex align-items-center h-100">
             <div class="overlay"></div>
             <div class="alsdi-card-content">
-              <h3 class="card-title">فقط لتعبئة المكان</h3>
+              <h3 class="card-title">{{ slide.header }}</h3>
               <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
-                الشعور بالسعادة، ولكن بفضل
-              </p>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide>
-        <div
-          class="card alsdi-card alsdi-card-background-image"
-          :style="{
-            backgroundImage: `url('${require('@/assets/img05.jpg')}')`
-          }"
-        >
-          <div class="card-body d-flex align-items-center h-100">
-            <div class="overlay"></div>
-            <div class="alsdi-card-content">
-              <h3 class="card-title">فقط لتعبئة المكان</h3>
-              <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
-                الشعور بالسعادة، ولكن بفضل
-              </p>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide>
-        <div
-          class="card alsdi-card alsdi-card-background-image"
-          :style="{
-            backgroundImage: `url('${require('@/assets/img06.jpg')}')`
-          }"
-        >
-          <div class="card-body d-flex align-items-center h-100">
-            <div class="overlay"></div>
-            <div class="alsdi-card-content">
-              <h3 class="card-title">فقط لتعبئة المكان</h3>
-              <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
-                الشعور بالسعادة، ولكن بفضل
-              </p>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide>
-        <div
-          class="card alsdi-card alsdi-card-background-image"
-          :style="{
-            backgroundImage: `url('${require('@/assets/img02.jpg')}')`
-          }"
-        >
-          <div class="card-body d-flex align-items-center h-100">
-            <div class="overlay"></div>
-            <div class="alsdi-card-content">
-              <h3 class="card-title">فقط لتعبئة المكان</h3>
-              <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
-                الشعور بالسعادة، ولكن بفضل
-              </p>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide>
-        <div
-          class="card alsdi-card alsdi-card-background-image"
-          :style="{
-            backgroundImage: `url('${require('@/assets/img03.jpg')}')`
-          }"
-        >
-          <div class="card-body d-flex align-items-center h-100">
-            <div class="overlay"></div>
-            <div class="alsdi-card-content">
-              <h3 class="card-title">فقط لتعبئة المكان</h3>
-              <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
-                الشعور بالسعادة، ولكن بفضل
-              </p>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide>
-        <div
-          class="card alsdi-card alsdi-card-background-image"
-          :style="{
-            backgroundImage: `url('${require('@/assets/img04.jpg')}')`
-          }"
-        >
-          <div class="card-body d-flex align-items-center h-100">
-            <div class="overlay"></div>
-            <div class="alsdi-card-content">
-              <h3 class="card-title">فقط لتعبئة المكان</h3>
-              <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
-                الشعور بالسعادة، ولكن بفضل
-              </p>
-            </div>
-          </div>
-        </div>
-      </slide>
-      <slide>
-        <div
-          class="card alsdi-card alsdi-card-background-image"
-          :style="{
-            backgroundImage: `url('${require('@/assets/img04.jpg')}')`
-          }"
-        >
-          <div class="card-body d-flex align-items-center h-100">
-            <div class="overlay"></div>
-            <div class="alsdi-card-content">
-              <h3 class="card-title">فقط لتعبئة المكان</h3>
-              <p class="card-text">
-                ف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
-                الشعور بالسعادة، ولكن بفضل
+                {{ slide.paragraph }}
               </p>
             </div>
           </div>
@@ -154,7 +39,10 @@ export default {
   components: {
     Carousel,
     Slide
-  }
+  },
+  props: [
+    'sliderData'
+  ]
 };
 </script>
 

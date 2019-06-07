@@ -5,8 +5,8 @@
       :slideShows="1"
       :sliderData="mainpageData.sections[0].sliders[0]"
     />
-    <ShortAboutUS />
-    <VueSlider />
+    <ShortAboutUS :comingData="mainpageData.sections[1]" />
+    <VueSlider :sliderData="mainpageData.sections[2].sliders[0]" />
     <Statistics />
     <ContactUsSection />
   </div>

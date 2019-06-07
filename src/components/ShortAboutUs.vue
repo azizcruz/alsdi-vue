@@ -9,17 +9,14 @@
           <div
             class="short-about-us-image"
             :style="{
-              backgroundImage: `url('${require('@/assets/alsdi-logo.png')}')`
+              backgroundImage: `url(${comingData.image})`
             }"
           ></div>
         </div>
         <div class="col-lg-9 col-sm-12">
-          <h1>هذا النص فقط ليحتوي المكان</h1>
+          <h1>{{ comingData.blocks[0].header }}</h1>
           <p>
-            عل أسيا أمدها مكن. ما بين سياسة الإطلاق. أسر شاسعة جديداً قد, وسفن
-            الشرقي اقتصادية وتم تم, بسبب وبحلول الخاطفة انه عل. أكثر للصين
-            ديسمبر فعل عن, عل به، بتطويق بأضرار. التكاليف الإنذار، و عرض, وتم لم
-            جدول مليون. الصفحات العالمية لبولندا، بل دنو.
+           {{ comingData.blocks[0].paragraph }}
           </p>
           <router-link to="/about-us">
             <button class="alsdi-button">اقرأ المزيد</button>
