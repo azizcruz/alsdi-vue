@@ -31,7 +31,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: [
+    'comingData'
+  ]
+};
 </script>
 
 <style lang="scss" scoped>

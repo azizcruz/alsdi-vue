@@ -18,17 +18,27 @@
 import AlsdiHeader from "@/components/AlsdiHeader.vue";
 import Footer from "@/components/Footer.vue";
 import vuescroll from 'vuescroll';
-import { log } from 'util';
-
+import {mapActions, mapGetters} from 'vuex';
 
 export default {
   components: {
     AlsdiHeader,
     vuescroll
   },
-  mounted() {
-    this.$store.dispatch('loadPagesDate')
+  data() {
+    return {
+      
+    }
   },
+  mounted() {
+    
+  },
+  created() {
+    this.loadPagesData()
+  },
+  methods: {
+    ...mapActions(['loadPagesData'])
+  }
 };
 </script>
 

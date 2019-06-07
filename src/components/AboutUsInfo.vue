@@ -72,7 +72,12 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  mounted() {
+    
+  }
+};
 </script>
 
 <style lang="scss" scoped>
