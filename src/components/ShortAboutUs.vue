@@ -9,7 +9,7 @@
           <div
             class="short-about-us-image"
             :style="{
-              backgroundImage: `url(${comingData.image})`
+              backgroundImage: `url(${comingData.blocks[0].image})`
             }"
           ></div>
         </div>
