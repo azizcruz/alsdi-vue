@@ -42,26 +42,6 @@ export default {
   ],
   data: function() {
     return {
-      imagesWrapper: [
-        {
-          images: [
-            "https://dummyimage.com/800/ffffff/000000",
-            "https://dummyimage.com/1600/ffffff/000000",
-            "https://dummyimage.com/1280/000000/ffffff",
-            "https://dummyimage.com/400/000000/ffffff"
-          ],
-          text: "lorem 10"
-        },
-        {
-          images: [
-            "https://dummyimage.com/800/ff4fff/000000",
-            "https://dummyimage.com/1600/ffffff/000000",
-            "https://dummyimage.com/1280/000000/ffffff",
-            "https://dummyimage.com/400/000000/ffffff"
-          ],
-          text: "lorem 10"
-        }
-      ],
       currentImages: [],
       index: null
     };
@@ -73,7 +53,10 @@ export default {
   methods: {
     setCurrentImages(imageIndex, currentImages) {
       this.index = imageIndex;
-      this.currentImages = currentImages;
+      this.currentImages = []
+      currentImages.map((i) => {
+          this.currentImages.push(i.image)
+      })
     }
   }
 };
