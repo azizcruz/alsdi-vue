@@ -1,7 +1,7 @@
 <template>
   <div class="vertical-slider-section">
-    <ul class="vertical-slider-section-menu">
-      <li v-for="(data, index) in someData" :class="data.active" :key="index" @click="slideTo(index)">
+    <ul class="vertical-slider-section-menu d-flex list-unstyled">
+      <li v-for="(data, index) in navlinksData" :class="data.paragraph" :key="index" @click="slideTo(index)">
         <i :class="data.icon"></i>
       </li>
     </ul>
@@ -14,7 +14,10 @@
       ref="carousel"
       @slide="changeActive"
     >
-      <slide>
+      <slide
+      v-for="(slide, index) in sliderData"
+      :key="index"
+      >
         <div
           class="vertical-slider-section-image d-flex flex-column"
         >
@@ -22,75 +25,15 @@
           <div
             class="image-section alsdi-shadow align-self-md-end"
             :style="{
-              backgroundImage: `url('${require('@/assets/img02.jpg')}')`
+              backgroundImage: `url(${slide.image})`
             }"
           ></div>
           <div
-            class="text-section d-flex flex-column justify-content-center alsdi-shadow text-right p-3"
+            class="text-section d-flex flex-column justify-content-center alsdi-shadow text-right p-5"
           >
-            <h1>تصميمات داخلية</h1>
+            <h1>{{ slide.header }}</h1>
             <p class="text-justify text-right">
-              أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم
-              فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب
-              أكس أيا كوممودو كونسيكيوات . ديواس أيوتي أريري دولار إن
-              ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-              نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون
-              بروايدينت ,سيونت ان كيولبا كيو أوفيسيا ديسيريونتموليت انيم أيدي
-              ايست لابوريوم.
-            </p>
-          </div>
-        </div>
-      </slide>
-      <slide>
-        <div
-          class="vertical-slider-section-image d-flex flex-column"
-        >
-          <div class="overlay"></div>
-        <div
-            class="image-section alsdi-shadow align-self-md-end"
-            :style="{
-              backgroundImage: `url('${require('@/assets/img03.jpg')}')`
-            }"
-          ></div>
-          <div
-            class="text-section d-flex flex-column justify-content-center alsdi-shadow text-right p-3"
-          >
-            <h1>تصميمات خارجية</h1>
-            <p class="text-justify text-right">
-              أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم
-              فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب
-              أكس أيا كوممودو كونسيكيوات . ديواس أيوتي أريري دولار إن
-              ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-              نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون
-              بروايدينت ,سيونت ان كيولبا كيو أوفيسيا ديسيريونتموليت انيم أيدي
-              ايست لابوريوم.
-            </p>
-          </div>
-        </div>
-      </slide>
-      <slide>
-        <div
-          class="vertical-slider-section-image d-flex flex-column"
-        >
-          <div class="overlay"></div>
-        <div
-            class="image-section alsdi-shadow align-self-md-end"
-            :style="{
-              backgroundImage: `url('${require('@/assets/img04.jpg')}')`
-            }"
-          ></div>
-          <div
-            class="text-section d-flex flex-column justify-content-center alsdi-shadow text-right p-3"
-          >
-            <h1>هيكلة المشروع</h1>
-            <p class="text-justify text-right">
-              أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم
-              فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب
-              أكس أيا كوممودو كونسيكيوات . ديواس أيوتي أريري دولار إن
-              ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-              نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون
-              بروايدينت ,سيونت ان كيولبا كيو أوفيسيا ديسيريونتموليت انيم أيدي
-              ايست لابوريوم.
+              {{ slide.paragraph }}
             </p>
           </div>
         </div>
@@ -105,10 +48,12 @@ import { Hooper, Slide, Pagination as HooperPagination } from "hooper";
 import "hooper/dist/hooper.css";
 
 export default {
-  props: {
-    sliderData: Array,
-    iconsArray: Array
-  },
+  props: [
+    "sliderData",
+    "iconsArray",
+    "sliderData",
+    "navlinksData"
+  ],
   components: {
     Hooper,
     Slide,
@@ -117,20 +62,6 @@ export default {
    data () {
     return {
       carouselData: 0,
-      someData: [
-        {
-          icon: "fas fa-home fa-2x",
-          active: "active"
-        },
-        {
-          icon: "fas fa-ruler-horizontal fa-2x",
-          active: false
-        },
-        {
-          icon: "fab fa-keycdn fa-2x",
-          active: false
-        },
-      ]
     }
   },
   methods: {
@@ -154,14 +85,14 @@ export default {
   .vertical-slider-section-menu {
     position: fixed;
     left: 0;
-    top: 44%;
+    top: 0;
     background-color: #fff;
     padding: 10px;
     z-index: 100000;
 
     li {
       cursor: pointer;
-      margin-bottom: 10px;
+      margin-right: 10px;
       &.active {
         i {
           color: $alsdi-gold;

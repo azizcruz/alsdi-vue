@@ -16,7 +16,8 @@ export default new Vuex.Store({
         navLinks: [],
         contactLinks: {},
         mainpageData: [],
-        aboutUsData: []
+        aboutUsData: [],
+        ourServicesData: []
     },
     getters: {
         pageData: state => {
@@ -33,6 +34,9 @@ export default new Vuex.Store({
         },
         aboutUsData: state => {
             return state.aboutUsData
+        },
+        ourServicesData: state => {
+            return state.ourServicesData
         }
     },
     mutations: {
@@ -50,6 +54,9 @@ export default new Vuex.Store({
         },
         SET_ABOUTUS_DATA(state, data) {
             state.aboutUsData = data
+        },
+        SET_OURSERVICES_DATA(state, data) {
+            state.ourServicesData = data
         }
     },
     actions: {
@@ -58,14 +65,21 @@ export default new Vuex.Store({
                 .get(BASE_API_LANGUAGE.ar + 'pages')
                 .then(data => {
                     commit('SET_PAGES_DATA', data)
+                    
+                    // Create variable for each page data.
                     const data_links = this.state.pages.data[0].navbar_links
                     const contact_links = this.state.pages.data[5].contact_us[0]
                     const mainpageData = this.state.pages.data[0]
                     const aboutUsData = this.state.pages.data[1]
+                    const ourServicesData = this.state.pages.data[2]
+
+                    // Set each page data.
                     commit('SET_NAVLINKS_DATA', data_links)
                     commit('SET_CONTACT_LINKS', contact_links)
                     commit('SET_MAINPAGE_DATA', mainpageData)
                     commit('SET_ABOUTUS_DATA', aboutUsData)
+                    commit('SET_OURSERVICES_DATA', ourServicesData)
+
                     console.log(this.state.pages.data)
                 })
                 .catch(err => {
