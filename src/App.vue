@@ -16,7 +16,6 @@
 </template>
 <script>
 import AlsdiHeader from "@/components/AlsdiHeader.vue";
-import Footer from "@/components/Footer.vue";
 import vuescroll from 'vuescroll';
 import {mapActions, mapGetters} from 'vuex';
 

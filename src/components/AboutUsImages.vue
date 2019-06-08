@@ -1,26 +1,20 @@
 <template>
     <div class="about-us-image">
         <img
-          src="@/assets/about-img02.jpeg"
+          v-for="(image, index) in comingData"
+          :key="index"
+          :src="image.blocks[0].image"
           class="img-fluid"
-          alt="الصدي للاستشارات الهندسية من نحن"
-        />
-        <img
-          src="@/assets/about-img03.jpeg"
-          class="img-fluid"
-          alt="الصدي للاستشارات الهندسية من نحن"
-        />
-        <img
-          src="@/assets/about-img04.jpg"
-          class="img-fluid"
-          alt="الصدي للاستشارات الهندسية من نحن"
+          :alt="image.blocks[0].header"
         />
     </div>
 </template>
 
 <script>
 export default {
-
+  props: [
+    'comingData'
+  ]
 }
 </script>
 

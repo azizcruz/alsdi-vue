@@ -6,9 +6,15 @@
       :sliderData="mainpageData.sections[0].sliders[0]"
     />
     <ShortAboutUS :comingData="mainpageData.sections[1]" />
-    <VueSlider :sliderData="mainpageData.sections[2].sliders[0]" :comingData="mainpageData.sections[2]" />
+    <VueSlider
+      :sliderData="mainpageData.sections[2].sliders[0]"
+      :comingData="mainpageData.sections[2]"
+    />
     <Statistics :comingData="mainpageData.sections[3]" />
-    <ContactUsSection :comingData="mainpageData.sections[4]" :contactData="mainpageData.contact_us[0]" />
+    <ContactUsSection
+      :comingData="mainpageData.sections[4]"
+      :contactData="mainpageData.contact_us[0]"
+    />
   </div>
 </template>
 
@@ -19,14 +25,14 @@ import ShortAboutUS from "@/components/ShortAboutUs";
 import Statistics from "@/components/Statistics";
 import ContactUsSection from "@/components/ContactUsSection";
 import Footer from "@/components/Footer";
-import {mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "home",
   data() {
     return {
       sliders: []
-    }
+    };
   },
   components: {
     Slider,
@@ -36,7 +42,7 @@ export default {
     ContactUsSection
   },
   mounted() {
-    this.sliders = this.mainpageData.sections[0].sliders[0]
+    this.sliders = this.mainpageData.sections[0].sliders[0];
   },
   computed: {
     ...mapGetters(["mainpageData"])

@@ -15,7 +15,8 @@ export default new Vuex.Store({
         pages: [],
         navLinks: [],
         contactLinks: {},
-        mainpageData: []
+        mainpageData: [],
+        aboutUsData: []
     },
     getters: {
         pageData: state => {
@@ -29,6 +30,9 @@ export default new Vuex.Store({
         },
         mainpageData: state => {
             return state.mainpageData
+        },
+        aboutUsData: state => {
+            return state.aboutUsData
         }
     },
     mutations: {
@@ -43,6 +47,9 @@ export default new Vuex.Store({
         },
         SET_MAINPAGE_DATA(state, data){
             state.mainpageData = data
+        },
+        SET_ABOUTUS_DATA(state, data) {
+            state.aboutUsData = data
         }
     },
     actions: {
@@ -54,9 +61,11 @@ export default new Vuex.Store({
                     const data_links = this.state.pages.data[0].navbar_links
                     const contact_links = this.state.pages.data[5].contact_us[0]
                     const mainpageData = this.state.pages.data[0]
+                    const aboutUsData = this.state.pages.data[1]
                     commit('SET_NAVLINKS_DATA', data_links)
                     commit('SET_CONTACT_LINKS', contact_links)
                     commit('SET_MAINPAGE_DATA', mainpageData)
+                    commit('SET_ABOUTUS_DATA', aboutUsData)
                     console.log(this.state.pages.data)
                 })
                 .catch(err => {

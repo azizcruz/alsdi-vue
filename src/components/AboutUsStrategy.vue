@@ -1,50 +1,21 @@
 <template>
   <div class="about-us-structure text-right">
-    <h3 class="font-weight-bold">استراتيجيات العمل لدى الصدي</h3>
+    <h3 class="font-weight-bold">{{ comingData.section_header }}</h3>
     <p>
-      والنفيس بالولايات غير, للجزر واقتصار بحث عل. نفس بقعة وقبل الفرنسي تم, كان
-      للجزر واقتصار بحث عل. نفس بقعة وقبل الفرنسي تم, كا مكّن حالية و
+      {{ comingData.section_paragraph }}
     </p>
     <div class="container company-structure">
       <div class="d-flex flex-wrap">
         <div
+        v-for="(dataBlock, index) in comingData.blocks"
+        :key="index"
           class="item alsdi-hoverable m-1 d-flex flex-column align-items-center justify-content-center"
         >
           <div class="icon-section mb-3">
-            <i class="fas fa-users fa-3x"></i>
+            <i :class="dataBlock.icon"></i>
           </div>
           <div class="text-section">
-            <h4>تطوير فريق عمل محترف</h4>
-          </div>
-        </div>
-        <div
-          class="item alsdi-hoverable m-1 d-flex flex-column align-items-center justify-content-center"
-        >
-          <div class="icon-section mb-3">
-            <i class="fas fa-feather-alt fa-3x"></i>
-          </div>
-          <div class="text-section">
-            <h4>اتباع نظم جودة عالمي</h4>
-          </div>
-        </div>
-        <div
-          class="item alsdi-hoverable m-1 d-flex flex-column align-items-center justify-content-center"
-        >
-          <div class="icon-section mb-3">
-            <i class="fas fa-handshake fa-3x"></i>
-          </div>
-          <div class="text-section">
-            <h4>التواصل بشكل مناسب مع العملاء</h4>
-          </div>
-        </div>
-        <div
-          class="item alsdi-hoverable m-1 d-flex flex-column align-items-center justify-content-center"
-        >
-          <div class="icon-section mb-3">
-            <i class="fas fa-fingerprint fa-3x"></i>
-          </div>
-          <div class="text-section">
-            <h4>تنفيذ مشروعات مميزة</h4>
+            <h4>{{ dataBlock.header }}</h4>
           </div>
         </div>
       </div>
@@ -53,7 +24,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: [
+    "comingData",
+  ]
+};
 </script>
 
 
