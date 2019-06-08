@@ -79,7 +79,7 @@ export default {
       }
     });
 
-    $(".side-header ul a").on("click", function() {
+    $(".side-header").on("click", function() {
       $(".side-header").toggleClass("active-side-header-for-mobile");
       $(".menu-btn").toggleClass("menu-btn_active");
       $(".menu-btn").toggleClass("menu-btn-active");

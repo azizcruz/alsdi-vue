@@ -82,7 +82,7 @@ export default {
 
 .vertical-slider-section {
   @media (max-width: 768px) {
-    margin-top: 70px;
+    
   }
   .vertical-slider-section-menu {
     position: fixed;
@@ -91,6 +91,7 @@ export default {
     background-color: #fff;
     padding: 10px;
     z-index: 100000;
+    background-color: rgba(255, 255, 255, .6);
     @media (max-width: 768px) {
       width: 100%;
     }
@@ -137,6 +138,13 @@ export default {
       @media screen and (max-width: 768px) {
         width: 100%;
         margin-top: 10px;
+
+        h1 {
+          font-size: 1.4rem;
+        }
+        p {
+          font-size: .8rem;
+        }
       }
     }
   }
