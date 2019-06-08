@@ -79,7 +79,7 @@ export default {
       }
     });
 
-    $(".side-header a").on("click", function() {
+    $(".side-header ul a").on("click", function() {
       $(".side-header").toggleClass("active-side-header-for-mobile");
       $(".menu-btn").toggleClass("menu-btn_active");
       $(".menu-btn").toggleClass("menu-btn-active");
@@ -106,7 +106,7 @@ export default {
   background-color: #fff;
   border-radius: 50%;
   position: fixed;
-  top: 20px;
+  top: 75px;
   right: 20px;
   z-index: 99999999999;
 

@@ -1,7 +1,14 @@
 <template>
   <div class="vertical-slider-section">
-    <ul class="vertical-slider-section-menu d-flex list-unstyled">
-      <li v-for="(data, index) in navlinksData" :class="data.paragraph" :key="index" @click="slideTo(index)">
+    <ul
+      class="vertical-slider-section-menu d-flex list-unstyled justify-content-between flex-md-column align-items-between"
+    >
+      <li
+        v-for="(data, index) in navlinksData"
+        :class="data.paragraph"
+        :key="index"
+        @click="slideTo(index)"
+      >
         <i :class="data.icon"></i>
       </li>
     </ul>
@@ -14,13 +21,8 @@
       ref="carousel"
       @slide="changeActive"
     >
-      <slide
-      v-for="(slide, index) in sliderData"
-      :key="index"
-      >
-        <div
-          class="vertical-slider-section-image d-flex flex-column"
-        >
+      <slide v-for="(slide, index) in sliderData" :key="index">
+        <div class="vertical-slider-section-image d-flex flex-column">
           <div class="overlay"></div>
           <div
             class="image-section alsdi-shadow align-self-md-end"
@@ -48,30 +50,27 @@ import { Hooper, Slide, Pagination as HooperPagination } from "hooper";
 import "hooper/dist/hooper.css";
 
 export default {
-  props: [
-    "sliderData",
-    "iconsArray",
-    "sliderData",
-    "navlinksData"
-  ],
+  props: ["sliderData", "iconsArray", "sliderData", "navlinksData"],
   components: {
     Hooper,
     Slide,
     HooperPagination
   },
-   data () {
+  data() {
     return {
-      carouselData: 0,
-    }
+      carouselData: 0
+    };
   },
   methods: {
     slideTo(index) {
       this.$refs.carousel.slideTo(index);
     },
     changeActive(data) {
-      let currentElement = $('.vertical-slider-section-menu').children().eq(data.currentSlide);
-      $(".vertical-slider-section-menu li.active").removeClass('active')
-      currentElement.addClass('active')
+      let currentElement = $(".vertical-slider-section-menu")
+        .children()
+        .eq(data.currentSlide);
+      $(".vertical-slider-section-menu li.active").removeClass("active");
+      currentElement.addClass("active");
     }
   }
 };
@@ -82,6 +81,9 @@ export default {
 @import "@/assets/_alsdi-framework.scss";
 
 .vertical-slider-section {
+  @media (max-width: 768px) {
+    margin-top: 70px;
+  }
   .vertical-slider-section-menu {
     position: fixed;
     left: 0;
@@ -89,10 +91,16 @@ export default {
     background-color: #fff;
     padding: 10px;
     z-index: 100000;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
 
     li {
       cursor: pointer;
-      margin-right: 10px;
+      margin: 10px;
+      @media (max-width: 768px) {
+        margin: 0;
+      }
       &.active {
         i {
           color: $alsdi-gold;
@@ -121,7 +129,6 @@ export default {
       @media screen and (max-width: 768px) {
         width: 100%;
       }
-      border-radius: 10px;
     }
     .text-section {
       background-color: $alsdi-white;
@@ -131,7 +138,6 @@ export default {
         width: 100%;
         margin-top: 10px;
       }
-      border-radius: 10px;
     }
   }
 }
