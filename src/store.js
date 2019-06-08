@@ -13,6 +13,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         pages: [],
+        contactUsLogo: [],
         navLinks: [],
         contactLinks: {},
         mainpageData: [],
@@ -25,6 +26,9 @@ export default new Vuex.Store({
     getters: {
         pageData: state => {
             return state.pages
+        },
+        contactUsLogo: state => {
+            return state.contactUsLogo
         },
         headerLinks: state => {
             return state.navLinks
@@ -54,6 +58,9 @@ export default new Vuex.Store({
     mutations: {
         SET_PAGES_DATA(state, data) {
             state.pages = data
+        },
+        SET_LOGO_DATA(state, data) {
+            state.contactUsLogo = data
         },
         SET_NAVLINKS_DATA(state, data) {
             state.navLinks = data
@@ -89,6 +96,7 @@ export default new Vuex.Store({
                     
                     // Create variable for each page data.
                     const data_links = this.state.pages.data[0].navbar_links
+                    const logo = this.state.pages.data[0].logo[0]
                     const contact_links = this.state.pages.data[5].contact_us[0]
                     const mainpageData = this.state.pages.data[0]
                     const aboutUsData = this.state.pages.data[1]
@@ -99,6 +107,7 @@ export default new Vuex.Store({
 
                     // Set each page data.
                     commit('SET_NAVLINKS_DATA', data_links)
+                    commit('SET_LOGO_DATA', logo)
                     commit('SET_CONTACT_LINKS', contact_links)
                     commit('SET_MAINPAGE_DATA', mainpageData)
                     commit('SET_ABOUTUS_DATA', aboutUsData)
@@ -106,8 +115,6 @@ export default new Vuex.Store({
                     commit('SET_OURPROJECTS_DATA', ourProjectsData)
                     commit('SET_GALLERY_DATA', galleryData)
                     commit('SET_CONTACTUS_DATA', contactUsData)
-
-                    console.log(this.state.pages.data)
                 })
                 .catch(err => {
                     console.log(err)

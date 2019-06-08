@@ -9,7 +9,7 @@
       >
         <router-link to="/">
           <img
-            src="@/assets/logo.png"
+            :src="contactUsLogo.image"
             class="alsdi-logo img-fluid"
             alt="شعار الصدي"
           />
@@ -89,7 +89,7 @@ export default {
     });
   },
   computed: {
-    ...mapGetters(['pageData']),
+    ...mapGetters(['contactUsLogo']),
     ...mapGetters(['headerLinks']),
     ...mapGetters(['contactUsLinks'])
   }    
