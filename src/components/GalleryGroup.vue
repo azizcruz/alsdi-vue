@@ -8,16 +8,16 @@
       ></gallery>
       <div
         class="b col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center"
-        v-for="(imageWrap, indexWrap) in imagesWrapper"
+        v-for="(imageWrap, indexWrap) in comingData"
         :key="indexWrap"
       >
         <div
           class="image"
-          v-for="(image, imageIndex) in imageWrap.images.slice(0, 3)"
-          @click="setCurrentImages(imageIndex, imageWrap.images)"
+          v-for="(image, imageIndex) in imageWrap.image.slice(0, 3)"
+          @click="setCurrentImages(imageIndex, imageWrap.image)"
           :key="imageIndex"
           :style="{
-            backgroundImage: 'url(' + image + ')',
+            backgroundImage: 'url(' + image.image + ')',
             zIndex: imageIndex,
             top: imageIndex / 2 + 'rem',
             left: imageIndex / 2 + 'rem'
@@ -37,6 +37,9 @@
 <script>
 import VueGallery from "vue-gallery";
 export default {
+  props: [
+    "comingData",
+  ],
   data: function() {
     return {
       imagesWrapper: [

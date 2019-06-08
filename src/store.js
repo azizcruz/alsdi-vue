@@ -18,7 +18,8 @@ export default new Vuex.Store({
         mainpageData: [],
         aboutUsData: [],
         ourServicesData: [],
-        ourProjectsData: []
+        ourProjectsData: [],
+        galleryData: [],
     },
     getters: {
         pageData: state => {
@@ -41,7 +42,10 @@ export default new Vuex.Store({
         },
         ourProjectsData: state => {
             return state.ourProjectsData
-        }
+        },
+        galleryData: state => {
+            return state.galleryData
+        },
     },
     mutations: {
         SET_PAGES_DATA(state, data) {
@@ -64,6 +68,9 @@ export default new Vuex.Store({
         },
         SET_OURPROJECTS_DATA(state, data) {
             state.ourProjectsData = data
+        },
+        SET_GALLERY_DATA(state, data) {
+            state.galleryData = data
         }
     },
     actions: {
@@ -80,6 +87,7 @@ export default new Vuex.Store({
                     const aboutUsData = this.state.pages.data[1]
                     const ourServicesData = this.state.pages.data[2]
                     const ourProjectsData = this.state.pages.data[3]
+                    const galleryData = this.state.pages.data[4]
 
                     // Set each page data.
                     commit('SET_NAVLINKS_DATA', data_links)
@@ -88,6 +96,7 @@ export default new Vuex.Store({
                     commit('SET_ABOUTUS_DATA', aboutUsData)
                     commit('SET_OURSERVICES_DATA', ourServicesData)
                     commit('SET_OURPROJECTS_DATA', ourProjectsData)
+                    commit('SET_GALLERY_DATA', galleryData)
 
                     console.log(this.state.pages.data)
                 })
