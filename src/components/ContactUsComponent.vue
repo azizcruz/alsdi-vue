@@ -64,13 +64,13 @@
         <div class="d-flex align-items-center justify-content-center h-100">
           <div class="text-center">
             <h3><i class="fas fa-phone-volume"></i> ارقام هواتفنا</h3>
-            <p>22454730 - 22454733</p>
+            <p>{{ comingData.telephone_number1 }} - {{ comingData.telephone_number2 }}</p>
             <br />
             <h3><i class="far fa-envelope"></i> عنوان الايميل</h3>
-            <p>test@test.com</p>
+            <p>{{ comingData.email }}</p>
             <br />
             <h3><i class="fas fa-map-marker-alt"></i> العنوان</h3>
-            <p>Kuwait-Stadt, Kuwait</p>
+            <p>{{ comingData.address }}</p>
             <br />
             <h3><i class="fas fa-globe"></i> الموقع</h3>
             <p><a href="https://alsdi.com">www.alsdi.com</a></p>
@@ -104,6 +104,9 @@
 <script>
 export default {
   name: "contact-us",
+  props: [
+    "comingData"
+  ],
   data() {
     return {
       activeTab: 1
