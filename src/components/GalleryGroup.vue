@@ -24,7 +24,7 @@
           }"
         >
           <div v-if="imageIndex == 2" class="album-name">
-            <router-link to="/">
+            <router-link :to="{name: 'project-detail', params: { id: imageWrap.project_id }}">
               تفاصيل المشروع
             </router-link>
           </div>
