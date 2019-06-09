@@ -6,6 +6,7 @@ import OurServices from './views/OurServices.vue'
 import OurProjects from './views/OurProjects.vue'
 import Gallery from './views/Gallery.vue'
 import ContactUs from './views/ContactUs.vue'
+import ProjectDetail from './views/ProjectDetail.vue'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
       name: 'contact-us',
       component: ContactUs
     },
+    {
+      path: '/project/:id',
+      name: 'project-detail',
+      component: ProjectDetail
+    }
   ],
   scrollBehavior () {
     return { x: 0, y: 0 };

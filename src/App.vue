@@ -48,11 +48,8 @@ export default {
 body {
   font-family: "vip-hakm-bold", Helvetica, Arial, sans-serif !important;
   background-color: rgba(0, 0, 0, 0.6) !important;
+  text-align: right !important;
   overflow-x: hidden;
-  background-image: url("./assets/bg-img.jpeg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: 50%;
   position: relative;
   &::before {
     position: absolute;
