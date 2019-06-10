@@ -3,7 +3,9 @@
     <a href="#" class="menu-btn d-md-none">
       <span></span>
     </a>
-    <div class="side-header d-flex flex-column">
+    <div 
+    data-aos="fade-left" data-aos-duration="1200" data-aos-delay="1000"
+    class="side-header d-flex flex-column">
       <div
         class="logo-section d-flex justify-content-center align-items-center text-center"
       >

@@ -2,23 +2,27 @@
   <div
     class="alsdi-short-about-us"
     :style="{ backgroundImage: `url('${require('@/assets/bg-alsdi.jpeg')}')` }"
+    data-aos="flip-up"
   >
     <div class="container-fluid">
       <div class="d-flex flex-wrap alsdi-short-wrapper">
         <div class="col-lg-3 col-sm-12 d-flex justify-content-center">
           <div
             class="short-about-us-image"
+            data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="900"
             :style="{
               backgroundImage: `url(${comingData.blocks[0].image})`
             }"
           ></div>
         </div>
         <div class="col-lg-9 col-sm-12">
-          <h1>{{ comingData.blocks[0].header }}</h1>
-          <p>
-           {{ comingData.blocks[0].paragraph }}
+          <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            {{ comingData.blocks[0].header }}
+          </h1>
+          <p data-aos="fade-up" data-aos-duration="1000"  data-aos-delay="600">
+            {{ comingData.blocks[0].paragraph }}
           </p>
-          <router-link to="/about-us">
+          <router-link to="/about-us" data-aos="fade-up" data-aos-duration="1000"  data-aos-delay="1100">
             <button class="alsdi-button">اقرأ المزيد</button>
           </router-link>
         </div>
@@ -29,9 +33,7 @@
 
 <script>
 export default {
-  props: [
-    'comingData'
-  ]
+  props: ["comingData"]
 };
 </script>
 

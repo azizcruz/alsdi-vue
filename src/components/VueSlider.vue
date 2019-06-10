@@ -1,6 +1,6 @@
 <template>
   <div class="alsdi-vue-slider text-center alsdi-section">
-    <h1 class="alsdi-header pb-2">{{ comingData.section_header }}</h1>
+    <h1 class="alsdi-header pb-2" data-aos="fade-up" data-aos-duration="1000">{{ comingData.section_header }}</h1>
     <carousel
       :perPageCustom="[[320, 1], [768, 2], [1440, 4]]"
       :loop="true"
@@ -10,6 +10,7 @@
       :navigationEnabled="true"
       navigationNextLabel='<i class="fas fa-chevron-right fa-3x"></i>'
       navigationPrevLabel='<i class="fas fa-chevron-left fa-3x"></i>'
+      data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"
     >
       <slide v-for="(slide, index) in sliderData.slides" :key="index">
         <div
