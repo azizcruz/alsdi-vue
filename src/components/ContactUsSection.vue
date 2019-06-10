@@ -55,7 +55,6 @@ export default {
 
   .alsdi-contact-us-text {
     color: $alsdi-black !important;
-    text-align: right;
     min-height: 400px;
   }
 }

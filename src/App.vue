@@ -2,11 +2,11 @@
   <div id="app ds" class="app">
     <div>
       <div class="d-flex flex-md-row flex-wrap">
-          <div class="alsdi-content-wrapper col-xs-9 col-md-9 p-0">
-            <transition name="fade" mode="out-in">
-              <router-view />
-            </transition>
-          </div>
+        <div class="alsdi-content-wrapper col-xs-9 col-md-9 p-0">
+          <transition name="fade" mode="out-in">
+            <router-view />
+          </transition>
+        </div>
         <div class="col-md-3" id="alsdi-header-for-mobile">
           <AlsdiHeader />
         </div>
@@ -16,8 +16,8 @@
 </template>
 <script>
 import AlsdiHeader from "@/components/AlsdiHeader.vue";
-import vuescroll from 'vuescroll';
-import {mapActions, mapGetters} from 'vuex';
+import vuescroll from "vuescroll";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
@@ -25,18 +25,16 @@ export default {
     vuescroll
   },
   data() {
-    return {
-      
-    }
+    return {};
   },
   mounted() {
-    
+    document.oncontextmenu =new Function("return false;")
   },
   created() {
-    this.loadPagesData()
+    this.loadPagesData();
   },
   methods: {
-    ...mapActions(['loadPagesData'])
+    ...mapActions(["loadPagesData"])
   }
 };
 </script>
@@ -51,6 +49,12 @@ body {
   text-align: right !important;
   overflow-x: hidden;
   position: relative;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently */
   &::before {
     position: absolute;
     content: "";
@@ -63,6 +67,7 @@ body {
     z-index: -1;
     background-color: rgba(0, 0, 0, 0.7);
   }
+  
 }
 #app {
   -webkit-font-smoothing: antialiased;
@@ -72,8 +77,6 @@ body {
   overflow-wrap: break-word;
   overflow-x: hidden;
 }
-
-
 
 .app {
   .alsdi-header-wrapper {

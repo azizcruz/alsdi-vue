@@ -18,10 +18,10 @@
         class="contact-us-tab contact-form container"
         v-show="activeTab === 1"
       >
-        <h3 class="text-center">ارسل ايميل</h3>
+        <h3 class="text-center">ارسل رسالة استفسار</h3>
         <form>
           <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
+            <label for="exampleFormControlInput1">ايميل</label>
             <input
               type="email"
               class="form-control"
@@ -30,7 +30,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="exampleFormControlInput2">Name</label>
+            <label for="exampleFormControlInput2">الاسم كامل</label>
             <input
               type="text"
               class="form-control"
@@ -38,7 +38,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="exampleFormControlInput3">Phone</label>
+            <label for="exampleFormControlInput3">رقم الجوال</label>
             <input
               type="text"
               class="form-control"
@@ -47,14 +47,14 @@
           </div>
 
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Message</label>
+            <label for="exampleFormControlTextarea1">الرسالة</label>
             <textarea
               class="form-control"
               id="exampleFormControlTextarea1"
               rows="3"
             ></textarea>
           </div>
-          <button class="alsdi-button" @click.prevent="">Send</button>
+          <button class="alsdi-button" @click.prevent="">ارسل</button>
         </form>
       </div>
       <div
@@ -126,7 +126,8 @@ export default {
 @import "@/assets/_alsdi-framework.scss";
 
 .alsdi-contact-us-tab {
-  background-color: $alsdi-gold;
+  background-color: $alsdi-black;
+  color: $alsdi-white;
   padding: 20px;
   overflow-y: hidden;
 
@@ -140,7 +141,7 @@ export default {
         width: 0;
         margin-top: 10px;
         height: 2px;
-        background: #000;
+        background: $alsdi-white;
         transition: width 0.3s;
       }
     }
@@ -178,6 +179,7 @@ export default {
     & > div {
       background-color: $alsdi-black;
       color: $alsdi-gold;
+      border: 2px solid $alsdi-gold;
       padding: 10px;
       margin-bottom: 10px;
       width: 120px;
@@ -200,7 +202,7 @@ export default {
           font-size: 24px;
           bottom: 3px;
           position: absolute;
-          color: $alsdi-black;
+          color: $alsdi-white;
           right: -20px;
         }
       }

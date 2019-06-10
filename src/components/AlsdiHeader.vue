@@ -24,8 +24,8 @@
           </router-link>
         </ul>
       </div>
-      <div class="d-flex justify-content-center social-icons mt-auto">
-        <ul class="nav">
+      <div class="social-icons mt-5">
+        <ul class="nav d-flex justify-content-center align-items-center">
           <li class="nav-item">
             <a class="nav-link" :href="contactUsLinks.instgram_address" target="_blank">
               <i class="fab fa-instagram fa-2x"></i>
@@ -164,6 +164,7 @@ export default {
 }
 
 .side-header {
+  border-left: 2px solid $alsdi-gold;
   background-color: $alsdi-black;
   color: $alsdi-gold;
   position: fixed;
@@ -172,6 +173,7 @@ export default {
   height: 100vh;
   // Medium devices (tablets, 768px and up)
   @media (max-width: 768px) {
+    border: none;
     width: 100%;
     display: none !important;
     &.active-side-header-for-mobile {
@@ -198,7 +200,6 @@ export default {
     background-color: $alsdi-black;
     padding-top: 2rem;
     ul {
-      text-align: right;
 
       a {
         color: $alsdi-gold;

@@ -93,6 +93,7 @@ export default {
   $text-color: #3c3f64;
   max-width: 100%;
   overflow: hidden;
+  padding: 1rem;
 
   *,
   *::before,
@@ -119,7 +120,7 @@ export default {
         width: 6px;
         margin: 0 auto;
         padding-top: 50px;
-        background: $alsdi-black;
+        background: $alsdi-gold;
         &::after {
           content: "";
           position: absolute;
@@ -129,7 +130,7 @@ export default {
           width: 20px;
           height: 20px;
           z-index: 2;
-          background: $alsdi-gold;
+          background: $alsdi-white;
         }
         div {
           position: relative;

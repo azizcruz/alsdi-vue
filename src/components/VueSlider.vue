@@ -2,7 +2,7 @@
   <div class="alsdi-vue-slider text-center alsdi-section">
     <h1 class="alsdi-header pb-2">{{ comingData.section_header }}</h1>
     <carousel
-      :perPageCustom="[[320, 1], [768, 3], [1440, 4]]"
+      :perPageCustom="[[320, 1], [768, 2], [1440, 4]]"
       :loop="true"
       :centerMode="true"
       :autoplay="true"

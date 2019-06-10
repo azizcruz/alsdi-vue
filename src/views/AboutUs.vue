@@ -40,7 +40,8 @@ export default {
 @import "@/assets/_alsdi-framework.scss";
 
 .alsdi-about-us {
-  background-color: $alsdi-gold;
+  background-color: $alsdi-black;
+  color: $alsdi-white;
 }
 </style>
 

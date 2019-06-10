@@ -23,7 +23,6 @@
     >
       <slide v-for="(slide, index) in sliderData" :key="index">
         <div class="vertical-slider-section-image d-flex flex-column">
-          <div class="overlay"></div>
           <div
             class="image-section alsdi-shadow align-self-md-end"
             :style="{
@@ -31,10 +30,10 @@
             }"
           ></div>
           <div
-            class="text-section d-flex flex-column justify-content-center alsdi-shadow text-right p-5"
+            class="text-section d-flex flex-column justify-content-center p-5"
           >
             <h1>{{ slide.header }}</h1>
-            <p class="text-justify text-right">
+            <p class="">
               {{ slide.paragraph }}
             </p>
           </div>
@@ -132,9 +131,10 @@ export default {
       }
     }
     .text-section {
-      background-color: $alsdi-white;
+      background-color: $alsdi-black;
+      color: $alsdi-white;
       height: 50%;
-      width: 50%;
+      width: 100%;
       @media screen and (max-width: 768px) {
         width: 100%;
         margin-top: 10px;

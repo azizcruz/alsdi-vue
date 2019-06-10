@@ -40,7 +40,6 @@ export default {
 @import "@/assets/_alsdi-framework.scss";
 
 .alsdi-short-about-us {
-  text-align: right;
   padding: 10px 0;
   background-size: cover;
   background-position: 50%;

@@ -1,5 +1,5 @@
 <template>
-  <div class="about-us-manager-word text-right mb-3">
+  <div class="about-us-manager-word mb-3">
     <h3 class="mt-3 mb-3 font-weight-bold">
       {{ comingData.blocks[0].header }}
     </h3>
@@ -12,7 +12,7 @@
     >
       <div class="manager-image col-sm-12 col-md-5"></div>
       <div
-        class="manager-text text-justify text-right col-sm-12 col-md-7 p-3 pl-5"
+        class="manager-text d-flex justify-content-center align-items-center flex-column col-sm-12 col-md-7 p-3 pl-5"
       >
         <h3>{{ comingData.blocks[0].icon }}</h3>
         <p>
@@ -45,7 +45,7 @@ export default {
     min-height: 600px;
     background-color: $alsdi-black;
     color: $alsdi-gold;
-    border-top-left-radius: 30%;
+    border-top-left-radius: 75%;
     // border-bottom-left-radius: 30%;
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="about-us-structure text-right">
+  <div class="about-us-structure">
     <h3 class="font-weight-bold">{{ comingData.section_header }}</h3>
     <p>
       {{ comingData.section_paragraph }}
@@ -42,6 +42,7 @@ export default {
       background-color: $alsdi-white;
       padding: 30px;
       height: 200px;
+      color: $alsdi-black;
       border: 2px solid $alsdi-black;
       min-height: 200px;
       min-width: 200px;

@@ -96,7 +96,9 @@ export default {
 @import "@/assets/_colors.scss";
 @import "@/assets/_alsdi-framework.scss";
 .alsdi-project-detail {
-  color: #fff;
+  color: $alsdi-white;
+  padding: 1rem;
+
 
   .image-side {
     min-width: 50%;
