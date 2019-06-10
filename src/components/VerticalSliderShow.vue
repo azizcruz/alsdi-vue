@@ -8,6 +8,7 @@
         :class="data.paragraph"
         :key="index"
         @click="slideTo(index)"
+        data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="index * 150"
       >
         <i :class="data.icon"></i>
       </li>

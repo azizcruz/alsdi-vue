@@ -1,6 +1,6 @@
 <template>
   <div class="about-us-manager-word mb-3">
-    <h3 class="mt-3 mb-3 font-weight-bold">
+    <h3 class="mt-3 mb-3 font-weight-bold" data-aos="fade-up" data-aos-duration="1000">
       {{ comingData.blocks[0].header }}
     </h3>
     <div
@@ -10,9 +10,14 @@
         backgroundPosition: 'center'
       }"
     >
-      <div class="manager-image col-sm-12 col-md-5"></div>
+      <div
+        class="manager-image col-sm-12 col-md-5"
+      ></div>
       <div
         class="manager-text d-flex justify-content-center align-items-center flex-column col-sm-12 col-md-7 p-3 pl-5"
+        data-aos="fade-left"
+        data-aos-duration="500"
+        data-aos-offset="500"
       >
         <h3>{{ comingData.blocks[0].icon }}</h3>
         <p>
@@ -25,7 +30,7 @@
 
 <script>
 export default {
-  props: ["comingData"],
+  props: ["comingData"]
 };
 </script>
 

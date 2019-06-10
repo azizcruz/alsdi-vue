@@ -6,6 +6,7 @@
           :src="image.blocks[0].image"
           class="img-fluid"
           :alt="image.blocks[0].header"
+          data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="index * 150"
         />
     </div>
 </template>

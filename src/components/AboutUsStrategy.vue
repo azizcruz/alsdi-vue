@@ -1,7 +1,7 @@
 <template>
   <div class="about-us-structure">
-    <h3 class="font-weight-bold">{{ comingData.section_header }}</h3>
-    <p>
+    <h3 class="font-weight-bold" data-aos="fade-up" data-aos-duration="1000">{{ comingData.section_header }}</h3>
+    <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
       {{ comingData.section_paragraph }}
     </p>
     <div class="container company-structure">
@@ -10,6 +10,7 @@
         v-for="(dataBlock, index) in comingData.blocks"
         :key="index"
           class="item alsdi-hoverable m-1 d-flex flex-column align-items-center justify-content-center"
+          data-aos="flip-up" data-aos-duration="1000" :data-aos-delay="index * 100"
         >
           <div class="icon-section mb-3">
             <i :class="dataBlock.icon"></i>

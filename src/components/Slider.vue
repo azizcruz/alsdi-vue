@@ -39,9 +39,9 @@ export default {
         swipe: true,
         rtl: false,
         prevArrow:
-          '<span class="slick-prev alsdi-slick-arrows alsdi-prev-arrow"><i class="fas fa-chevron-left fa-3x"></i></span>',
+          '<span class="slick-prev alsdi-slick-arrows alsdi-prev-arrow" data-aos="fade-left" data-aos-duration="1000"><i class="fas fa-chevron-left fa-3x"></i></span>',
         nextArrow:
-          '<span class="slick-prev alsdi-slick-arrows alsdi-next-arrow"><i class="fas fa-chevron-right fa-3x"></i></span>'
+          '<span class="slick-prev alsdi-slick-arrows alsdi-next-arrow" data-aos="fade-right" data-aos-duration="1000"><i class="fas fa-chevron-right fa-3x"></i></span>'
       }
     };
   },

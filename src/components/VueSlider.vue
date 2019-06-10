@@ -8,8 +8,8 @@
       :autoplay="true"
       :paginationEnabled="false"
       :navigationEnabled="true"
-      navigationNextLabel='<i class="fas fa-chevron-right fa-3x"></i>'
-      navigationPrevLabel='<i class="fas fa-chevron-left fa-3x"></i>'
+      navigationNextLabel='<i class="fas fa-chevron-right fa-3x" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="600"></i>'
+      navigationPrevLabel='<i class="fas fa-chevron-left fa-3x" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600"></i>'
       data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"
     >
       <slide v-for="(slide, index) in sliderData.slides" :key="index">

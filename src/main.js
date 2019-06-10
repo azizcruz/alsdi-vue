@@ -18,7 +18,9 @@ import 'bootstrap-v4-rtl/dist/css/bootstrap.min.css'
 //AOS library
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-AOS.init()
+AOS.init({
+  once: true
+})
 
 // only import the icons you use to reduce bundle size
 import 'vue-awesome/icons/flag'

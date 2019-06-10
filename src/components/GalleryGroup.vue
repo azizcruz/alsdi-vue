@@ -10,6 +10,7 @@
         class="b col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center"
         v-for="(imageWrap, indexWrap) in comingData"
         :key="indexWrap"
+        data-aos="fade-right" data-aos-duration="1000"
       >
         <div
           class="image"

@@ -6,11 +6,11 @@
       class="about-us-row d-flex"
     >
       <div class="about-us-text">
-        <h3 class="font-weight-bold">{{ dataBlock.blocks[0].header }}</h3>
-        <p class="">
+        <h3 class="font-weight-bold" data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="index * 100">{{ dataBlock.blocks[0].header }}</h3>
+        <p class="" data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="index * 150">
           {{ dataBlock.blocks[0].paragraph }}
         </p>
-        <div class="container">
+        <div class="container" data-aos="flip-left" data-aos-duration="2000"  data-aos-delay="600">
           <hr class="alsdi-separator">
         </div>
       </div>

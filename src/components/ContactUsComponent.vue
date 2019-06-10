@@ -18,9 +18,9 @@
         class="contact-us-tab contact-form container"
         v-show="activeTab === 1"
       >
-        <h3 class="text-center">ارسل رسالة استفسار</h3>
+        <h3 class="text-center" data-aos="fade-up" data-aos-duration="1000">ارسل رسالة استفسار</h3>
         <form>
-          <div class="form-group">
+          <div class="form-group" data-aos="fade-left" data-aos-duration="1000" :data-aos-delay="300">
             <label for="exampleFormControlInput1">ايميل</label>
             <input
               type="email"
@@ -29,7 +29,7 @@
               placeholder="name@example.com"
             />
           </div>
-          <div class="form-group">
+          <div class="form-group" data-aos="fade-left" data-aos-duration="1000" :data-aos-delay="600">
             <label for="exampleFormControlInput2">الاسم كامل</label>
             <input
               type="text"
@@ -37,7 +37,7 @@
               id="exampleFormControlInput2"
             />
           </div>
-          <div class="form-group">
+          <div class="form-group" data-aos="fade-left" data-aos-duration="1000" :data-aos-delay="900">
             <label for="exampleFormControlInput3">رقم الجوال</label>
             <input
               type="text"
@@ -46,7 +46,7 @@
             />
           </div>
 
-          <div class="form-group">
+          <div class="form-group" data-aos="fade-left" data-aos-duration="1000" :data-aos-delay="1100">
             <label for="exampleFormControlTextarea1">الرسالة</label>
             <textarea
               class="form-control"
@@ -54,7 +54,7 @@
               rows="3"
             ></textarea>
           </div>
-          <button class="alsdi-button" @click.prevent="">ارسل</button>
+          <button class="alsdi-button" @click.prevent="" data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="1200">ارسل</button>
         </form>
       </div>
       <div
