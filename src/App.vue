@@ -1,5 +1,5 @@
 <template>
-  <div id="app ds" class="app">
+  <div class="app">
     <div>
       <div class="d-flex flex-md-row flex-wrap">
         <div class="alsdi-content-wrapper col-xs-9 col-md-9 p-0">
@@ -28,7 +28,7 @@ export default {
     return {};
   },
   mounted() {
-    document.oncontextmenu =new Function("return false;")
+    document.oncontextmenu = new Function("return false;");
   },
   created() {
     this.loadPagesData();
@@ -67,18 +67,14 @@ body {
     z-index: -1;
     background-color: rgba(0, 0, 0, 0.7);
   }
-  
 }
 #app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   max-width: 100%;
   overflow-wrap: break-word;
-  overflow-x: hidden;
 }
 
 .app {
+  overflow: hidden;
   .alsdi-header-wrapper {
     -webkit-box-flex: 1;
     -ms-flex: 1;

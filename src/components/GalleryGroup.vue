@@ -8,9 +8,9 @@
       ></gallery>
       <div
         class="b col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center"
-        v-for="(imageWrap, indexWrap) in comingData"
-        :key="indexWrap"
-        data-aos="fade-right" data-aos-duration="1000"
+        v-for="(imageWrap, imageIndex) in comingData"
+        :key="imageIndex"
+        data-aos="flip-left" data-aos-duration="1000" :data-aos-delay="imageIndex * 100"
       >
         <div
           class="image"

@@ -1,5 +1,5 @@
 <template>
-    <div class="about-us-image">
+    <div class="about-us-image mb-3">
         <img
           v-for="(image, index) in comingData"
           :key="index"
