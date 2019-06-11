@@ -146,6 +146,15 @@
     background-color: rgba(0, 0, 0, 0.6);
 }
 
+.v-lazy-image {
+    filter: blur(10px);
+    transition: filter 0.7s;
+}
+  
+.v-lazy-image-loaded {
+    filter: blur(0);
+}
+
 @keyframes spinner {
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}

@@ -5,6 +5,9 @@ import store from './store'
 import $ from 'jquery'
 global.$ = $
 
+// Lazy image loadng.
+import { VLazyImagePlugin } from "v-lazy-image";
+Vue.use(VLazyImagePlugin);
 
 
 // Simplebar.

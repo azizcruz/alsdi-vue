@@ -3,23 +3,31 @@
     <a href="#" class="menu-btn d-md-none">
       <span></span>
     </a>
-    <div 
-    data-aos="fade-left" data-aos-duration="1200" data-aos-delay="1000"
-    class="side-header d-flex flex-column">
+    <div
+      data-aos="fade-left"
+      data-aos-duration="1200"
+      data-aos-delay="1000"
+      class="side-header d-flex flex-column"
+    >
       <div
         class="logo-section d-flex justify-content-center align-items-center text-center"
       >
         <router-link to="/">
-          <img
-            :src="contactUsLogo.image"
+          <v-lazy-image
             class="alsdi-logo img-fluid"
-            alt="شعار الصدي"
+            :src="contactUsLogo.image"
+            src-placeholder="https://ak1.picdn.net/shutterstock/videos/22263091/thumb/1.jpg"
+            alt="شعار الصدي للاستشارات الهندسية"
           />
         </router-link>
       </div>
       <div class="navlinks-section">
         <ul class="list-unstyled">
-          <router-link v-for="(link, index) in headerLinks" :key="index" :to="link.nav_link">
+          <router-link
+            v-for="(link, index) in headerLinks"
+            :key="index"
+            :to="link.nav_link"
+          >
             <li>
               {{ link.link_name }}
             </li>
@@ -29,27 +37,47 @@
       <div class="social-icons mt-5">
         <ul class="nav d-flex justify-content-center align-items-center">
           <li class="nav-item">
-            <a class="nav-link" :href="contactUsLinks.instgram_address" target="_blank">
+            <a
+              class="nav-link"
+              :href="contactUsLinks.instgram_address"
+              target="_blank"
+            >
               <i class="fab fa-instagram fa-2x"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" :href="contactUsLinks.twitter_address" target="_blank">
+            <a
+              class="nav-link"
+              :href="contactUsLinks.twitter_address"
+              target="_blank"
+            >
               <i class="fab fa-twitter fa-2x"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" :href="contactUsLinks.facebook_address" target="_blank">
+            <a
+              class="nav-link"
+              :href="contactUsLinks.facebook_address"
+              target="_blank"
+            >
               <i class="fab fa-facebook-square fa-2x"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" :href="contactUsLinks.snapchat_address" target="_blank">
+            <a
+              class="nav-link"
+              :href="contactUsLinks.snapchat_address"
+              target="_blank"
+            >
               <i class="fab fa-snapchat fa-2x"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" :href="contactUsLinks.whatsapp_number" target="_blank">
+            <a
+              class="nav-link"
+              :href="contactUsLinks.whatsapp_number"
+              target="_blank"
+            >
               <i class="fab fa-whatsapp fa-2x"></i>
             </a>
           </li>
@@ -65,9 +93,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "side-header",
   data() {
-    return {
-     
-    };
+    return {};
   },
   mounted() {
     $(".menu-btn").on("click", function(e) {
@@ -91,15 +117,17 @@ export default {
     });
   },
   computed: {
-    ...mapGetters(['contactUsLogo']),
-    ...mapGetters(['headerLinks']),
-    ...mapGetters(['contactUsLinks'])
-  }    
+    ...mapGetters(["contactUsLogo"]),
+    ...mapGetters(["headerLinks"]),
+    ...mapGetters(["contactUsLinks"])
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/_colors.scss";
+@import "@/assets/_alsdi-framework.scss";
+
 
 .menu-btn {
   display: block;
@@ -202,7 +230,6 @@ export default {
     background-color: $alsdi-black;
     padding-top: 2rem;
     ul {
-
       a {
         color: $alsdi-gold;
         font-size: 1.5rem;

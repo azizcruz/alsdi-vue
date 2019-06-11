@@ -24,12 +24,12 @@
     >
       <slide v-for="(slide, index) in sliderData" :key="index">
         <div class="vertical-slider-section-image d-flex flex-column">
-          <div
+          <v-lazy-image
             class="image-section alsdi-shadow align-self-md-end"
-            :style="{
-              backgroundImage: `url(${slide.image})`
-            }"
-          ></div>
+            :src="slide.image"
+            src-placeholder="https://ak1.picdn.net/shutterstock/videos/22263091/thumb/1.jpg"
+            alt="الصدي للاستشارات الهندسية"
+          />
           <div
             class="text-section d-flex flex-column justify-content-center p-5"
           >
