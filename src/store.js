@@ -22,6 +22,7 @@ export default new Vuex.Store({
         ourProjectsData: [],
         galleryData: [],
         contactUsData: [],
+        isLoading: false
     },
     getters: {
         pageData: state => {
@@ -54,6 +55,9 @@ export default new Vuex.Store({
         contactUsData: state => {
             return state.contactUsData
         },
+        isLoading: state => {
+            return state.isLoading
+        },
     },
     mutations: {
         SET_PAGES_DATA(state, data) {
@@ -85,6 +89,9 @@ export default new Vuex.Store({
         },
         SET_CONTACTUS_DATA(state, data) {
             state.contactUsData = data
+        },
+        SET_ISLOADING_DATA(state, loadState) {
+            state.isLoading = loadState
         }
     },
     actions: {
@@ -119,6 +126,9 @@ export default new Vuex.Store({
                 .catch(err => {
                     console.log(err)
                 })  
+        },
+        isLoadingSetting({commit}, loadState) {
+            commit('SET_ISLOADING_DATA', loadState)
         }
     }
 })

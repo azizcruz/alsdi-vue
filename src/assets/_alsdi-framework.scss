@@ -145,3 +145,28 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
 }
+
+@keyframes spinner {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+  }
+  .spinner {
+    background: $alsdi-black;
+    display: none;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: $alsdi-gold 4px solid;
+    border-left-color:transparent;
+    border-right-color:transparent;
+    position: absolute;
+    left:calc(50% - 37.5px);
+    top:calc(50% - 37.5px);
+    transform: translate(-50%, -50%);
+    animation: spinner 1.5s infinite;
+    z-index: 999999;
+  }
+
+.isLoading {
+    display: block !important;
+}

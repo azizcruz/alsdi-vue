@@ -30,7 +30,7 @@ export default {
   mounted() {
     document.oncontextmenu = new Function("return false;");
   },
-  created() {
+  beforeMount() {
     this.loadPagesData();
   },
   methods: {
