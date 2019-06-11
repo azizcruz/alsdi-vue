@@ -159,7 +159,7 @@
     border: $alsdi-gold 4px solid;
     border-left-color:transparent;
     border-right-color:transparent;
-    position: absolute;
+    position: fixed;
     left:calc(50% - 37.5px);
     top:calc(50% - 37.5px);
     transform: translate(-50%, -50%);
