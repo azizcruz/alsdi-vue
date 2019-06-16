@@ -2,6 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import { Validator } from 'vee-validate';
+import VeeValidate from 'vee-validate'
+import ar from 'vee-validate/dist/locale/ar';
+import en from 'vee-validate/dist/locale/en';
 import $ from 'jquery'
 global.$ = $
 
@@ -27,6 +31,14 @@ AOS.init({
 
 // only import the icons you use to reduce bundle size
 import 'vue-awesome/icons/flag'
+
+// VeeValidate.
+Vue.use(VeeValidate, {
+  classes: true,
+})
+Validator.localize('ar', ar);
+// Validator.localize('en', en);
+
 
 Vue.config.productionTip = false
 

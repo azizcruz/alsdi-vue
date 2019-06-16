@@ -18,43 +18,111 @@
         class="contact-us-tab contact-form container"
         v-show="activeTab === 1"
       >
-        <h3 class="text-center" data-aos="fade-up" data-aos-duration="1000">ارسل رسالة استفسار</h3>
+        <h3 class="text-center" data-aos="fade-up" data-aos-duration="1000">
+          ارسل رسالة استفسار
+        </h3>
+        <dir>تعني حقول الزامية *</dir>
         <form>
-          <div class="form-group" data-aos="fade-left" data-aos-duration="1000" :data-aos-delay="300">
-            <label for="exampleFormControlInput1">ايميل</label>
+          <div
+            class="form-group"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            :data-aos-delay="300"
+          >
+            <label for="exampleFormControlInput1">ايميل *</label>
             <input
               type="email"
+              name="email"
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="name@example.com"
+              v-model="formData.email"
+              v-validate="'required|email'"
             />
+            <transition name="error-anim" enter-active-class="animated tada" leave-active-class="animated hinge">
+              <div v-if="errors.has('email')">{{ errors.first("email") }}</div>
+            </transition>
+            
           </div>
-          <div class="form-group" data-aos="fade-left" data-aos-duration="1000" :data-aos-delay="600">
+          <div
+            class="form-group"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            :data-aos-delay="600"
+          >
             <label for="exampleFormControlInput2">الاسم كامل</label>
             <input
               type="text"
               class="form-control"
               id="exampleFormControlInput2"
+              v-model="formData.fullName"
             />
           </div>
-          <div class="form-group" data-aos="fade-left" data-aos-duration="1000" :data-aos-delay="900">
-            <label for="exampleFormControlInput3">رقم الجوال</label>
+          <div
+            class="form-group"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            :data-aos-delay="900"
+          >
+            <label for="exampleFormControlInput3">رقم الجوال *</label>
             <input
               type="text"
+              name="phone"
               class="form-control"
               id="exampleFormControlInput3"
+              v-validate="'required|digits:14'"
+              v-model="formData.phoneNum"
             />
+            <transition name="error-anim" enter-active-class="animated tada" leave-active-class="animated hinge">
+              <div v-if="errors.has('phone')">{{ errors.first("phone") }}</div>
+            </transition>
           </div>
 
-          <div class="form-group" data-aos="fade-left" data-aos-duration="1000" :data-aos-delay="1100">
-            <label for="exampleFormControlTextarea1">الرسالة</label>
+          <div
+            class="form-group"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            :data-aos-delay="900"
+          >
+            <label for="exampleFormControlInput3">عنوان الرسالة  *</label>
+            <input
+              type="text"
+              name="subject"
+              class="form-control"
+              id="exampleFormControlInput3"
+              v-validate="'required'"
+              v-model="formData.subject"
+            />
+            <transition name="error-anim" enter-active-class="animated tada" leave-active-class="animated hinge">
+              <div v-if="errors.has('subject')">{{ errors.first("subject") }}</div>
+            </transition>
+          </div>
+
+          <div
+            class="form-group"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            :data-aos-delay="1100"
+          >
+            <label for="exampleFormControlTextarea1">الرسالة *</label>
             <textarea
               class="form-control"
               id="exampleFormControlTextarea1"
+              name="message"
               rows="3"
+              v-validate="'required'"
+              v-model="formData.msg"
             ></textarea>
+            <transition name="error-anim" enter-active-class="animated tada" leave-active-class="animated hinge">
+              <div v-if="errors.has('message')">{{ errors.first("message") }}</div>
+            </transition>
           </div>
-          <button class="alsdi-button" @click.prevent="" data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="1200">ارسل</button>
+          <button
+            class="alsdi-button"
+            @click.prevent="sendEmail()"
+          >
+            ارسل
+          </button>
         </form>
       </div>
       <div
@@ -64,7 +132,10 @@
         <div class="d-flex align-items-center justify-content-center h-100">
           <div class="text-center">
             <h3><i class="fas fa-phone-volume"></i> ارقام هواتفنا</h3>
-            <p>{{ comingData.telephone_number1 }} - {{ comingData.telephone_number2 }}</p>
+            <p>
+              {{ comingData.telephone_number1 }} -
+              {{ comingData.telephone_number2 }}
+            </p>
             <br />
             <h3><i class="far fa-envelope"></i> عنوان الايميل</h3>
             <p>{{ comingData.email }}</p>
@@ -102,19 +173,47 @@
 </template>
 
 <script>
+import axios from "axios"
+import { BASE_API_LANGUAGE } from "./../BASE_DATA.js"
 export default {
   name: "contact-us",
-  props: [
-    "comingData"
-  ],
+  props: ["comingData"],
   data() {
     return {
-      activeTab: 1
+      activeTab: 1,
+      formData: {
+        email: "",
+        fullName: "",
+        phoneNum: "",
+        subject: "",
+        msg: ""
+      }
     };
   },
   methods: {
     makeActive(section_tab) {
       this.activeTab = section_tab;
+    },
+    sendEmail() {
+      this.$validator.validateAll().then(result => {
+        if(result) {
+          // Send message using API endpoint.
+          axios.post(BASE_API_LANGUAGE.ar + "sendmail/", this.formData)
+            .then(res => {
+              console.log(res)
+              // Clear data.
+              this.formData.email = ""
+              this.formData.fullName = ""
+              this.formData.phoneNum = ""
+              this.formData.msg = ""
+            })
+            .catch(err => {
+              console.log(err)
+            })
+        } else {
+          console.log("Error !!")
+        }
+      })
     }
   }
 };
@@ -124,6 +223,7 @@ export default {
 <style lang="scss">
 @import "@/assets/_colors.scss";
 @import "@/assets/_alsdi-framework.scss";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css");
 
 .alsdi-contact-us-tab {
   background-color: $alsdi-black;
@@ -132,7 +232,6 @@ export default {
   overflow-y: hidden;
 
   .contact-us-tab {
-    height: 80vh;
     h3 {
       display: inline-block;
       &::after {
@@ -173,6 +272,21 @@ export default {
 
   .contact-form {
     padding: 10px;
+    max-width: 600px;
+
+    .invalid + div,
+    .valid + div {
+      background-color: #eb4d4b;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      display: inline-block;
+      position: relative;
+      bottom: 10px;
+    }
+    .valid + div {
+      background-color: #eb4d4b;
+    }
   }
 
   .form-info-control {
