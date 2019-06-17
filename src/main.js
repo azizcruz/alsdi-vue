@@ -4,8 +4,6 @@ import router from './router'
 import store from './store'
 import { Validator } from 'vee-validate';
 import VeeValidate from 'vee-validate'
-import ar from 'vee-validate/dist/locale/ar';
-import en from 'vee-validate/dist/locale/en';
 import $ from 'jquery'
 global.$ = $
 
@@ -36,9 +34,18 @@ import 'vue-awesome/icons/flag'
 Vue.use(VeeValidate, {
   classes: true,
 })
-Validator.localize('ar', ar);
-// Validator.localize('en', en);
-
+// validators.
+const dictionary = {
+  ar: {
+    messages: {
+      email: 'هذا الحقل يجب أن يكون بريد الكتروني',
+      required: 'هذا الحقل مطلوب',
+      regex: 'يرجى كتابة ارقام فقط'
+    }
+  }
+};
+Validator.localize(dictionary);
+Validator.localize('ar');
 
 Vue.config.productionTip = false
 

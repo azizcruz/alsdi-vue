@@ -18,17 +18,24 @@
         class="contact-us-tab contact-form container"
         v-show="activeTab === 1"
       >
+        <transition enter-active-class="animated fadeInDown">
+          <div
+            class="sent-message-wrapper d-flex justify-content-center align-items-center flex-column"
+            id="sent-message-wrapper"
+            v-if="sent"
+          >
+            <h1>تم ارسال الرسالة</h1>
+            <i class="far fa-check-circle fa-3x"></i>
+          </div>
+        </transition>
         <h3 class="text-center" data-aos="fade-up" data-aos-duration="1000">
           ارسل رسالة استفسار
         </h3>
-        <dir>تعني حقول الزامية *</dir>
-        <form>
-          <div
-            class="form-group"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            :data-aos-delay="300"
-          >
+        <div data-aos="fade-left" data-aos-duration="1000" :data-aos-delay="600">
+          تعني حقول الزامية *
+        </div>
+        <form data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="300">
+          <div class="form-group">
             <label for="exampleFormControlInput1">ايميل *</label>
             <input
               type="email"
@@ -42,17 +49,12 @@
             <transition
               name="error-anim"
               enter-active-class="animated tada"
-              leave-active-class="animated hinge"
+              leave-active-class="animated fadeOutDown"
             >
               <div v-if="errors.has('email')">{{ errors.first("email") }}</div>
             </transition>
           </div>
-          <div
-            class="form-group"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            :data-aos-delay="600"
-          >
+          <div class="form-group">
             <label for="exampleFormControlInput2">الاسم كامل</label>
             <input
               type="text"
@@ -61,36 +63,26 @@
               v-model="formData.fullName"
             />
           </div>
-          <div
-            class="form-group"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            :data-aos-delay="900"
-          >
+          <div class="form-group">
             <label for="exampleFormControlInput3">رقم الجوال *</label>
             <input
               type="text"
               name="phone"
               class="form-control"
               id="exampleFormControlInput3"
-              v-validate="'required|digits:14'"
+              v-validate="{ required: true, regex: /^([0-9]+)$/ }"
               v-model="formData.phoneNum"
             />
             <transition
               name="error-anim"
               enter-active-class="animated tada"
-              leave-active-class="animated hinge"
+              leave-active-class="animated fadeOutDown"
             >
               <div v-if="errors.has('phone')">{{ errors.first("phone") }}</div>
             </transition>
           </div>
 
-          <div
-            class="form-group"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            :data-aos-delay="900"
-          >
+          <div class="form-group">
             <label for="exampleFormControlInput3">عنوان الرسالة *</label>
             <input
               type="text"
@@ -103,7 +95,7 @@
             <transition
               name="error-anim"
               enter-active-class="animated tada"
-              leave-active-class="animated hinge"
+              leave-active-class="animated fadeOutDown"
             >
               <div v-if="errors.has('subject')">
                 {{ errors.first("subject") }}
@@ -111,12 +103,7 @@
             </transition>
           </div>
 
-          <div
-            class="form-group"
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            :data-aos-delay="1100"
-          >
+          <div class="form-group">
             <label for="exampleFormControlTextarea1">الرسالة *</label>
             <textarea
               class="form-control"
@@ -129,15 +116,23 @@
             <transition
               name="error-anim"
               enter-active-class="animated tada"
-              leave-active-class="animated hinge"
+              leave-active-class="animated fadeOutDown"
             >
               <div v-if="errors.has('message')">
                 {{ errors.first("message") }}
               </div>
             </transition>
           </div>
-          <button class="alsdi-button" @click.prevent="sendEmail()">
+          <button
+            class="alsdi-button"
+            @click.prevent="sendEmail()"
+            :disabled="isDisabled"
+          >
             ارسل
+            <div class="sending-container" v-if="isSending">
+              <div class="c1"></div>
+              <div class="c2"></div>
+            </div>
           </button>
         </form>
       </div>
@@ -191,6 +186,7 @@
 <script>
 import axios from "axios";
 import { BASE_API_LANGUAGE } from "./../BASE_DATA.js";
+
 export default {
   name: "contact-us",
   props: ["comingData"],
@@ -203,7 +199,10 @@ export default {
         phoneNum: "",
         subject: "",
         msg: ""
-      }
+      },
+      sent: false,
+      isSending: false,
+      isDisabled: false
     };
   },
   methods: {
@@ -213,13 +212,17 @@ export default {
     sendEmail() {
       this.$validator.validateAll().then(result => {
         if (result) {
+          // Settings for sending process like disable button, show loading.
+          this.sendingProcessSettings();
           // Send message using API endpoint.
           axios
             .post(BASE_API_LANGUAGE.ar + "sendmail/", this.formData)
             .then(res => {
               console.log(res);
               // Reset Form.
-              this.resetForm()
+              this.resetForm();
+              // Show sent message.
+              this.showSentMessage();
             })
             .catch(err => {
               console.log(err);
@@ -235,6 +238,15 @@ export default {
       this.formData.phoneNum = "";
       this.formData.msg = "";
       this.$validator.reset();
+    },
+    showSentMessage() {
+      this.sent = true;
+      this.isSending = false;
+      this.isDisabled = false;
+    },
+    sendingProcessSettings() {
+      this.isSending = true;
+      this.isDisabled = true;
     }
   }
 };
@@ -253,6 +265,17 @@ export default {
   overflow-y: hidden;
 
   .contact-us-tab {
+    position: relative;
+
+    .sent-message-wrapper {
+      position: absolute;
+      max-width: 100%;
+      min-width: 100%;
+      max-height: 100%;
+      min-height: 100%;
+      background-color: $alsdi-black;
+      z-index: 1;
+    }
     h3 {
       display: inline-block;
       &::after {
@@ -344,8 +367,16 @@ export default {
     }
   }
   .alsdi-button {
+    position: relative;
     background-color: $alsdi-black;
     color: $alsdi-gold;
+    &:hover {
+      background-color: $alsdi-gold;
+      color: $alsdi-black;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 }
 </style>

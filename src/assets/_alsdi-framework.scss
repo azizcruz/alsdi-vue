@@ -188,3 +188,33 @@
 .isLoading {
     display: block !important;
 }
+
+.sending-container {
+    position: absolute;
+    left: -84px;
+    top: -1px;
+    
+    .c1,.c2{
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        background: orange;
+        position: absolute;
+        animation: c 3s infinite ease-in-out;
+        opacity: 0.6;
+    }
+    .c2{
+        animation-delay: -1s;
+    }
+}
+
+
+
+@keyframes c{
+	 	0%,100%{
+	 		transform: scale(0);
+	 	}
+	 	50%{
+	 		transform: scale(1);
+	 	}
+}

@@ -74,7 +74,7 @@
 <script>
 import axios from "axios";
 import gallery from "vue-gallery";
-import {mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
   components: {
@@ -88,7 +88,7 @@ export default {
     };
   },
   mounted() {
-    this.isLoadingSetting(true)
+    this.isLoadingSetting(true);
     axios
       .get(
         `https://zikosama.pythonanywhere.com/api/ar/projects/${
@@ -98,7 +98,7 @@ export default {
       .then(data => {
         this.projectData = data.data;
         this.setUpImages();
-         this.isLoadingSetting(false)
+        this.isLoadingSetting(false);
       })
       .catch(err => {
         console.log(err);
