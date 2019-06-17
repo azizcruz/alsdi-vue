@@ -39,10 +39,13 @@
               v-model="formData.email"
               v-validate="'required|email'"
             />
-            <transition name="error-anim" enter-active-class="animated tada" leave-active-class="animated hinge">
+            <transition
+              name="error-anim"
+              enter-active-class="animated tada"
+              leave-active-class="animated hinge"
+            >
               <div v-if="errors.has('email')">{{ errors.first("email") }}</div>
             </transition>
-            
           </div>
           <div
             class="form-group"
@@ -73,7 +76,11 @@
               v-validate="'required|digits:14'"
               v-model="formData.phoneNum"
             />
-            <transition name="error-anim" enter-active-class="animated tada" leave-active-class="animated hinge">
+            <transition
+              name="error-anim"
+              enter-active-class="animated tada"
+              leave-active-class="animated hinge"
+            >
               <div v-if="errors.has('phone')">{{ errors.first("phone") }}</div>
             </transition>
           </div>
@@ -84,7 +91,7 @@
             data-aos-duration="1000"
             :data-aos-delay="900"
           >
-            <label for="exampleFormControlInput3">عنوان الرسالة  *</label>
+            <label for="exampleFormControlInput3">عنوان الرسالة *</label>
             <input
               type="text"
               name="subject"
@@ -93,8 +100,14 @@
               v-validate="'required'"
               v-model="formData.subject"
             />
-            <transition name="error-anim" enter-active-class="animated tada" leave-active-class="animated hinge">
-              <div v-if="errors.has('subject')">{{ errors.first("subject") }}</div>
+            <transition
+              name="error-anim"
+              enter-active-class="animated tada"
+              leave-active-class="animated hinge"
+            >
+              <div v-if="errors.has('subject')">
+                {{ errors.first("subject") }}
+              </div>
             </transition>
           </div>
 
@@ -113,14 +126,17 @@
               v-validate="'required'"
               v-model="formData.msg"
             ></textarea>
-            <transition name="error-anim" enter-active-class="animated tada" leave-active-class="animated hinge">
-              <div v-if="errors.has('message')">{{ errors.first("message") }}</div>
+            <transition
+              name="error-anim"
+              enter-active-class="animated tada"
+              leave-active-class="animated hinge"
+            >
+              <div v-if="errors.has('message')">
+                {{ errors.first("message") }}
+              </div>
             </transition>
           </div>
-          <button
-            class="alsdi-button"
-            @click.prevent="sendEmail()"
-          >
+          <button class="alsdi-button" @click.prevent="sendEmail()">
             ارسل
           </button>
         </form>
@@ -173,8 +189,8 @@
 </template>
 
 <script>
-import axios from "axios"
-import { BASE_API_LANGUAGE } from "./../BASE_DATA.js"
+import axios from "axios";
+import { BASE_API_LANGUAGE } from "./../BASE_DATA.js";
 export default {
   name: "contact-us",
   props: ["comingData"],
@@ -196,24 +212,29 @@ export default {
     },
     sendEmail() {
       this.$validator.validateAll().then(result => {
-        if(result) {
+        if (result) {
           // Send message using API endpoint.
-          axios.post(BASE_API_LANGUAGE.ar + "sendmail/", this.formData)
+          axios
+            .post(BASE_API_LANGUAGE.ar + "sendmail/", this.formData)
             .then(res => {
-              console.log(res)
-              // Clear data.
-              this.formData.email = ""
-              this.formData.fullName = ""
-              this.formData.phoneNum = ""
-              this.formData.msg = ""
+              console.log(res);
+              // Reset Form.
+              this.resetForm()
             })
             .catch(err => {
-              console.log(err)
-            })
+              console.log(err);
+            });
         } else {
-          console.log("Error !!")
+          console.log("Error !!");
         }
-      })
+      });
+    },
+    resetForm() {
+      this.formData.email = "";
+      this.formData.fullName = "";
+      this.formData.phoneNum = "";
+      this.formData.msg = "";
+      this.$validator.reset();
     }
   }
 };
