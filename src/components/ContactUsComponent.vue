@@ -140,7 +140,7 @@
         class="contact-us-tab info-section container"
         v-show="activeTab === 2"
       >
-        <div class="d-flex align-items-center justify-content-center h-100">
+        <div class="d-flex align-items-center justify-content-center h-100 contact-info">
           <div class="text-center">
             <h3><i class="fas fa-phone-volume"></i> ارقام هواتفنا</h3>
             <p>
@@ -149,13 +149,15 @@
             </p>
             <br />
             <h3><i class="far fa-envelope"></i> عنوان الايميل</h3>
-            <p>{{ comingData.email }}</p>
+            <a :href="`mailto:${comingData.email}`">
+              <p>{{ comingData.email }}</p>
+            </a>
             <br />
             <h3><i class="fas fa-map-marker-alt"></i> العنوان</h3>
             <p>{{ comingData.address }}</p>
             <br />
             <h3><i class="fas fa-globe"></i> الموقع</h3>
-            <p><a href="https://alsdi.com">www.alsdi.com</a></p>
+            <p><a href="/">www.alsdi.com</a></p>
           </div>
         </div>
       </div>
@@ -266,6 +268,16 @@ export default {
 
   .contact-us-tab {
     position: relative;
+
+    .contact-info {
+      a {
+        text-decoration: none;
+        color: $alsdi-white;
+        &:hover {
+          color: $alsdi-gold;
+        }
+      }
+    }
 
     .sent-message-wrapper {
       position: absolute;
