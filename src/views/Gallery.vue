@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GalleryGroup from "@/components/GalleryGroup";
+import GalleryGroup from "@/components/sections/GalleryGroup";
 import { mapGetters } from "vuex";
 
 export default {

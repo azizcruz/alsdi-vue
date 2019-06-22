@@ -187,7 +187,7 @@
 
 <script>
 import axios from "axios";
-import { BASE_API_LANGUAGE } from "./../BASE_DATA.js";
+import { BASE_API_LANGUAGE } from "./../../BASE_DATA";
 
 export default {
   name: "contact-us",

@@ -15,14 +15,12 @@
   </div>
 </template>
 <script>
-import AlsdiHeader from "@/components/AlsdiHeader.vue";
-import vuescroll from "vuescroll";
-import { mapActions, mapGetters } from "vuex";
+import AlsdiHeader from "@/components/global/AlsdiHeader.vue";
+import { mapActions } from "vuex";
 
 export default {
   components: {
-    AlsdiHeader,
-    vuescroll
+    AlsdiHeader
   },
   data() {
     return {};

@@ -1,9 +1,12 @@
 <template>
-  <VerticalSliderShow :sliderData="ourProjectsData.sections[0].sliders[0].slides" :navlinksData="ourProjectsData.sections[1].blocks" />
+  <VerticalSliderShow
+    :sliderData="ourProjectsData.sections[0].sliders[0].slides"
+    :navlinksData="ourProjectsData.sections[1].blocks"
+  />
 </template>
 
 <script>
-import VerticalSliderShow from "@/components/VerticalSliderShow";
+import VerticalSliderShow from "@/components/sliders/VerticalSliderShow";
 import { mapGetters } from "vuex";
 
 export default {

@@ -8,18 +8,17 @@
         <AboutUsInfo :comingData="aboutUsData.sections.slice(0, 4)" />
       </div>
     </div>
-    <AboutUsManagerWord :comingData="aboutUsData.sections[5]" />  
-    <AboutUsStrategy :comingData="aboutUsData.sections[6]" />  
+    <AboutUsManagerWord :comingData="aboutUsData.sections[5]" />
+    <AboutUsStrategy :comingData="aboutUsData.sections[6]" />
   </div>
 </template>
 
 <script>
-import AboutUsImages from "@/components/AboutUsImages"
-import AboutUsInfo from "@/components/AboutUsInfo"
-import AboutUsManagerWord from "@/components/AboutUsManagerWord"
-import AboutUsStrategy from "@/components/AboutUsStrategy"
+import AboutUsImages from "@/components/about_us/AboutUsImages";
+import AboutUsInfo from "@/components/about_us/AboutUsInfo";
+import AboutUsManagerWord from "@/components/about_us/AboutUsManagerWord";
+import AboutUsStrategy from "@/components/about_us/AboutUsStrategy";
 import { mapGetters } from "vuex";
-
 
 export default {
   name: "about-us",
@@ -27,12 +26,12 @@ export default {
     AboutUsImages,
     AboutUsInfo,
     AboutUsManagerWord,
-    AboutUsStrategy,
+    AboutUsStrategy
   },
   computed: {
     ...mapGetters(["aboutUsData"])
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
