@@ -40,7 +40,7 @@ export default {
     getCurrentTime: function() {
         var today = new Date();
         var ampm = today.getHours() >= 12 ? 'pm' : 'am';
-        var time = today.getHours() + ":" + today.getMinutes() + " " + ampm;
+        var time = (today.getHours() % 12) + ":" + today.getMinutes() + " " + ampm;
         return time;
     }
   }
