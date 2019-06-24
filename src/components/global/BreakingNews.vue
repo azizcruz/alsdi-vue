@@ -3,12 +3,8 @@
     <article class="media d-flex align-items-stretch">
       <div class="media-content text-right">
         <transition name="fade" mode="out-in">
-          <div class="news" href="#" v-if="news[0]" key="0">
-            وروت آدمز الآثار السلبية الناتجة عن هذه التجربة مثل الكوابيس والأحلام المفزعة
-          </div>
-          <div class="news" href="#" v-if="news[1]" key="1">ث، مشيرة إلى أنها فتحت تحقيقاً بالأم</div>
-          <div class="news" href="#" v-if="news[2]" key="2">
-            وقالت آدمز إنها استيقظت من نومها لتجد نفسها وحيدة في مكان بارد مظلم، وما زال
+          <div class="news" v-for="(n, index) in latestNews" :key="index" v-if="news[index]">
+            {{n.title}}
           </div>
         </transition>
       </div>
@@ -23,10 +19,13 @@
 <script>
 export default {
   name: "breaking-news",
+  props: [
+      'latestNews'
+  ],
   data() {
     return {
       tickerLocation: 0,
-      news: [true, false, false]
+      news: [true, ...Array(this.latestNews.length - 1).fill(false)]
     };
   },
   created: function() {
@@ -39,8 +38,7 @@ export default {
     },
     getCurrentTime: function() {
         var today = new Date();
-        var ampm = today.getHours() >= 12 ? 'pm' : 'am';
-        var time = (today.getHours() % 12) + ":" + today.getMinutes() + " " + ampm;
+        var time = today.getHours() + ":" + today.getMinutes();
         return time;
     }
   }

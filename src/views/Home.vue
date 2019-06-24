@@ -1,6 +1,6 @@
 <template>
   <div class="home d-flex flex-column page">
-    <BreakingNews />
+    <BreakingNews :latestNews="mainpageData.articles" />
     <Slider
       :sliderHeight="100 + 'vh'"
       :slideShows="1"
