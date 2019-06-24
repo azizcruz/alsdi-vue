@@ -3,14 +3,18 @@
     <article class="media d-flex align-items-stretch">
       <div class="media-content text-right">
         <transition name="fade" mode="out-in">
-          <div class="news" v-for="(n, index) in latestNews" :key="index" v-if="news[index]">
-            {{n.title}}
-          </div>
+          <template v-for="(n, index) in latestNews">
+            <div class="news" v-if="news[index]" :key="index">
+              {{ n.title }}
+            </div>
+          </template>
         </transition>
       </div>
       <div class="breaking-news d-flex align-items-center">
-        <div class="time pl-2"
-          >{{ getCurrentTime() }}<span class="pl-2 pr-2 time-sep">|</span></div>اخر الاخبار
+        <div class="time pl-2">
+          {{ getCurrentTime() }}<span class="pl-2 pr-2 time-sep">|</span>
+        </div>
+        اخر الاخبار
       </div>
     </article>
   </div>
@@ -19,9 +23,7 @@
 <script>
 export default {
   name: "breaking-news",
-  props: [
-      'latestNews'
-  ],
+  props: ["latestNews"],
   data() {
     return {
       tickerLocation: 0,
@@ -37,9 +39,9 @@ export default {
       this.news.unshift(removed);
     },
     getCurrentTime: function() {
-        var today = new Date();
-        var time = today.getHours() + ":" + today.getMinutes();
-        return time;
+      var today = new Date();
+      var time = today.getHours() + ":" + today.getMinutes();
+      return time;
     }
   }
 };
@@ -52,7 +54,7 @@ export default {
   background-color: $alsdi-gold;
   color: $alsdi-black;
   padding: 5px;
-  flex: 0 1 180px;
+  flex: 0 1 160px;
 }
 
 .media-content {
