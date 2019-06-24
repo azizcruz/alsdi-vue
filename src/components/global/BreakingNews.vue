@@ -2,7 +2,7 @@
   <div class="ticker box">
     <article class="media d-flex align-items-stretch">
       <div class="media-content text-right">
-        <transition name="fade" tag="div" mode="out-in">
+        <transition name="fade" mode="out-in">
           <div class="news" href="#" v-if="news[0]" key="0">
             وروت آدمز الآثار السلبية الناتجة عن هذه التجربة مثل الكوابيس والأحلام المفزعة
           </div>
@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/assets/_colors.scss";
 
 .breaking-news {
