@@ -128,7 +128,6 @@ export default {
 @import "@/assets/_colors.scss";
 @import "@/assets/_alsdi-framework.scss";
 
-
 .menu-btn {
   display: block;
   width: 70px;

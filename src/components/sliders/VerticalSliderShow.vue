@@ -8,7 +8,9 @@
         :class="data.paragraph"
         :key="index"
         @click="slideTo(index)"
-        data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="index * 150"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        :data-aos-delay="index * 150"
       >
         <i :class="data.icon"></i>
       </li>
@@ -82,7 +84,6 @@ export default {
 
 .vertical-slider-section {
   @media (max-width: 768px) {
-    
   }
   .vertical-slider-section-menu {
     position: fixed;
@@ -91,7 +92,7 @@ export default {
     background-color: #fff;
     padding: 10px;
     z-index: 100000;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(255, 255, 255, 0.6);
     @media (max-width: 768px) {
       width: 100%;
     }
@@ -125,7 +126,7 @@ export default {
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      height: 50%;
+      height: auto;
       width: 50%;
       @media screen and (max-width: 768px) {
         width: 100%;
@@ -144,7 +145,7 @@ export default {
           font-size: 1.4rem;
         }
         p {
-          font-size: .8rem;
+          font-size: 0.8rem;
         }
       }
     }
