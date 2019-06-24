@@ -201,7 +201,7 @@ export default {
   top: 0;
   height: 100vh;
   // Medium devices (tablets, 768px and up)
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     border: none;
     width: 100%;
     display: none !important;
@@ -213,7 +213,7 @@ export default {
   }
 
   // Large devices (desktops, 992px and up)
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     width: 25%;
   }
 

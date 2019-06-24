@@ -2,11 +2,17 @@
   <div class="alsdi-slider" :style="{ height: sliderHeight }">
     <div class="slick-slider">
       <div
-        class="alsdi-slider-image"
+        class="alsdi-slider-image d-flex justify-content-end align-items-end"
         v-for="(slide, index) in sliderData.slides"
         :key="index"
         :style="{ backgroundImage: `url(${slide.image})` }"
-      ></div>
+      >
+      <div class="slide-text-section">
+        <div class="slide-header">
+          <h1>{{ slide.header }}</h1>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
 </template>
@@ -64,6 +70,8 @@ export default {
 <style lang="scss">
 @import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css");
 @import "@/assets/_alsdi-framework.scss";
+@import "@/assets/_colors.scss";
+
 
 .alsdi-slider {
   .slick-slider {
@@ -78,6 +86,20 @@ export default {
       background-repeat: no-repeat;
       background-position: 50%;
       height: 100%;
+
+      .slide-text-section {
+        margin-bottom: 8rem;
+        
+        h1 {
+          font-size: 3.5rem;
+          padding: 2rem;
+          background-color: rgba($alsdi-black, .8);
+          color: $alsdi-white;
+          @media (max-width: 768px) {
+            font-size: 1.5rem;
+          }
+        }
+      }
     }
 
     .slick-list,

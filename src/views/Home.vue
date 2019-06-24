@@ -1,5 +1,6 @@
 <template>
   <div class="home d-flex flex-column page">
+    <BreakingNews />
     <Slider
       :sliderHeight="100 + 'vh'"
       :slideShows="1"
@@ -24,6 +25,7 @@ import VueSlider from "@/components/sliders/VueSlider";
 import ShortAboutUS from "@/components/sections/ShortAboutUs";
 import Statistics from "@/components/sections/Statistics";
 import ContactUsSection from "@/components/contact_us/ContactUsSection";
+import BreakingNews from "@/components/global/BreakingNews";
 import { mapGetters } from "vuex";
 
 export default {
@@ -33,7 +35,8 @@ export default {
     ShortAboutUS,
     VueSlider,
     Statistics,
-    ContactUsSection
+    ContactUsSection,
+    BreakingNews
   },
   computed: {
     ...mapGetters(["mainpageData"])
