@@ -7,6 +7,7 @@ import OurProjects from './views/OurProjects.vue'
 import Gallery from './views/Gallery.vue'
 import ContactUs from './views/ContactUs.vue'
 import ProjectDetail from './views/ProjectDetail.vue'
+import Page404 from './views/Page404.vue'
 
 Vue.use(Router)
 
@@ -49,6 +50,11 @@ export default new Router({
       path: '/project/:id',
       name: 'project-detail',
       component: ProjectDetail
+    },
+    {
+      path: '*',
+      name:'page-not-found',
+      component: Page404
     }
   ],
   scrollBehavior () {

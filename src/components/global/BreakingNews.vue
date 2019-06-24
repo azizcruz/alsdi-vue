@@ -54,10 +54,14 @@ export default {
   background-color: $alsdi-gold;
   color: $alsdi-black;
   padding: 5px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 160px;
   flex: 0 1 160px;
 }
 
 .media-content {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   padding: 5px;
   text-align: left;
