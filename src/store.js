@@ -22,7 +22,8 @@ export default new Vuex.Store({
         ourProjectsData: [],
         galleryData: [],
         contactUsData: [],
-        isLoading: false
+        isLoading: false,
+        isBackendWorking: null,
     },
     getters: {
         pageData: state => {
@@ -58,6 +59,9 @@ export default new Vuex.Store({
         isLoading: state => {
             return state.isLoading
         },
+        isBackendWorking: state => {
+            return state.isBackendWorking
+        }
     },
     mutations: {
         SET_PAGES_DATA(state, data) {
@@ -92,6 +96,9 @@ export default new Vuex.Store({
         },
         SET_ISLOADING_DATA(state, loadState) {
             state.isLoading = loadState
+        },
+        SET_IS_BACKEND_WORKING(state, loadState) {
+            state.isBackendWorking = loadState
         }
     },
     actions: {
@@ -100,6 +107,7 @@ export default new Vuex.Store({
                 .get(BASE_API_LANGUAGE.ar + 'pages')
                 .then(data => {
                     commit('SET_PAGES_DATA', data)
+                    commit('SET_IS_BACKEND_WORKING', true)
                     
                     // Create variable for each page data.
                     const data_links = this.state.pages.data[0].navbar_links
@@ -124,6 +132,7 @@ export default new Vuex.Store({
                     commit('SET_CONTACTUS_DATA', contactUsData)
                 })
                 .catch(err => {
+                    commit('SET_IS_BACKEND_WORKING', false)
                     console.log(err)
                 })  
         },

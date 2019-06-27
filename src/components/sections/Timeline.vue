@@ -103,14 +103,6 @@ export default {
     box-sizing: border-box;
   }
 
-  body {
-    font: normal 16px/1.5 "Titillium Web", sans-serif;
-    background: $alsdi-black;
-    color: $alsdi-gold;
-    overflow-x: hidden;
-    padding-bottom: 50px;
-  }
-
   // STYLING
   .timeline {
     ul {
