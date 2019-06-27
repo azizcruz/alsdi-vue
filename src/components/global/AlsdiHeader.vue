@@ -5,8 +5,8 @@
     </a>
     <div
       data-aos="fade-left"
-      data-aos-duration="1200"
-      data-aos-delay="1000"
+      data-aos-duration="500"
+      data-aos-delay="200"
       class="side-header d-flex flex-column"
     >
       <div

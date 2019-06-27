@@ -45,7 +45,7 @@ export default {
       this.news.unshift(removed);
     },
     getCurrentTime: function() {
-      axios.get("http://worldtimeapi.org/api/timezone/Asia/Kuwait")
+      axios.get("https://worldtimeapi.org/api/timezone/Asia/Kuwait")
       .then(d => {
         this.extractCurrentTime(d.data.datetime)
       })
