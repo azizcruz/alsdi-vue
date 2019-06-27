@@ -12,7 +12,7 @@
       </div>
       <div class="breaking-news d-flex align-items-center">
         <div class="time pl-2">
-          {{ getCurrentTime() }}<span class="pl-2 pr-2 time-sep">|</span>
+          {{ currentTime }}<span class="pl-2 pr-2 time-sep">|</span>
         </div>
         اخر الاخبار
       </div>
@@ -21,17 +21,23 @@
 </template>
 
 <script>
+import axios from "axios"
+import { setInterval } from 'timers';
+
 export default {
   name: "breaking-news",
   props: ["latestNews"],
   data() {
     return {
       tickerLocation: 0,
-      news: [true, ...Array(this.latestNews.length - 1).fill(false)]
+      news: [true, ...Array(this.latestNews.length - 1).fill(false)],
+      currentTime: null
     };
   },
   created: function() {
     setInterval(this.updateTicker, 5000);
+    this.getCurrentTime()
+    setInterval(this.getCurrentTime, 60000)
   },
   methods: {
     updateTicker: function() {
@@ -39,9 +45,20 @@ export default {
       this.news.unshift(removed);
     },
     getCurrentTime: function() {
-      var today = new Date();
-      var time = today.getHours() + ":" + today.getMinutes();
-      return time;
+      axios.get("http://worldtimeapi.org/api/timezone/Asia/Kuwait")
+      .then(d => {
+        this.extractCurrentTime(d.data.datetime)
+      })
+      .catch(err => {
+        this.currentTime = "00:00"
+        console.log(err)
+      })
+    },
+    extractCurrentTime(timestamp) {
+        var time = timestamp.split("T")
+        time = time[1].split(".")[0]
+        time = time.substring(0, 5)
+        this.currentTime = time  
     }
   }
 };
