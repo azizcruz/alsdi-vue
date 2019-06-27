@@ -15,7 +15,10 @@
     <div v-if="isBackendWorking === false">
       <UnderMaintainance />
     </div>
-    <div class="app-loading d-flex justify-content-center align-items-center">
+    <div
+      class="app-loading d-flex justify-content-center align-items-center"
+      v-if="isBackendWorking === null"
+    >
       <div class="loadingApp d-flex justify-content-center">
         <div>
           <div class="loading-container">
