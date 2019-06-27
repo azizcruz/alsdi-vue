@@ -5,7 +5,7 @@
         <transition name="fade" mode="out-in">
           <template v-for="(n, index) in latestNews">
             <div class="news" v-if="news[index]" :key="index">
-              {{ n.title }}
+              {{ n.content }}
             </div>
           </template>
         </transition>
