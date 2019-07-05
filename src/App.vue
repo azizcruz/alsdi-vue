@@ -3,7 +3,7 @@
     <div v-if="isBackendWorking">
       <div class="d-flex flex-md-row flex-wrap">
         <div class="alsdi-content-wrapper col-xs-9 col-md-9 p-0">
-          <go-top :right="200" :max-width="1" bg-color="#C59A3B"></go-top>
+          <go-top :has-outline="false" :size="50" :max-width="1" bg-color="#8395a7"></go-top>
           <transition name="fade" mode="out-in">
             <router-view />
           </transition>
@@ -118,6 +118,8 @@ body {
     min-height: 100vh;
     .vue-go-top {
       opacity: .8;
+      left: 20px !important;
+      bottom: 20px !important;
     }
   }
   .alsdi-footer-wrapper {

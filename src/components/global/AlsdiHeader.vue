@@ -34,7 +34,7 @@
           </router-link>
         </ul>
       </div>
-      <div class="social-icons mt-5">
+      <div class="social-icons mt-1">
         <ul class="nav d-flex justify-content-center align-items-center">
           <li class="nav-item">
             <a
