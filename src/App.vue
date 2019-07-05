@@ -3,6 +3,7 @@
     <div v-if="isBackendWorking">
       <div class="d-flex flex-md-row flex-wrap">
         <div class="alsdi-content-wrapper col-xs-9 col-md-9 p-0">
+          <go-top :right="200" :max-width="1" bg-color="#C59A3B"></go-top>
           <transition name="fade" mode="out-in">
             <router-view />
           </transition>
@@ -34,12 +35,14 @@
 <script>
 import AlsdiHeader from "@/components/global/AlsdiHeader.vue";
 import UnderMaintainance from "@/components/global/UnderMaintainance.vue";
+import GoTop from '@inotom/vue-go-top';
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
     AlsdiHeader,
-    UnderMaintainance
+    UnderMaintainance,
+    GoTop
   },
   data() {
     return {};
@@ -113,6 +116,9 @@ body {
     -ms-flex: 1;
     flex: 1;
     min-height: 100vh;
+    .vue-go-top {
+      opacity: .8;
+    }
   }
   .alsdi-footer-wrapper {
     -webkit-box-flex: 1;
