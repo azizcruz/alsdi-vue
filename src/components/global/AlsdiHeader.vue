@@ -251,7 +251,7 @@ export default {
         &.alsdi-is-active {
           color: $alsdi-black;
           li {
-            background-color: lighten($alsdi-gold, 10%);
+            background-color: $alsdi-gold;
             padding-right: 2rem;
           }
         }
