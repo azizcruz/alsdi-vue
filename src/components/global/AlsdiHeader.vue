@@ -235,7 +235,7 @@ export default {
         text-decoration: none;
 
         li {
-          padding: 1rem;
+          padding: .6rem;
           -webkit-transition: all 0.2s ease-in-out;
           -o-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
