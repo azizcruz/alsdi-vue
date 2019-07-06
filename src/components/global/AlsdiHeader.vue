@@ -199,6 +199,7 @@ export default {
   position: fixed;
   right: 0;
   top: 0;
+  max-height: 100vh;
   min-height: 100vh;
   // Medium devices (tablets, 768px and up)
   @media (max-width: 767px) {

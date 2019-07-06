@@ -125,11 +125,20 @@ body {
       display: inline-block;
       .btn-info {
         background-color: $alsdi-gold;
-        border-color: $alsdi-gold;
+        border-color: $alsdi-white;
         outline: none;
         &:focus {
           outline: none;
           box-shadow: none;
+          background-color: $alsdi-gold;
+          border-color: $alsdi-white;
+        }
+
+        &:active {
+          box-shadow: none;
+          outline: none;
+          background-color: $alsdi-gold;
+          border-color: $alsdi-white;
         }
       }
     }
