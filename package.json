@@ -26,6 +26,7 @@
     "vue": "^2.6.10",
     "vue-awesome": "^3.5.2",
     "vue-axios": "^2.1.4",
+    "vue-backtotop": "^1.6.1",
     "vue-carousel": "^0.18.0",
     "vue-gallery": "^2.0.0",
     "vue-router": "^3.0.3",

@@ -49,6 +49,11 @@ Validator.localize('ar');
 
 Vue.config.productionTip = false
 
+// Scroll to top
+import BackToTop from 'vue-backtotop'
+Vue.use(BackToTop)
+
+
 new Vue({
   router,
   store,

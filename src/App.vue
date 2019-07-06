@@ -3,7 +3,9 @@
     <div v-if="isBackendWorking">
       <div class="d-flex flex-md-row flex-wrap">
         <div class="alsdi-content-wrapper col-xs-9 col-md-9 p-0">
-          <go-top :has-outline="false" :size="50" :max-width="1" bg-color="#8395a7"></go-top>
+          <back-to-top left="50" visibleoffset="300">
+            <button type="button" class="btn btn-info btn-to-top"><i class="fa fa-chevron-up"></i></button>
+          </back-to-top>
           <transition name="fade" mode="out-in">
             <router-view />
           </transition>
@@ -35,14 +37,15 @@
 <script>
 import AlsdiHeader from "@/components/global/AlsdiHeader.vue";
 import UnderMaintainance from "@/components/global/UnderMaintainance.vue";
-import GoTop from '@inotom/vue-go-top';
+import BackToTop from 'vue-backtotop'
+
 import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
     AlsdiHeader,
     UnderMaintainance,
-    GoTop
+    BackToTop
   },
   data() {
     return {};
@@ -116,10 +119,19 @@ body {
     -ms-flex: 1;
     flex: 1;
     min-height: 100vh;
-    .vue-go-top {
-      opacity: .8;
-      left: 20px !important;
-      bottom: 20px !important;
+    .vue-back-to-top {
+      left: 50px;
+      right: auto !important;
+      display: inline-block;
+      .btn-info {
+        background-color: $alsdi-gold;
+        border-color: $alsdi-gold;
+        outline: none;
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
     }
   }
   .alsdi-footer-wrapper {
