@@ -9,6 +9,7 @@ import GalleryGroup from "@/components/sections/GalleryGroup";
 import { mapGetters } from "vuex";
 
 export default {
+  name: "alsdi-gallery",
   components: {
     GalleryGroup
   },

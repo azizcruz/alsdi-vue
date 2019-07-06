@@ -8,6 +8,7 @@ import Gallery from './views/Gallery.vue'
 import ContactUs from './views/ContactUs.vue'
 import ProjectDetail from './views/ProjectDetail.vue'
 import ImportantSites from './views/ImportantSites.vue'
+import BookAppointment from './views/BookAppointment.vue'
 import Page404 from './views/Page404.vue'
 
 Vue.use(Router)
@@ -56,6 +57,11 @@ export default new Router({
       path: '/important-sites',
       name: 'important-sites',
       component: ImportantSites
+    },
+    {
+      path: '/book-appointment',
+      name: 'appointment',
+      component: BookAppointment
     },
     {
       path: '*',

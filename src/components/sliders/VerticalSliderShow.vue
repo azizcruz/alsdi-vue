@@ -135,11 +135,9 @@ export default {
     .text-section {
       background-color: $alsdi-black;
       color: $alsdi-white;
-      height: 50%;
+      height: 100%;
       width: 100%;
       @media screen and (max-width: 768px) {
-        width: 100%;
-        height: 100%;
         margin-top: 10px;
 
         h1 {
