@@ -26,8 +26,8 @@ export default {
 @import "@/assets/_colors.scss";
 
 .site-logo {
-  margin: 2rem;
-  padding: 5rem;
+  margin: 1rem;
+  padding: 3rem;
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;

@@ -22,6 +22,7 @@ export default new Vuex.Store({
         ourProjectsData: [],
         galleryData: [],
         contactUsData: [],
+        importantSitesData: [],
         isLoading: false,
         isBackendWorking: null,
     },
@@ -55,6 +56,9 @@ export default new Vuex.Store({
         },
         contactUsData: state => {
             return state.contactUsData
+        },
+        importantSitesData: state => {
+            return state.importantSitesData
         },
         isLoading: state => {
             return state.isLoading
@@ -94,6 +98,9 @@ export default new Vuex.Store({
         SET_CONTACTUS_DATA(state, data) {
             state.contactUsData = data
         },
+        SET_IMPORTANT_SITES_DATA(state, data) {
+            state.importantSitesData = data
+        },
         SET_ISLOADING_DATA(state, loadState) {
             state.isLoading = loadState
         },
@@ -119,6 +126,7 @@ export default new Vuex.Store({
                     const ourProjectsData = this.state.pages.data[3]
                     const galleryData = this.state.pages.data[4]
                     const contactUsData = this.state.pages.data[5]
+                    const importantSitesData = this.state.pages.data[6].sections[0].blocks
 
                     // Set each page data.
                     commit('SET_NAVLINKS_DATA', data_links)
@@ -130,6 +138,7 @@ export default new Vuex.Store({
                     commit('SET_OURPROJECTS_DATA', ourProjectsData)
                     commit('SET_GALLERY_DATA', galleryData)
                     commit('SET_CONTACTUS_DATA', contactUsData)
+                    commit('SET_IMPORTANT_SITES_DATA', importantSitesData)
                 })
                 .catch(err => {
                     commit('SET_IS_BACKEND_WORKING', false)
