@@ -1,10 +1,7 @@
 <template>
-  <div class="alsdi-contact-us-tab">
+  <div class="alsdi-booking-form">
     <div class="f-flex flex-column justify-content-center">
-      <div
-        class="contact-us-tab contact-form container"
-        v-show="activeTab === 1"
-      >
+      <div class="contact-us-tab contact-form container">
         <transition enter-active-class="animated fadeInDown">
           <div
             class="sent-message-wrapper d-flex justify-content-center align-items-center flex-column"
@@ -16,214 +13,284 @@
           </div>
         </transition>
         <form data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="300">
-          <h3 class="text-center" data-aos="fade-up" data-aos-duration="1000">
-          </h3>
-          <fieldset>
-              <legend>
-                  أسئلة شخصية وعن المشروع
-              </legend>
-              <div
-            data-aos="fade-left"
+          <h3
+            class="text-center"
+            data-aos="fade-up"
             data-aos-duration="1000"
-            :data-aos-delay="600"
-          >
-            تعني حقول الزامية *
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">ايميل *</label>
-            <input
-              type="email"
-              name="email"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="name@example.com"
-              v-model="formData.email"
-              v-validate="'required|email'"
-            />
-            <transition
-              name="error-anim"
-              enter-active-class="animated tada"
-              leave-active-class="animated fadeOutDown"
+          ></h3>
+          <fieldset>
+            <legend>
+              أسئلة شخصية وعن المشروع
+            </legend>
+            <div
+              data-aos="fade-left"
+              data-aos-duration="1000"
+              :data-aos-delay="600"
             >
-              <div v-if="errors.has('email')">{{ errors.first("email") }}</div>
-            </transition>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlInput2">الاسم كامل</label>
-            <input
-              type="text"
-              name="fullName"
-              class="form-control"
-              id="exampleFormControlInput2"
-              v-validate="'required'"
-              v-model="formData.fullName"
-            />
-            <transition
-              name="error-anim"
-              enter-active-class="animated tada"
-              leave-active-class="animated fadeOutDown"
-            >
-              <div v-if="errors.has('fullName')">
-                {{ errors.first("fullName") }}
-              </div>
-            </transition>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlInput3">رقم الجوال *</label>
-            <input
-              type="text"
-              name="phone"
-              class="form-control"
-              id="exampleFormControlInput3"
-              v-validate="{ required: true, regex: /^([0-9]+)$/ }"
-              v-model="formData.phoneNum"
-            />
-            <transition
-              name="error-anim"
-              enter-active-class="animated tada"
-              leave-active-class="animated fadeOutDown"
-            >
-              <div v-if="errors.has('phone')">{{ errors.first("phone") }}</div>
-            </transition>
-          </div>
+              تعني حقول الزامية *
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">ايميل *</label>
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="name@example.com"
+                v-model="formData.email"
+                v-validate="'required|email'"
+              />
+              <transition
+                name="error-anim"
+                enter-active-class="animated tada"
+                leave-active-class="animated fadeOutDown"
+              >
+                <div v-if="errors.has('email')">
+                  {{ errors.first("email") }}
+                </div>
+              </transition>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput2">الاسم كامل</label>
+              <input
+                type="text"
+                name="fullName"
+                class="form-control"
+                id="exampleFormControlInput2"
+                v-validate="'required'"
+                v-model="formData.fullName"
+              />
+              <transition
+                name="error-anim"
+                enter-active-class="animated tada"
+                leave-active-class="animated fadeOutDown"
+              >
+                <div v-if="errors.has('fullName')">
+                  {{ errors.first("fullName") }}
+                </div>
+              </transition>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput3">رقم الجوال *</label>
+              <input
+                type="text"
+                name="phone"
+                class="form-control"
+                id="exampleFormControlInput3"
+                v-validate="{ required: true, regex: /^([0-9]+)$/ }"
+                v-model="formData.phoneNum"
+              />
+              <transition
+                name="error-anim"
+                enter-active-class="animated tada"
+                leave-active-class="animated fadeOutDown"
+              >
+                <div v-if="errors.has('phone')">
+                  {{ errors.first("phone") }}
+                </div>
+              </transition>
+            </div>
 
-          <div class="form-group">
-            <label for="exampleFormControlInput3">عنوان المشروع *</label>
-            <input
-              type="text"
-              name="subject"
-              class="form-control"
-              id="exampleFormControlInput3"
-              v-validate="'required'"
-              v-model="formData.subject"
-            />
-            <transition
-              name="error-anim"
-              enter-active-class="animated tada"
-              leave-active-class="animated fadeOutDown"
-            >
-              <div v-if="errors.has('subject')">
-                {{ errors.first("subject") }}
-              </div>
-            </transition>
-          </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput3">عنوان المشروع *</label>
+              <input
+                type="text"
+                name="subject"
+                class="form-control"
+                id="exampleFormControlInput3"
+                v-validate="'required'"
+                v-model="formData.subject"
+              />
+              <transition
+                name="error-anim"
+                enter-active-class="animated tada"
+                leave-active-class="animated fadeOutDown"
+              >
+                <div v-if="errors.has('subject')">
+                  {{ errors.first("subject") }}
+                </div>
+              </transition>
+            </div>
 
-          <div class="form-group">
-            <label for="exampleFormControlInput3">نوع المشروع *</label>
-            <select class="custom-select" v-model="formData.projectType">
-              <option value="">--- اختر نوع المشروع ---</option>
-              <option value="villa">فيلا</option>
-              <option value="chalet">شاليه</option>
-              <option value="restaurants">مطاعم</option>
-              <option value="shop">محل</option>
-              <option value="offices">مكاتب</option>
-              <option value="resident-bulding">مبنى سكني</option>
-              <option value="mall">مجمع تجاري</option>
-              <option value="medical-clinics">عيادات طبية</option>
-            </select>
-          </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput3">نوع المشروع *</label>
+              <select class="custom-select" v-model="formData.projectType">
+                <option value="">--- اختر نوع المشروع ---</option>
+                <option value="villa">فيلا</option>
+                <option value="chalet">شاليه</option>
+                <option value="restaurants">مطاعم</option>
+                <option value="shop">محل</option>
+                <option value="offices">مكاتب</option>
+                <option value="resident-bulding">مبنى سكني</option>
+                <option value="mall">مجمع تجاري</option>
+                <option value="medical-clinics">عيادات طبية</option>
+              </select>
+            </div>
 
-          <div class="form-group">
-            <label for="exampleFormControlInput3">نطاق التسعير *</label>
-            <select class="custom-select" v-model="formData.quoutRange">
-              <option value="">--- اختر نطاق التسعير ---</option>
-              <option value="1">هيكل فقط</option>
-              <option value="2">هيكل مع الخدمات</option>
-              <option value="3">على المفتاح</option>
-            </select>
-          </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput3">نطاق التسعير *</label>
+              <select class="custom-select" v-model="formData.quoutRange">
+                <option value="">--- اختر نطاق التسعير ---</option>
+                <option value="1">هيكل فقط</option>
+                <option value="2">هيكل مع الخدمات</option>
+                <option value="3">على المفتاح</option>
+              </select>
+            </div>
 
-          <div class="form-group" v-show="formData.quoutRange === '3'">
-            <label
-              for="exampleFormControlInput3"
-              class="text-info font-weight-bold"
-              >في حال كان نطاق التسعير على المفتاح يرجى اختيار مستوى
-              التشطيب*</label
-            >
-            <select class="custom-select" v-model="formData.level">
-              <option value="">--- اختر مستوى التشطيب ---</option>
-              <option value="1">تجاري</option>
-              <option value="2">متوسط</option>
-              <option value="3">عالي</option>
-            </select>
-          </div>
+            <div class="form-group" v-show="formData.quoutRange === '3'">
+              <label
+                for="exampleFormControlInput3"
+                class="text-info font-weight-bold"
+                >في حال كان نطاق التسعير على المفتاح يرجى اختيار مستوى
+                التشطيب*</label
+              >
+              <select class="custom-select" v-model="formData.level">
+                <option value="">--- اختر مستوى التشطيب ---</option>
+                <option value="1">تجاري</option>
+                <option value="2">متوسط</option>
+                <option value="3">عالي</option>
+              </select>
+            </div>
           </fieldset>
 
           <fieldset>
-              <legend>المستندات المطلوبة</legend>
-              <div class="form-group file-upload">
-            <p>المخططات المعمارية*</p>
-            <div class="custom-file">
-              <input
-                type="file"
-                class="custom-file-input"
-                id="inputGroupFile01"
-              />
-              <label class="custom-file-label" for="inputGroupFile01"
-                >اختر ملف من جهازك</label
-              >
+            <legend>المستندات المطلوبة</legend>
+            <div class="form-group file-upload">
+              <p>المخططات المعمارية*</p>
+              <div class="custom-file">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="inputGroupFile01"
+                  name="file1"
+                  v-validate="'required|size:10000'"
+                  @change="onSelectedFile"
+                />
+                <transition
+                  name="error-anim"
+                  enter-active-class="animated tada"
+                  leave-active-class="animated fadeOutDown"
+                >
+                  <div v-if="errors.has('file1')">
+                    {{ errors.first("file1") }}
+                  </div>
+                </transition>
+                <label class="custom-file-label" for="inputGroupFile01"
+                  >اختر ملف من جهازك</label
+                >
+              </div>
             </div>
-          </div>
 
-          <div class="form-group file-upload">
-            <p>المخططات الانشائية*</p>
-            <div class="custom-file">
-              <input
-                type="file"
-                class="custom-file-input"
-                id="inputGroupFile01"
-              />
-              <label class="custom-file-label" for="inputGroupFile01"
-                >اختر ملف من جهازك</label
-              >
+            <div class="form-group file-upload">
+              <p>المخططات الانشائية*</p>
+              <div class="custom-file">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="inputGroupFile02"
+                  v-validate="'required|size:10000'"
+                  name="file2"
+                  @change="onSelectedFile"
+                />
+                <transition
+                  name="error-anim"
+                  enter-active-class="animated tada"
+                  leave-active-class="animated fadeOutDown"
+                >
+                  <div v-if="errors.has('file2')">
+                    {{ errors.first("file2") }}
+                  </div>
+                </transition>
+                <label class="custom-file-label" for="inputGroupFile02"
+                  >اختر ملف من جهازك</label
+                >
+              </div>
             </div>
-          </div>
 
-          <div class="form-group file-upload">
-            <p>جداول الكميات*</p>
-            <div class="custom-file">
-              <input
-                type="file"
-                class="custom-file-input"
-                id="inputGroupFile01"
-              />
-              <label class="custom-file-label" for="inputGroupFile01"
-                >اختر ملف من جهازك</label
-              >
+            <div class="form-group file-upload">
+              <p>جداول الكميات*</p>
+              <div class="custom-file">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  name="file3"
+                  id="inputGroupFile03"
+                  v-validate="'required|size:10000'"
+                  data-vv-as="file"
+                  @change="onSelectedFile"
+                />
+                <transition
+                  name="error-anim"
+                  enter-active-class="animated tada"
+                  leave-active-class="animated fadeOutDown"
+                >
+                  <div v-if="errors.has('file3')">
+                    {{ errors.first("file3") }}
+                  </div>
+                </transition>
+                <label class="custom-file-label" for="inputGroupFile03"
+                  >اختر ملف من جهازك</label
+                >
+              </div>
             </div>
-          </div>
 
-          <div class="form-group file-upload">
-            <p>المواصفات الفنية*</p>
-            <div class="custom-file">
-              <input
-                type="file"
-                class="custom-file-input"
-                id="inputGroupFile01"
-              />
-              <label class="custom-file-label" for="inputGroupFile01"
-                >اختر ملف من جهازك</label
-              >
+            <div class="form-group file-upload">
+              <p>المواصفات الفنية*</p>
+              <div class="custom-file">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  name="file4"
+                  id="inputGroupFile04"
+                  v-validate="'required|size:10000'"
+                  @change="onSelectedFile"
+                />
+                <transition
+                  name="error-anim"
+                  enter-active-class="animated tada"
+                  leave-active-class="animated fadeOutDown"
+                >
+                  <div v-if="errors.has('file4')">
+                    {{ errors.first("file4") }}
+                  </div>
+                </transition>
+                <label class="custom-file-label" for="inputGroupFile04"
+                  >اختر ملف من جهازك</label
+                >
+              </div>
             </div>
-          </div>
 
-          <div class="form-group file-upload">
-            <p>رخصة البناء*</p>
-            <div class="custom-file">
-              <input
-                type="file"
-                class="custom-file-input"
-                id="inputGroupFile01"
-              />
-              <label class="custom-file-label" for="inputGroupFile01"
-                >اختر ملف من جهازك</label
-              >
+            <div class="form-group file-upload">
+              <p>رخصة البناء*</p>
+              <div class="custom-file">
+                <input
+                  type="file"
+                  name="file5"
+                  class="custom-file-input"
+                  id="inputGroupFile05"
+                  v-validate="'required|size:10000'"
+                  @change="onSelectedFile"
+                />
+                <transition
+                  name="error-anim"
+                  enter-active-class="animated tada"
+                  leave-active-class="animated fadeOutDown"
+                >
+                  <div v-if="errors.has('file5')">
+                    {{ errors.first("file5") }}
+                  </div>
+                </transition>
+                <label class="custom-file-label" for="inputGroupFile05"
+                  >اختر ملف من جهازك</label
+                >
+              </div>
             </div>
-          </div>
           </fieldset>
 
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">رسالة اضافية تود ارسالها لنا</label>
+            <label for="exampleFormControlTextarea1"
+              >رسالة اضافية تود ارسالها لنا</label
+            >
             <textarea
               class="form-control"
               id="exampleFormControlTextarea1"
@@ -231,15 +298,6 @@
               rows="3"
               v-model="formData.msg"
             ></textarea>
-            <transition
-              name="error-anim"
-              enter-active-class="animated tada"
-              leave-active-class="animated fadeOutDown"
-            >
-              <div v-if="errors.has('message')">
-                {{ errors.first("message") }}
-              </div>
-            </transition>
           </div>
           <button
             class="alsdi-button"
@@ -267,6 +325,7 @@ export default {
   props: ["comingData"],
   data() {
     return {
+      MAX_SIZE: 10,
       activeTab: 1,
       formData: {
         email: "",
@@ -276,7 +335,13 @@ export default {
         quoutRange: "",
         level: 0,
         subject: "",
-        msg: ""
+        msg: "",
+
+        file1: null,
+        file2: null,
+        file3: null,
+        file4: null,
+        file5: null
       },
       sent: false,
       isSending: false,
@@ -285,55 +350,102 @@ export default {
   },
   methods: {
     sendEmail() {
-      this.$validator.validateAll().then(result => {
-        if (result) {
-          // Settings for sending process like disable button, show loading.
-          this.sendingProcessSettings();
-          // Send message using API endpoint.
-          axios
-            .post(BASE_API_LANGUAGE.ar + "sendmail/", this.formData)
-            .then(res => {
-              console.log(res);
-              // Reset Form.
-              this.resetForm();
-              // Show sent message.
-              this.showSentMessage();
-            })
-            .catch(err => {
-              console.log(err);
-            });
+      const fd = new FormData();
+      for (let key in this.formData) {
+        if (key.startsWith("file") && this.formData[key]) {
+          fd.append(key, this.formData[key], this.formData[key].name);
         } else {
-          console.log("Error !!");
+          fd.append(key, this.formData[key]);
         }
-      });
+      }
+
+      axios
+        .post("http://127.0.0.1:8000/api/ar/newbooking/", fd)
+        .then(res => {
+          console.log(res);
+          // Reset Form.
+          // this.resetForm();
+          // Show sent message.
+          // this.showSentMessage();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
+      // // this.$validator.validateAll().then(result => {
+      // //   if (result) {
+      // //     // Settings for sending process like disable button, show loading.
+      // //     // this.sendingProcessSettings();
+      // //     // Send message using API endpoint.
+      // //     // axios
+      // //     //   .post(BASE_API_LANGUAGE.ar + "makebooking/", this.formData)
+      // //     //   .then(res => {
+      // //     //     console.log(res);
+      // //     //     // Reset Form.
+      // //     //     this.resetForm();
+      // //     //     // Show sent message.
+      // //     //     this.showSentMessage();
+      // //     //   })
+      // //     //   .catch(err => {
+      // //     //     console.log(err);
+      // //     //   });
+      // //   } else {
+      // //     console.log("Error !!");
+      // //   }
+      // });
+    },
+    onSelectedFile(e) {
+      let size = this.formatFileSize(e.target.files[0].size).split(" ")[0];
+      let unit = this.formatFileSize(e.target.files[0].size).split(" ")[1];
+      let file = e.target.files[0];
+
+      if (this.checkFileSize(size, unit)) {
+        this.formData[e.target.name] = file;
+      } else {
+        console.log("file is big");
+      }
     },
     resetForm() {
       this.formData.email = "";
       this.formData.fullName = "";
+      this.formData.level = "";
       this.formData.phoneNum = "";
       this.formData.msg = "";
+      this.formData.projectType = "";
+      this.formData.quoutRange = "";
+      this.formData.subject = "";
+
       this.$validator.reset();
     },
-    showSentMessage() {
-      this.sent = true;
-      this.isSending = false;
-      this.isDisabled = false;
+    showSentMessage() {},
+    sendingProcessSettings() {},
+    formatFileSize(bytes, decimalPoint) {
+      if (bytes == 0) return "0 Bytes";
+      var k = 1000,
+        dm = decimalPoint || 2,
+        sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
+        i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
     },
-    sendingProcessSettings() {
-      this.isSending = true;
-      this.isDisabled = true;
+    checkFileSize(size, unit) {
+      if (unit !== "KB") {
+        if (size > this.MAX_SIZE) {
+          return false;
+        }
+      } else {
+        return true;
+      }
     }
   }
 };
 </script>
-
 
 <style lang="scss">
 @import "@/assets/_colors.scss";
 @import "@/assets/_alsdi-framework.scss";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css");
 
-.alsdi-contact-us-tab {
+.alsdi-booking-form {
   background-color: $alsdi-black;
   color: $alsdi-white;
   padding: 20px;
@@ -399,22 +511,6 @@ export default {
     }
   }
 
-  .contact-form {
-    .invalid + div,
-    .valid + div {
-      background-color: #eb4d4b;
-      color: white;
-      font-weight: bold;
-      padding: 10px;
-      display: inline-block;
-      position: relative;
-      bottom: 10px;
-    }
-    .valid + div {
-      background-color: #eb4d4b;
-    }
-  }
-
   .form-info-control {
     & > div {
       background-color: $alsdi-black;
@@ -461,5 +557,21 @@ export default {
     }
   }
 }
-</style>
 
+.form-group {
+  .invalid + div,
+  .valid + div {
+    background-color: #eb4d4b;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    bottom: 10px;
+  }
+  .valid + div {
+    background-color: #eb4d4b;
+  }
+}
+</style>
