@@ -352,7 +352,10 @@
             ارسل
           </button>
 
-          <div class="progressSection d-flex flex-column text-center mt-3">
+          <div
+            class="progressSection d-flex flex-column text-center mt-3"
+            v-if="isUploading"
+          >
             <p>{{ uploadingSendingMessage }}</p>
             <div class="progressBar">
               <div
@@ -391,6 +394,7 @@ export default {
       levelList: ["تجاري", "متوسط", "عالي"],
       progress_bar_counter: 0,
       uploadingSendingMessage: "جاري الرفع",
+      isUploading: false,
       activeTab: 1,
       formData: {
         email: "",
@@ -425,6 +429,8 @@ export default {
               fd.append(key, this.formData[key]);
             }
           }
+
+          this.isUploading = true;
 
           axios
             .post("http://127.0.0.1:8000/api/ar/newbooking/", fd, {
