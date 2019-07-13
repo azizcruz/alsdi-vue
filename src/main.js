@@ -11,6 +11,10 @@ global.$ = $
 import { VLazyImagePlugin } from "v-lazy-image";
 Vue.use(VLazyImagePlugin);
 
+// Vue select
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
+
 
 // Simplebar.
 import vuescroll from 'vuescroll';

@@ -114,42 +114,25 @@
 
             <div class="form-group">
               <label for="exampleFormControlInput3">نوع المشروع *</label>
-              <select class="custom-select" v-model="formData.projectType">
-                <option value="">--- اختر نوع المشروع ---</option>
-                <option value="villa">فيلا</option>
-                <option value="chalet">شاليه</option>
-                <option value="restaurants">مطاعم</option>
-                <option value="shop">محل</option>
-                <option value="offices">مكاتب</option>
-                <option value="resident-bulding">مبنى سكني</option>
-                <option value="mall">مجمع تجاري</option>
-                <option value="medical-clinics">عيادات طبية</option>
-              </select>
+              <v-select :options="projectTypes" class="alsdi-custom-select" v-model="formData.projectType"></v-select>
             </div>
 
             <div class="form-group">
               <label for="exampleFormControlInput3">نطاق التسعير *</label>
-              <select class="custom-select" v-model="formData.quoutRange">
-                <option value="">--- اختر نطاق التسعير ---</option>
-                <option value="1">هيكل فقط</option>
-                <option value="2">هيكل مع الخدمات</option>
-                <option value="3">على المفتاح</option>
-              </select>
+              <v-select v-model="formData.quoutRange" :options="quoteRangeList" class="alsdi-custom-select">
+
+              </v-select>
             </div>
 
-            <div class="form-group" v-show="formData.quoutRange === '3'">
+            <div class="form-group" v-show="formData.quoutRange === 'على المفتاح'">
               <label
                 for="exampleFormControlInput3"
                 class="text-info font-weight-bold"
                 >في حال كان نطاق التسعير على المفتاح يرجى اختيار مستوى
                 التشطيب*</label
               >
-              <select class="custom-select" v-model="formData.level">
-                <option value="">--- اختر مستوى التشطيب ---</option>
-                <option value="1">تجاري</option>
-                <option value="2">متوسط</option>
-                <option value="3">عالي</option>
-              </select>
+              <v-select class="alsdi-custom-select" :options="levelList" v-model="formData.level">
+              </v-select>
             </div>
           </fieldset>
 
@@ -163,18 +146,7 @@
                   class="custom-file-input"
                   id="inputGroupFile01"
                   name="file1"
-                  v-validate="'required|size:10000'"
-                  @change="onSelectedFile"
                 />
-                <transition
-                  name="error-anim"
-                  enter-active-class="animated tada"
-                  leave-active-class="animated fadeOutDown"
-                >
-                  <div v-if="errors.has('file1')">
-                    {{ errors.first("file1") }}
-                  </div>
-                </transition>
                 <label class="custom-file-label" for="inputGroupFile01"
                   >اختر ملف من جهازك</label
                 >
@@ -188,19 +160,8 @@
                   type="file"
                   class="custom-file-input"
                   id="inputGroupFile02"
-                  v-validate="'required|size:10000'"
                   name="file2"
-                  @change="onSelectedFile"
                 />
-                <transition
-                  name="error-anim"
-                  enter-active-class="animated tada"
-                  leave-active-class="animated fadeOutDown"
-                >
-                  <div v-if="errors.has('file2')">
-                    {{ errors.first("file2") }}
-                  </div>
-                </transition>
                 <label class="custom-file-label" for="inputGroupFile02"
                   >اختر ملف من جهازك</label
                 >
@@ -215,18 +176,7 @@
                   class="custom-file-input"
                   name="file3"
                   id="inputGroupFile03"
-                  v-validate="'required|size:10000'"
-                  data-vv-as="file"
-                  @change="onSelectedFile"
                 />
-                <transition
-                  name="error-anim"
-                  enter-active-class="animated tada"
-                  leave-active-class="animated fadeOutDown"
-                >
-                  <div v-if="errors.has('file3')">
-                    {{ errors.first("file3") }}
-                  </div>
                 </transition>
                 <label class="custom-file-label" for="inputGroupFile03"
                   >اختر ملف من جهازك</label
@@ -241,19 +191,8 @@
                   type="file"
                   class="custom-file-input"
                   name="file4"
-                  id="inputGroupFile04"
-                  v-validate="'required|size:10000'"
-                  @change="onSelectedFile"
                 />
-                <transition
-                  name="error-anim"
-                  enter-active-class="animated tada"
-                  leave-active-class="animated fadeOutDown"
-                >
-                  <div v-if="errors.has('file4')">
-                    {{ errors.first("file4") }}
-                  </div>
-                </transition>
+
                 <label class="custom-file-label" for="inputGroupFile04"
                   >اختر ملف من جهازك</label
                 >
@@ -326,6 +265,26 @@ export default {
   data() {
     return {
       MAX_SIZE: 10,
+        projectTypes: [
+            "فيلا",
+            "شاليه",
+            "مطاعم",
+            "محل",
+            "مكاتب",
+            "مبنى سكني",
+            "مجمع تجاري",
+            "عيادات طبية",
+        ],
+      quoteRangeList: [
+        "هيكل فقط",
+        "هيكل مع الخدمات",
+        "على المفتاح",
+      ],
+      levelList: [
+          "تجاري",
+          "متوسط",
+          "عالي",
+      ],
       activeTab: 1,
       formData: {
         email: "",
@@ -350,7 +309,11 @@ export default {
   },
   methods: {
     sendEmail() {
-      const fd = new FormData();
+
+
+      this.$validator.validateAll().then(result => {
+        if (result) {
+            const fd = new FormData();
       for (let key in this.formData) {
         if (key.startsWith("file") && this.formData[key]) {
           fd.append(key, this.formData[key], this.formData[key].name);
@@ -371,28 +334,10 @@ export default {
         .catch(err => {
           console.log(err);
         });
-
-      // // this.$validator.validateAll().then(result => {
-      // //   if (result) {
-      // //     // Settings for sending process like disable button, show loading.
-      // //     // this.sendingProcessSettings();
-      // //     // Send message using API endpoint.
-      // //     // axios
-      // //     //   .post(BASE_API_LANGUAGE.ar + "makebooking/", this.formData)
-      // //     //   .then(res => {
-      // //     //     console.log(res);
-      // //     //     // Reset Form.
-      // //     //     this.resetForm();
-      // //     //     // Show sent message.
-      // //     //     this.showSentMessage();
-      // //     //   })
-      // //     //   .catch(err => {
-      // //     //     console.log(err);
-      // //     //   });
-      // //   } else {
-      // //     console.log("Error !!");
-      // //   }
-      // });
+        } else {
+          console.log("Error !!");
+        }
+      });
     },
     onSelectedFile(e) {
       let size = this.formatFileSize(e.target.files[0].size).split(" ")[0];
@@ -444,12 +389,42 @@ export default {
 @import "@/assets/_colors.scss";
 @import "@/assets/_alsdi-framework.scss";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css");
+@import "vue-select/src/scss/vue-select.scss";
+
 
 .alsdi-booking-form {
   background-color: $alsdi-black;
   color: $alsdi-white;
   padding: 20px;
   overflow-y: hidden;
+
+  .alsdi-custom-select {
+    background: transparent;
+    border: 1px solid $alsdi-gold;
+    color: $alsdi-gold !important;
+    text-transform: lowercase;
+    font-variant: small-caps;
+
+    .vs__dropdown-toggle {
+      cursor: pointer;
+    }
+
+      .vs__open-indicator {
+        fill: $alsdi-gold;
+    }
+      .vs__selected {
+          color: $alsdi-gold;
+      }
+
+      .vs__clear {
+          fill: $alsdi-gold;
+          margin-left: 5px;
+      }
+
+    [type=search] {
+      cursor: pointer;
+    }
+  }
 
   .contact-us-tab {
     position: relative;

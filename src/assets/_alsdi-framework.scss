@@ -20,17 +20,39 @@ fieldset {
 .file-upload {
     label {
         text-align: left;
+        background-color: transparent;
+        border-color: $alsdi-gold;
+        border-radius: 0;
+        color: $alsdi-gold;
+        &::after {
+            background-color: $alsdi-gold !important;
+            border-radius: 0;
+            color: $alsdi-black;
+        }
     }
+}
+
+.custom-file-input:focus~.custom-file-label {
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 select {
     border-radius: 0 !important;
+    cursor: pointer;
 }
 
 .form-control {
     padding: 1.5rem !important;
     border-radius: 0 !important;
     text-align: right;
+    background-color: transparent !important;
+    border-color: $alsdi-gold !important;
+    color: $alsdi-gold !important;
+}
+
+.custom-file-input {
+    background-color: $alsdi-gold !important;
 }
 
 .alsdi-slick-arrows {
