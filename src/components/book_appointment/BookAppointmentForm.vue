@@ -29,6 +29,7 @@
             >
               تعني حقول الزامية *
             </div>
+            <br />
             <div class="form-group">
               <label for="exampleFormControlInput1">ايميل *</label>
               <input
@@ -114,25 +115,72 @@
 
             <div class="form-group">
               <label for="exampleFormControlInput3">نوع المشروع *</label>
-              <v-select :options="projectTypes" class="alsdi-custom-select" v-model="formData.projectType"></v-select>
+              <v-select
+                :options="projectTypes"
+                name="projType"
+                v-validate="'required'"
+                class="alsdi-custom-select"
+                v-model="formData.projectType"
+              ></v-select>
+              <transition
+                name="error-anim"
+                enter-active-class="animated tada"
+                leave-active-class="animated fadeOutDown"
+              >
+                <div v-if="errors.has('projType')" class="selectValidationMsg">
+                  {{ errors.first("projType") }}
+                </div>
+              </transition>
             </div>
 
             <div class="form-group">
               <label for="exampleFormControlInput3">نطاق التسعير *</label>
-              <v-select v-model="formData.quoutRange" :options="quoteRangeList" class="alsdi-custom-select">
-
+              <v-select
+                v-model="formData.quoutRange"
+                name="projQuot"
+                v-validate="'required'"
+                :options="quoteRangeList"
+                class="alsdi-custom-select"
+              >
               </v-select>
+              <transition
+                name="error-anim"
+                enter-active-class="animated tada"
+                leave-active-class="animated fadeOutDown"
+              >
+                <div v-if="errors.has('projQuot')" class="selectValidationMsg">
+                  {{ errors.first("projQuot") }}
+                </div>
+              </transition>
             </div>
 
-            <div class="form-group" v-show="formData.quoutRange === 'على المفتاح'">
+            <div
+              class="form-group"
+              v-show="formData.quoutRange === 'على المفتاح'"
+            >
               <label
                 for="exampleFormControlInput3"
                 class="text-info font-weight-bold"
                 >في حال كان نطاق التسعير على المفتاح يرجى اختيار مستوى
                 التشطيب*</label
               >
-              <v-select class="alsdi-custom-select" :options="levelList" v-model="formData.level">
+              <v-select
+                class="alsdi-custom-select"
+                name="level"
+                v-validate="'required'"
+                :options="levelList"
+                v-model="formData.level"
+              >
               </v-select>
+              <transition
+                name="error-anim"
+                enter-active-class="animated tada"
+                leave-active-class="animated fadeOutDown"
+              >
+                <div v-if="errors.has('level')" class="selectValidationMsg">
+                  {{ errors.first("level") }}
+                </div>
+              </transition>
             </div>
           </fieldset>
 
@@ -146,7 +194,22 @@
                   class="custom-file-input"
                   id="inputGroupFile01"
                   name="file1"
+                  @change="onSelectedFile"
+                  data-vv-as="file"
+                  v-validate="'size:10500'"
                 />
+                <p v-if="formData.file1">
+                  <i class="fas fa-check-circle text-success"></i>
+                </p>
+                <transition
+                  name="error-anim"
+                  enter-active-class="animated tada"
+                  leave-active-class="animated fadeOutDown"
+                >
+                  <div v-if="errors.has('file1')">
+                    {{ errors.first("file1") }}
+                  </div>
+                </transition>
                 <label class="custom-file-label" for="inputGroupFile01"
                   >اختر ملف من جهازك</label
                 >
@@ -161,7 +224,21 @@
                   class="custom-file-input"
                   id="inputGroupFile02"
                   name="file2"
+                  v-validate="'required|size:10500'"
+                  @change="onSelectedFile"
                 />
+                <p v-if="formData.file2">
+                  <i class="fas fa-check-circle text-success"></i>
+                </p>
+                <transition
+                  name="error-anim"
+                  enter-active-class="animated tada"
+                  leave-active-class="animated fadeOutDown"
+                >
+                  <div v-if="errors.has('file2')">
+                    {{ errors.first("file2") }}
+                  </div>
+                </transition>
                 <label class="custom-file-label" for="inputGroupFile02"
                   >اختر ملف من جهازك</label
                 >
@@ -176,7 +253,20 @@
                   class="custom-file-input"
                   name="file3"
                   id="inputGroupFile03"
+                  v-validate="'required|size:10500'"
+                  @change="onSelectedFile"
                 />
+                <p v-if="formData.file3">
+                  <i class="fas fa-check-circle text-success"></i>
+                </p>
+                <transition
+                  name="error-anim"
+                  enter-active-class="animated tada"
+                  leave-active-class="animated fadeOutDown"
+                >
+                  <div v-if="errors.has('file3')">
+                    {{ errors.first("file3") }}
+                  </div>
                 </transition>
                 <label class="custom-file-label" for="inputGroupFile03"
                   >اختر ملف من جهازك</label
@@ -191,8 +281,21 @@
                   type="file"
                   class="custom-file-input"
                   name="file4"
+                  v-validate="'required|size:10500'"
+                  @change="onSelectedFile"
                 />
-
+                <p v-if="formData.file4">
+                  <i class="fas fa-check-circle text-success"></i>
+                </p>
+                <transition
+                  name="error-anim"
+                  enter-active-class="animated tada"
+                  leave-active-class="animated fadeOutDown"
+                >
+                  <div v-if="errors.has('file4')">
+                    {{ errors.first("file4") }}
+                  </div>
+                </transition>
                 <label class="custom-file-label" for="inputGroupFile04"
                   >اختر ملف من جهازك</label
                 >
@@ -207,9 +310,12 @@
                   name="file5"
                   class="custom-file-input"
                   id="inputGroupFile05"
-                  v-validate="'required|size:10000'"
+                  v-validate="'required|size:10500'"
                   @change="onSelectedFile"
                 />
+                <p v-if="formData.file5">
+                  <i class="fas fa-check-circle text-success"></i>
+                </p>
                 <transition
                   name="error-anim"
                   enter-active-class="animated tada"
@@ -244,11 +350,17 @@
             :disabled="isDisabled"
           >
             ارسل
-            <div class="sending-container" v-if="isSending">
-              <div class="c1"></div>
-              <div class="c2"></div>
-            </div>
           </button>
+
+          <div class="progressSection d-flex flex-column text-center mt-3">
+            <p>{{ uploadingSendingMessage }}</p>
+            <div class="progressBar">
+              <div
+                class="progressBar__fill"
+                :style="{ width: progress_bar_counter + '%' }"
+              ></div>
+            </div>
+          </div>
         </form>
       </div>
     </div>
@@ -265,26 +377,20 @@ export default {
   data() {
     return {
       MAX_SIZE: 10,
-        projectTypes: [
-            "فيلا",
-            "شاليه",
-            "مطاعم",
-            "محل",
-            "مكاتب",
-            "مبنى سكني",
-            "مجمع تجاري",
-            "عيادات طبية",
-        ],
-      quoteRangeList: [
-        "هيكل فقط",
-        "هيكل مع الخدمات",
-        "على المفتاح",
+      projectTypes: [
+        "فيلا",
+        "شاليه",
+        "مطاعم",
+        "محل",
+        "مكاتب",
+        "مبنى سكني",
+        "مجمع تجاري",
+        "عيادات طبية"
       ],
-      levelList: [
-          "تجاري",
-          "متوسط",
-          "عالي",
-      ],
+      quoteRangeList: ["هيكل فقط", "هيكل مع الخدمات", "على المفتاح"],
+      levelList: ["تجاري", "متوسط", "عالي"],
+      progress_bar_counter: 0,
+      uploadingSendingMessage: "جاري الرفع",
       activeTab: 1,
       formData: {
         email: "",
@@ -309,45 +415,62 @@ export default {
   },
   methods: {
     sendEmail() {
-
-
       this.$validator.validateAll().then(result => {
         if (result) {
-            const fd = new FormData();
-      for (let key in this.formData) {
-        if (key.startsWith("file") && this.formData[key]) {
-          fd.append(key, this.formData[key], this.formData[key].name);
-        } else {
-          fd.append(key, this.formData[key]);
-        }
-      }
+          const fd = new FormData();
+          for (let key in this.formData) {
+            if (key.startsWith("file") && this.formData[key]) {
+              fd.append(key, this.formData[key], this.formData[key].name);
+            } else {
+              fd.append(key, this.formData[key]);
+            }
+          }
 
-      axios
-        .post("http://127.0.0.1:8000/api/ar/newbooking/", fd)
-        .then(res => {
-          console.log(res);
-          // Reset Form.
-          // this.resetForm();
-          // Show sent message.
-          // this.showSentMessage();
-        })
-        .catch(err => {
-          console.log(err);
-        });
+          axios
+            .post("http://127.0.0.1:8000/api/ar/newbooking/", fd, {
+              onUploadProgress: uploadEvent => {
+                this.progress_bar_counter = Math.round(
+                  (uploadEvent.loaded / uploadEvent.total) * 100
+                );
+
+                if (
+                  Math.round((uploadEvent.loaded / uploadEvent.total) * 100) >
+                  75
+                )
+                  this.uploadingSendingMessage = "جاري الارسال";
+                if (
+                  Math.round((uploadEvent.loaded / uploadEvent.total) * 100) ===
+                  100
+                )
+                  this.uploadingSendingMessage = "تم الارسال";
+              }
+            })
+            .then(res => {
+              console.log(res);
+              // Reset Form.
+              // this.resetForm();
+              // Show sent message.
+              // this.showSentMessage();
+            })
+            .catch(err => {
+              console.log(err);
+            });
         } else {
           console.log("Error !!");
         }
       });
     },
     onSelectedFile(e) {
-      let size = this.formatFileSize(e.target.files[0].size).split(" ")[0];
-      let unit = this.formatFileSize(e.target.files[0].size).split(" ")[1];
-      let file = e.target.files[0];
-
-      if (this.checkFileSize(size, unit)) {
-        this.formData[e.target.name] = file;
-      } else {
-        console.log("file is big");
+      if (this.formatFileSize(e.target.files[0])) {
+        let size = this.formatFileSize(e.target.files[0].size).split(" ")[0];
+        let unit = this.formatFileSize(e.target.files[0].size).split(" ")[1];
+        let file = e.target.files[0];
+        if (this.checkFileSize(size, unit)) {
+          this.formData[e.target.name] = file;
+          console.log(e.target);
+        } else {
+          console.log("file is big");
+        }
       }
     },
     resetForm() {
@@ -391,7 +514,6 @@ export default {
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css");
 @import "vue-select/src/scss/vue-select.scss";
 
-
 .alsdi-booking-form {
   background-color: $alsdi-black;
   color: $alsdi-white;
@@ -409,19 +531,19 @@ export default {
       cursor: pointer;
     }
 
-      .vs__open-indicator {
-        fill: $alsdi-gold;
+    .vs__open-indicator {
+      fill: $alsdi-gold;
     }
-      .vs__selected {
-          color: $alsdi-gold;
-      }
+    .vs__selected {
+      color: $alsdi-gold;
+    }
 
-      .vs__clear {
-          fill: $alsdi-gold;
-          margin-left: 5px;
-      }
+    .vs__clear {
+      fill: $alsdi-gold;
+      margin-left: 5px;
+    }
 
-    [type=search] {
+    [type="search"] {
       cursor: pointer;
     }
   }
@@ -535,7 +657,8 @@ export default {
 
 .form-group {
   .invalid + div,
-  .valid + div {
+  .valid + div,
+  .selectValidationMsg {
     background-color: #eb4d4b;
     color: white;
     font-weight: bold;
@@ -545,8 +668,27 @@ export default {
     z-index: 2;
     bottom: 10px;
   }
-  .valid + div {
+  .valid + div,
+  .selectValidationMsg {
     background-color: #eb4d4b;
   }
+}
+
+/*  Progress Bar */
+.progressBar {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  background-color: gray;
+  height: 7px;
+}
+
+.progressBar__fill {
+  position: absolute;
+  left: 0;
+  background-color: gold;
+  height: 100%;
+  width: 0;
+  border-radius: 3px;
 }
 </style>
