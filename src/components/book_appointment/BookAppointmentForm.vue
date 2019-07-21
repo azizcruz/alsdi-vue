@@ -460,7 +460,7 @@ export default {
           this.isUploading = true;
           this.isDisabled = true;
           axios
-            .post(BASE_API_LANGUAGE.ar + "api/ar/newbooking/", fd, {
+            .post(BASE_API_LANGUAGE.ar + "newbooking/", fd, {
               onUploadProgress: uploadEvent => {
                 if (
                   Math.round((uploadEvent.loaded / uploadEvent.total) * 100) >
