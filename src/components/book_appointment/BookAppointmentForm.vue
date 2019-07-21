@@ -12,7 +12,12 @@
             <i class="far fa-check-circle fa-3x"></i>
           </div>
         </transition>
-        <form data-aos="fade-up" data-aos-duration="1000" :data-aos-delay="300">
+        <form
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          :data-aos-delay="300"
+          :class="{ sentStyle: sent }"
+        >
           <h3
             class="text-center"
             data-aos="fade-up"
@@ -36,7 +41,7 @@
                 type="email"
                 name="email"
                 class="form-control"
-                id="exampleFormControlInput1"
+                id="exampleFormControlInput0"
                 placeholder="name@example.com"
                 v-model="formData.email"
                 v-validate="'required|email'"
@@ -52,7 +57,7 @@
               </transition>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlInput2">الاسم كامل</label>
+              <label for="exampleFormControlInput0">الاسم كامل</label>
               <input
                 type="text"
                 name="fullName"
@@ -77,7 +82,7 @@
                 type="text"
                 name="phone"
                 class="form-control"
-                id="exampleFormControlInput3"
+                id="exampleFormControlInput1"
                 v-validate="{ required: true, regex: /^([0-9]+)$/ }"
                 v-model="formData.phoneNum"
               />
@@ -93,7 +98,7 @@
             </div>
 
             <div class="form-group">
-              <label for="exampleFormControlInput3">عنوان المشروع *</label>
+              <label for="exampleFormControlInput1">عنوان المشروع *</label>
               <input
                 type="text"
                 name="subject"
@@ -201,12 +206,15 @@
                 <p v-if="formData.file1">
                   <i class="fas fa-check-circle text-success"></i>
                 </p>
+                <p v-else>
+                  <i class="fas fa-times text-danger"></i>
+                </p>
                 <transition
                   name="error-anim"
                   enter-active-class="animated tada"
                   leave-active-class="animated fadeOutDown"
                 >
-                  <div v-if="errors.has('file1')">
+                  <div v-if="errors.has('file1')" class="fileValidationMsg">
                     {{ errors.first("file1") }}
                   </div>
                 </transition>
@@ -230,12 +238,15 @@
                 <p v-if="formData.file2">
                   <i class="fas fa-check-circle text-success"></i>
                 </p>
+                <p v-else>
+                  <i class="fas fa-times text-danger"></i>
+                </p>
                 <transition
                   name="error-anim"
                   enter-active-class="animated tada"
                   leave-active-class="animated fadeOutDown"
                 >
-                  <div v-if="errors.has('file2')">
+                  <div v-if="errors.has('file2')" class="fileValidationMsg">
                     {{ errors.first("file2") }}
                   </div>
                 </transition>
@@ -259,12 +270,15 @@
                 <p v-if="formData.file3">
                   <i class="fas fa-check-circle text-success"></i>
                 </p>
+                <p v-else>
+                  <i class="fas fa-times text-danger"></i>
+                </p>
                 <transition
                   name="error-anim"
                   enter-active-class="animated tada"
                   leave-active-class="animated fadeOutDown"
                 >
-                  <div v-if="errors.has('file3')">
+                  <div v-if="errors.has('file3')" class="fileValidationMsg">
                     {{ errors.first("file3") }}
                   </div>
                 </transition>
@@ -283,20 +297,24 @@
                   name="file4"
                   v-validate="'required|size:10500'"
                   @change="onSelectedFile"
+                  id="file04"
                 />
                 <p v-if="formData.file4">
                   <i class="fas fa-check-circle text-success"></i>
+                </p>
+                <p v-else>
+                  <i class="fas fa-times text-danger"></i>
                 </p>
                 <transition
                   name="error-anim"
                   enter-active-class="animated tada"
                   leave-active-class="animated fadeOutDown"
                 >
-                  <div v-if="errors.has('file4')">
+                  <div v-if="errors.has('file4')" class="fileValidationMsg">
                     {{ errors.first("file4") }}
                   </div>
                 </transition>
-                <label class="custom-file-label" for="inputGroupFile04"
+                <label class="custom-file-label" for="file04"
                   >اختر ملف من جهازك</label
                 >
               </div>
@@ -316,12 +334,15 @@
                 <p v-if="formData.file5">
                   <i class="fas fa-check-circle text-success"></i>
                 </p>
+                <p v-else>
+                  <i class="fas fa-times text-danger"></i>
+                </p>
                 <transition
                   name="error-anim"
                   enter-active-class="animated tada"
                   leave-active-class="animated fadeOutDown"
                 >
-                  <div v-if="errors.has('file5')">
+                  <div v-if="errors.has('file5')" class="fileValidationMsg">
                     {{ errors.first("file5") }}
                   </div>
                 </transition>
@@ -377,6 +398,11 @@ import { BASE_API_LANGUAGE } from "./../../BASE_DATA";
 export default {
   name: "contact-us",
   props: ["comingData"],
+  mounted() {
+    setInterval(() => {
+      this.disableSendBtnUntilFieldsAreFilled();
+    }, 1500);
+  },
   data() {
     return {
       MAX_SIZE: 10,
@@ -421,6 +447,7 @@ export default {
     sendEmail() {
       this.$validator.validateAll().then(result => {
         if (result) {
+          this.isDisabled = true;
           const fd = new FormData();
           for (let key in this.formData) {
             if (key.startsWith("file") && this.formData[key]) {
@@ -431,52 +458,51 @@ export default {
           }
 
           this.isUploading = true;
-
+          this.isDisabled = true;
           axios
             .post("http://127.0.0.1:8000/api/ar/newbooking/", fd, {
               onUploadProgress: uploadEvent => {
-                this.progress_bar_counter = Math.round(
-                  (uploadEvent.loaded / uploadEvent.total) * 100
-                );
-
                 if (
                   Math.round((uploadEvent.loaded / uploadEvent.total) * 100) >
                   75
-                )
-                  this.uploadingSendingMessage = "جاري الارسال";
-                if (
-                  Math.round((uploadEvent.loaded / uploadEvent.total) * 100) ===
-                  100
-                )
-                  this.uploadingSendingMessage = "تم الارسال";
+                ) {
+                  this.progress_bar_counter =
+                    Math.round((uploadEvent.loaded / uploadEvent.total) * 100) -
+                    20;
+                  this.uploadingSendingMessage = "جاري الرفع...";
+                }
               }
             })
             .then(res => {
-              console.log(res);
               // Reset Form.
-              // this.resetForm();
+              this.resetForm();
+              this.progress_bar_counter = 100;
+              this.uploadingSendingMessage = "تم الارسال";
               // Show sent message.
-              // this.showSentMessage();
+              this.showSentMessage();
             })
             .catch(err => {
               console.log(err);
+              this.uploadingSendingMessage = "حدث خطأ ما، حاول مجددا";
             });
-        } else {
-          console.log("Error !!");
         }
       });
     },
     onSelectedFile(e) {
-      if (this.formatFileSize(e.target.files[0])) {
-        let size = this.formatFileSize(e.target.files[0].size).split(" ")[0];
-        let unit = this.formatFileSize(e.target.files[0].size).split(" ")[1];
-        let file = e.target.files[0];
-        if (this.checkFileSize(size, unit)) {
-          this.formData[e.target.name] = file;
-          console.log(e.target);
-        } else {
-          console.log("file is big");
+      if (e.target.files[0] !== undefined) {
+        if (this.formatFileSize(e.target.files[0])) {
+          let size = this.formatFileSize(e.target.files[0].size).split(" ")[0];
+          let unit = this.formatFileSize(e.target.files[0].size).split(" ")[1];
+          let file = e.target.files[0];
+          if (this.checkFileSize(size, unit)) {
+            this.formData[e.target.name] = file;
+            console.log(e.target);
+          } else {
+            console.log("file is big");
+          }
         }
+      } else {
+        this.formData[e.target.name] = "";
       }
     },
     resetForm() {
@@ -488,10 +514,36 @@ export default {
       this.formData.projectType = "";
       this.formData.quoutRange = "";
       this.formData.subject = "";
+      this.formData.file1 = "";
+      this.formData.file2 = "";
+      this.formData.file3 = "";
+      this.formData.file4 = "";
+      this.formData.file5 = "";
 
       this.$validator.reset();
     },
-    showSentMessage() {},
+    disableSendBtnUntilFieldsAreFilled() {
+      if (
+        this.formData.email !== "" &&
+        this.formData.fullName !== "" &&
+        this.formData.phoneNum !== "" &&
+        this.formData.msg !== "" &&
+        this.formData.projectType !== "" &&
+        this.formData.quoutRange !== "" &&
+        this.formData.file1 !== null &&
+        this.formData.file2 !== null &&
+        this.formData.file3 !== null &&
+        this.formData.file4 !== null &&
+        this.formData.file5 !== null
+      ) {
+        this.isDisabled = false;
+      } else {
+        this.isDisabled = true;
+      }
+    },
+    showSentMessage() {
+      this.sent = true;
+    },
     sendingProcessSettings() {},
     formatFileSize(bytes, decimalPoint) {
       if (bytes == 0) return "0 Bytes";
@@ -525,6 +577,11 @@ export default {
   color: $alsdi-white;
   padding: 20px;
   overflow-y: hidden;
+
+  .sentStyle {
+    height: 700px;
+    overflow: hidden;
+  }
 
   .alsdi-custom-select {
     background: transparent;
@@ -664,7 +721,8 @@ export default {
 .form-group {
   .invalid + div,
   .valid + div,
-  .selectValidationMsg {
+  .selectValidationMsg,
+  .fileValidationMsg {
     background-color: #eb4d4b;
     color: white;
     font-weight: bold;
@@ -675,7 +733,8 @@ export default {
     bottom: 10px;
   }
   .valid + div,
-  .selectValidationMsg {
+  .selectValidationMsg,
+  .fileValidationMsg {
     background-color: #eb4d4b;
   }
 }
