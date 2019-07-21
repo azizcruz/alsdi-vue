@@ -466,9 +466,9 @@ export default {
                   Math.round((uploadEvent.loaded / uploadEvent.total) * 100) >
                   75
                 ) {
-                  this.progress_bar_counter =
-                    Math.round((uploadEvent.loaded / uploadEvent.total) * 100) -
-                    20;
+                  this.progress_bar_counter = Math.round(
+                    (uploadEvent.loaded / uploadEvent.total) * 100
+                  );
                   this.uploadingSendingMessage = "جاري الرفع...";
                 }
               }
